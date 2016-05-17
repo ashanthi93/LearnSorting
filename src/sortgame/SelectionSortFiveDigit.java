@@ -5,8 +5,6 @@
  */
 package sortgame;
 
-import java.awt.Color;
-import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -16,6 +14,8 @@ import java.util.Random;
 public class SelectionSortFiveDigit extends javax.swing.JFrame {
 
     int numberArray[] = new int[5];
+    int round = 1;
+
     /**
      * Creates new form SelectionSortFiveDigit
      *
@@ -23,17 +23,17 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
      */
     public SelectionSortFiveDigit(int range) {
         initComponents();
-        
+
         sort1.setVisible(false);
         sort2.setVisible(false);
         sort3.setVisible(false);
         sort4.setVisible(false);
         sort5.setVisible(false);
-        
+
         Random random = new Random();
-        
+
         if (range == 2) {
-            
+
             int max = 10;
             int min = 1;
 
@@ -81,6 +81,7 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
         sort1 = new javax.swing.JRadioButton();
         sort3 = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -137,20 +138,29 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
 
         sort5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort5.setText("5");
+        sort5.setEnabled(false);
 
         sort4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort4.setText("4");
+        sort4.setEnabled(false);
 
         sort2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort2.setText("2");
+        sort2.setEnabled(false);
 
         sort1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort1.setText("1");
+        sort1.setEnabled(false);
 
         sort3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort3.setText("3");
+        sort3.setEnabled(false);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Select minimum value");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Previous list of numbers");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -163,30 +173,34 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(homeBtn)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(num1)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(num2)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(num3)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(num4)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(num5))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(sort1)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(sort2)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(sort3)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(sort4)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(sort5))
-                                .addComponent(jLabel2)))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(num1)
+                                .addGap(18, 18, 18)
+                                .addComponent(num2)
+                                .addGap(18, 18, 18)
+                                .addComponent(num3)
+                                .addGap(18, 18, 18)
+                                .addComponent(num4)
+                                .addGap(18, 18, 18)
+                                .addComponent(num5))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(sort1)
+                                .addGap(18, 18, 18)
+                                .addComponent(sort2)
+                                .addGap(18, 18, 18)
+                                .addComponent(sort3)
+                                .addGap(18, 18, 18)
+                                .addComponent(sort4)
+                                .addGap(18, 18, 18)
+                                .addComponent(sort5))
+                            .addComponent(jLabel2)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(homeBtn)))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -203,7 +217,9 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
                     .addComponent(num3)
                     .addComponent(num4)
                     .addComponent(num5))
-                .addGap(30, 30, 30)
+                .addGap(9, 9, 9)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sort1)
                     .addComponent(sort2)
@@ -212,7 +228,7 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
                     .addComponent(sort5))
                 .addGap(18, 18, 18)
                 .addComponent(homeBtn)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -243,70 +259,111 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
 
     private void num1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num1ActionPerformed
         int selectedValue = Integer.parseInt(num1.getText());
-        if (this.checkValue(selectedValue)){
-            
+        if (this.checkValue(selectedValue)) {
+            this.setPreviousValues();
+            if (round == 1) {
+                round += 1;
+                this.setVisibleOldValues();
+                num1.setSelected(false);
+                num1.setEnabled(false);
+            }
         }
     }//GEN-LAST:event_num1ActionPerformed
 
     private void num2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num2ActionPerformed
         int selectedValue = Integer.parseInt(num2.getText());
-        if (this.checkValue(selectedValue)){
-            String x = num1.getText();
-            String y = num2.getText();
-            num1.setText(y);
-            num2.setText(x);
+        if (this.checkValue(selectedValue)) {
+            this.setPreviousValues();
+            if (round == 1) {
+                String x = num1.getText();
+                String y = num2.getText();
+                num1.setText(y);
+                num2.setText(x);
+                this.setVisibleOldValues();
+                num2.setSelected(false);
+                num1.setEnabled(false);
+                round += 1;
+            }
         }
     }//GEN-LAST:event_num2ActionPerformed
 
     private void num3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num3ActionPerformed
         int selectedValue = Integer.parseInt(num3.getText());
-        if (this.checkValue(selectedValue)){
-            String x = num1.getText();
-            String y = num3.getText();
-            num1.setText(y);
-            num3.setText(x);
+        if (this.checkValue(selectedValue)) {
+            this.setPreviousValues();
+            if (round == 1) {
+                String x = num1.getText();
+                String y = num3.getText();
+                num1.setText(y);
+                num3.setText(x);
+                this.setVisibleOldValues();
+                num3.setSelected(false);
+                num1.setEnabled(false);
+                round += 1;
+            }
         }
     }//GEN-LAST:event_num3ActionPerformed
 
     private void num4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num4ActionPerformed
         int selectedValue = Integer.parseInt(num4.getText());
-        if (this.checkValue(selectedValue)){
-            String x = num1.getText();
-            String y = num4.getText();
-            num1.setText(y);
-            num4.setText(x);
+        if (this.checkValue(selectedValue)) {
+            this.setPreviousValues();
+            if (round == 1) {
+                String x = num1.getText();
+                String y = num4.getText();
+                num1.setText(y);
+                num4.setText(x);
+                this.setVisibleOldValues();
+                num4.setSelected(false);
+                num1.setEnabled(false);
+                round += 1;
+            }
         }
     }//GEN-LAST:event_num4ActionPerformed
 
     private void num5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num5ActionPerformed
         int selectedValue = Integer.parseInt(num5.getText());
-        if (this.checkValue(selectedValue)){
-            String x = num1.getText();
-            String y = num5.getText();
-            num1.setText(y);
-            num5.setText(x);
+        if (this.checkValue(selectedValue)) {
+            this.setPreviousValues();
+            if (round == 1) {
+                String x = num1.getText();
+                String y = num5.getText();
+                num1.setText(y);
+                num5.setText(x);
+                this.setVisibleOldValues();
+                num5.setSelected(false);
+                num1.setEnabled(false);
+                round += 1;
+            }
         }
     }//GEN-LAST:event_num5ActionPerformed
 
-    private boolean checkValue(int selectedValue){
+    private boolean checkValue(int selectedValue) {
         int min = numberArray[0];
-        for (int value: numberArray){
-            if (min >= value){
+        for (int value : numberArray) {
+            if (min >= value) {
                 min = value;
             }
         }
-        
-        if(min!=selectedValue){
-            return false;
-        }else{
-            return true;
-        }
+        return (min == selectedValue);
     }
-    
-    private void setPreviousValues(){
+
+    private void setPreviousValues() {
         sort1.setText(num1.getText());
         sort2.setText(num2.getText());
+        sort3.setText(num3.getText());
+        sort4.setText(num4.getText());
+        sort5.setText(num5.getText());
     }
+    
+    private void setVisibleOldValues(){
+        sort1.setVisible(true);
+        sort2.setVisible(true);
+        sort3.setVisible(true);
+        sort4.setVisible(true);
+        sort5.setVisible(true);
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -346,6 +403,7 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
     private javax.swing.JButton homeBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton num1;
     private javax.swing.JRadioButton num2;
