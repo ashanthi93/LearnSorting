@@ -6,6 +6,7 @@
 package sortgame;
 
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -259,29 +260,38 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
 
     private void num1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num1ActionPerformed
         int selectedValue = Integer.parseInt(num1.getText());
-        if (this.checkValue(selectedValue)) {
-            this.setPreviousValues();
+        if (this.checkValue(selectedValue,round-1)) {
             if (round == 1) {
-                round += 1;
+                this.setPreviousValues();
                 this.setVisibleOldValues();
+                this.setNumberArray();
                 num1.setSelected(false);
                 num1.setEnabled(false);
+                round += 1;
             }
         }
     }//GEN-LAST:event_num1ActionPerformed
 
     private void num2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num2ActionPerformed
         int selectedValue = Integer.parseInt(num2.getText());
-        if (this.checkValue(selectedValue)) {
-            this.setPreviousValues();
+        if (this.checkValue(selectedValue,round-1)) {
             if (round == 1) {
+                this.setPreviousValues();
                 String x = num1.getText();
                 String y = num2.getText();
                 num1.setText(y);
                 num2.setText(x);
                 this.setVisibleOldValues();
+                this.setNumberArray();
                 num2.setSelected(false);
                 num1.setEnabled(false);
+                round += 1;
+            } else if(round == 2){
+                this.setPreviousValues();
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num2.setSelected(false);
+                num2.setEnabled(false);
                 round += 1;
             }
         }
@@ -289,16 +299,35 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
 
     private void num3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num3ActionPerformed
         int selectedValue = Integer.parseInt(num3.getText());
-        if (this.checkValue(selectedValue)) {
-            this.setPreviousValues();
+        if (this.checkValue(selectedValue,round-1)) {
             if (round == 1) {
+                this.setPreviousValues();
                 String x = num1.getText();
                 String y = num3.getText();
                 num1.setText(y);
                 num3.setText(x);
                 this.setVisibleOldValues();
+                this.setNumberArray();
                 num3.setSelected(false);
                 num1.setEnabled(false);
+                round += 1;
+            } else if(round == 2){
+                this.setPreviousValues();
+                String x = num2.getText();
+                String y = num3.getText();
+                num2.setText(y);
+                num3.setText(x);
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num3.setSelected(false);
+                num2.setEnabled(false);
+                round += 1;
+            } else if(round == 3){
+                this.setPreviousValues();
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num3.setSelected(false);
+                num3.setEnabled(false);
                 round += 1;
             }
         }
@@ -306,16 +335,46 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
 
     private void num4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num4ActionPerformed
         int selectedValue = Integer.parseInt(num4.getText());
-        if (this.checkValue(selectedValue)) {
-            this.setPreviousValues();
+        if (this.checkValue(selectedValue,round-1)) {
             if (round == 1) {
+                this.setPreviousValues();
                 String x = num1.getText();
                 String y = num4.getText();
                 num1.setText(y);
                 num4.setText(x);
                 this.setVisibleOldValues();
+                this.setNumberArray();
                 num4.setSelected(false);
                 num1.setEnabled(false);
+                round += 1;
+            } else if(round == 2){
+                this.setPreviousValues();
+                String x = num2.getText();
+                String y = num4.getText();
+                num2.setText(y);
+                num4.setText(x);
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num4.setSelected(false);
+                num2.setEnabled(false);
+                round += 1;
+            } else if (round == 3){
+                this.setPreviousValues();
+                String x = num3.getText();
+                String y = num4.getText();
+                num3.setText(y);
+                num4.setText(x);
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num4.setSelected(false);
+                num3.setEnabled(false);
+                round += 1;
+            } else if (round == 4){
+                this.setPreviousValues();
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num4.setSelected(false);
+                num4.setEnabled(false);
                 round += 1;
             }
         }
@@ -323,26 +382,66 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
 
     private void num5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num5ActionPerformed
         int selectedValue = Integer.parseInt(num5.getText());
-        if (this.checkValue(selectedValue)) {
-            this.setPreviousValues();
+        if (this.checkValue(selectedValue,round-1)) {
             if (round == 1) {
+                this.setPreviousValues();
                 String x = num1.getText();
                 String y = num5.getText();
                 num1.setText(y);
                 num5.setText(x);
                 this.setVisibleOldValues();
+                this.setNumberArray();
                 num5.setSelected(false);
                 num1.setEnabled(false);
                 round += 1;
+            } else if(round == 2){
+                this.setPreviousValues();
+                String x = num2.getText();
+                String y = num5.getText();
+                num2.setText(y);
+                num5.setText(x);
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num5.setSelected(false);
+                num2.setEnabled(false);
+                round += 1;
+            } else if(round == 3){
+                this.setPreviousValues();
+                String x = num3.getText();
+                String y = num5.getText();
+                num3.setText(y);
+                num5.setText(x);
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num5.setSelected(false);
+                num3.setEnabled(false);
+                round += 1;
+            } else if(round == 4){
+                this.setPreviousValues();
+                String x = num4.getText();
+                String y = num5.getText();
+                num4.setText(y);
+                num5.setText(x);
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num5.setSelected(false);
+                num4.setEnabled(false);
+                round += 1;
+            } else {                
+                JOptionPane.showMessageDialog(this, " You won the game! \n "
+                        + " Sorted List \n"
+                        + numberArray[0] + " , " + numberArray[1] + " , " 
+                        + numberArray[2] + " , " + numberArray[3] + " , "
+                        + numberArray[4]);
             }
         }
     }//GEN-LAST:event_num5ActionPerformed
 
-    private boolean checkValue(int selectedValue) {
-        int min = numberArray[0];
-        for (int value : numberArray) {
-            if (min >= value) {
-                min = value;
+    private boolean checkValue(int selectedValue, int startPosition) {
+        int min = numberArray[startPosition];
+        for (int i=startPosition; i<5; i++) {
+            if (min >= numberArray[i]) {
+                min = numberArray[i];
             }
         }
         return (min == selectedValue);
@@ -354,6 +453,14 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
         sort3.setText(num3.getText());
         sort4.setText(num4.getText());
         sort5.setText(num5.getText());
+    }
+    
+    private void setNumberArray(){
+        numberArray[0] = Integer.parseInt(num1.getText());
+        numberArray[1] = Integer.parseInt(num2.getText());
+        numberArray[2] = Integer.parseInt(num3.getText());
+        numberArray[3] = Integer.parseInt(num4.getText());
+        numberArray[4] = Integer.parseInt(num5.getText());
     }
     
     private void setVisibleOldValues(){
