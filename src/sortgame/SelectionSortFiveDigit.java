@@ -6,6 +6,7 @@
 package sortgame;
 
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,6 +16,7 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
 
     int numberArray[] = new int[5];
     int round = 1;
+    int count = 0;
 
     /**
      * Creates new form SelectionSortFiveDigit
@@ -82,14 +84,16 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
         sort3 = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         jLabel1.setText("Learn Selection Sort");
 
-        homeBtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        homeBtn.setText("Back to Home");
+        homeBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        homeBtn.setText("Home");
+        homeBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         homeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeBtnActionPerformed(evt);
@@ -162,15 +166,21 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Previous list of numbers");
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setText("Exit");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,24 +194,31 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
                                 .addComponent(num4)
                                 .addGap(18, 18, 18)
                                 .addComponent(num5))
+                            .addComponent(jLabel2)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(sort1)
                                 .addGap(18, 18, 18)
-                                .addComponent(sort2)
-                                .addGap(18, 18, 18)
-                                .addComponent(sort3)
-                                .addGap(18, 18, 18)
-                                .addComponent(sort4)
-                                .addGap(18, 18, 18)
-                                .addComponent(sort5))
-                            .addComponent(jLabel2)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(sort2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(sort3)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(sort4)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(sort5))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(24, 24, 24)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(homeBtn)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                        .addComponent(jLabel3)))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,8 +244,10 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
                     .addComponent(sort4)
                     .addComponent(sort5))
                 .addGap(18, 18, 18)
-                .addComponent(homeBtn)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(homeBtn)
+                    .addComponent(jButton1))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -259,90 +278,270 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
 
     private void num1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num1ActionPerformed
         int selectedValue = Integer.parseInt(num1.getText());
-        if (this.checkValue(selectedValue)) {
-            this.setPreviousValues();
+        if (this.checkValue(selectedValue, round - 1)) {
             if (round == 1) {
-                round += 1;
+                this.setPreviousValues();
                 this.setVisibleOldValues();
+                this.setNumberArray();
                 num1.setSelected(false);
                 num1.setEnabled(false);
+                round += 1;
+            }
+        } else {
+            if (count < 1) {
+                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only two chances.");
+                num1.setSelected(false);
+                count += 1;
+            }else if (count < 2) {
+                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only one chance.");
+                num1.setSelected(false);
+                count += 1;
+            }else{
+                JOptionPane.showMessageDialog(this, "You lost the game!");
+                SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
+                selectionSortHomeScreen.setVisible(true);
+                this.setVisible(false);
             }
         }
     }//GEN-LAST:event_num1ActionPerformed
 
     private void num2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num2ActionPerformed
         int selectedValue = Integer.parseInt(num2.getText());
-        if (this.checkValue(selectedValue)) {
-            this.setPreviousValues();
+        if (this.checkValue(selectedValue, round - 1)) {
             if (round == 1) {
+                this.setPreviousValues();
                 String x = num1.getText();
                 String y = num2.getText();
                 num1.setText(y);
                 num2.setText(x);
                 this.setVisibleOldValues();
+                this.setNumberArray();
                 num2.setSelected(false);
                 num1.setEnabled(false);
                 round += 1;
+            } else if (round == 2) {
+                this.setPreviousValues();
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num2.setSelected(false);
+                num2.setEnabled(false);
+                round += 1;
+            }
+        } else {
+            if (count < 1) {
+                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only two chances.");
+                num2.setSelected(false);
+                count += 1;
+            }else if (count < 2) {
+                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only one chance.");
+                num2.setSelected(false);
+                count += 1;
+            }else{
+                JOptionPane.showMessageDialog(this, "You lost the game!");
+                SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
+                selectionSortHomeScreen.setVisible(true);
+                this.setVisible(false);
             }
         }
     }//GEN-LAST:event_num2ActionPerformed
 
     private void num3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num3ActionPerformed
         int selectedValue = Integer.parseInt(num3.getText());
-        if (this.checkValue(selectedValue)) {
-            this.setPreviousValues();
+        if (this.checkValue(selectedValue, round - 1)) {
             if (round == 1) {
+                this.setPreviousValues();
                 String x = num1.getText();
                 String y = num3.getText();
                 num1.setText(y);
                 num3.setText(x);
                 this.setVisibleOldValues();
+                this.setNumberArray();
                 num3.setSelected(false);
                 num1.setEnabled(false);
                 round += 1;
+            } else if (round == 2) {
+                this.setPreviousValues();
+                String x = num2.getText();
+                String y = num3.getText();
+                num2.setText(y);
+                num3.setText(x);
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num3.setSelected(false);
+                num2.setEnabled(false);
+                round += 1;
+            } else if (round == 3) {
+                this.setPreviousValues();
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num3.setSelected(false);
+                num3.setEnabled(false);
+                round += 1;
+            }
+        }else {
+            if (count < 1) {
+                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only two chances.");
+                num3.setSelected(false);
+                count += 1;
+            }else if (count < 2) {
+                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only one chance.");
+                num3.setSelected(false);
+                count += 1;
+            }else{
+                JOptionPane.showMessageDialog(this, "You lost the game!");
+                SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
+                selectionSortHomeScreen.setVisible(true);
+                this.setVisible(false);
             }
         }
     }//GEN-LAST:event_num3ActionPerformed
 
     private void num4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num4ActionPerformed
         int selectedValue = Integer.parseInt(num4.getText());
-        if (this.checkValue(selectedValue)) {
-            this.setPreviousValues();
+        if (this.checkValue(selectedValue, round - 1)) {
             if (round == 1) {
+                this.setPreviousValues();
                 String x = num1.getText();
                 String y = num4.getText();
                 num1.setText(y);
                 num4.setText(x);
                 this.setVisibleOldValues();
+                this.setNumberArray();
                 num4.setSelected(false);
                 num1.setEnabled(false);
                 round += 1;
+            } else if (round == 2) {
+                this.setPreviousValues();
+                String x = num2.getText();
+                String y = num4.getText();
+                num2.setText(y);
+                num4.setText(x);
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num4.setSelected(false);
+                num2.setEnabled(false);
+                round += 1;
+            } else if (round == 3) {
+                this.setPreviousValues();
+                String x = num3.getText();
+                String y = num4.getText();
+                num3.setText(y);
+                num4.setText(x);
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num4.setSelected(false);
+                num3.setEnabled(false);
+                round += 1;
+            } else if (round == 4) {
+                this.setPreviousValues();
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num4.setSelected(false);
+                num4.setEnabled(false);
+                round += 1;
+            }
+        }else {
+            if (count < 1) {
+                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only two chances.");
+                num4.setSelected(false);
+                count += 1;
+            }else if (count < 2) {
+                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only one chance.");
+                num4.setSelected(false);
+                count += 1;
+            }else{
+                JOptionPane.showMessageDialog(this, "You lost the game!");
+                SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
+                selectionSortHomeScreen.setVisible(true);
+                this.setVisible(false);
             }
         }
     }//GEN-LAST:event_num4ActionPerformed
 
     private void num5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num5ActionPerformed
         int selectedValue = Integer.parseInt(num5.getText());
-        if (this.checkValue(selectedValue)) {
-            this.setPreviousValues();
+        if (this.checkValue(selectedValue, round - 1)) {
             if (round == 1) {
+                this.setPreviousValues();
                 String x = num1.getText();
                 String y = num5.getText();
                 num1.setText(y);
                 num5.setText(x);
                 this.setVisibleOldValues();
+                this.setNumberArray();
                 num5.setSelected(false);
                 num1.setEnabled(false);
                 round += 1;
+            } else if (round == 2) {
+                this.setPreviousValues();
+                String x = num2.getText();
+                String y = num5.getText();
+                num2.setText(y);
+                num5.setText(x);
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num5.setSelected(false);
+                num2.setEnabled(false);
+                round += 1;
+            } else if (round == 3) {
+                this.setPreviousValues();
+                String x = num3.getText();
+                String y = num5.getText();
+                num3.setText(y);
+                num5.setText(x);
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num5.setSelected(false);
+                num3.setEnabled(false);
+                round += 1;
+            } else if (round == 4) {
+                this.setPreviousValues();
+                String x = num4.getText();
+                String y = num5.getText();
+                num4.setText(y);
+                num5.setText(x);
+                this.setVisibleOldValues();
+                this.setNumberArray();
+                num5.setSelected(false);
+                num4.setEnabled(false);
+                round += 1;
+            } else {
+                JOptionPane.showMessageDialog(this, " You won the game! \n "
+                        + " Sorted List \n"
+                        + numberArray[0] + " , " + numberArray[1] + " , "
+                        + numberArray[2] + " , " + numberArray[3] + " , "
+                        + numberArray[4]);
+                this.setPreviousValues();
+                num5.setSelected(false);
+                num5.setEnabled(false);
+            }
+        }else {
+            if (count < 1) {
+                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only two chances.");
+                num5.setSelected(false);
+                count += 1;
+            }else if (count < 2) {
+                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only one chance.");
+                num5.setSelected(false);
+                count += 1;
+            }else{
+                JOptionPane.showMessageDialog(this, "You lost the game!");
+                SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
+                selectionSortHomeScreen.setVisible(true);
+                this.setVisible(false);
             }
         }
     }//GEN-LAST:event_num5ActionPerformed
 
-    private boolean checkValue(int selectedValue) {
-        int min = numberArray[0];
-        for (int value : numberArray) {
-            if (min >= value) {
-                min = value;
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private boolean checkValue(int selectedValue, int startPosition) {
+        int min = numberArray[startPosition];
+        for (int i = startPosition; i < 5; i++) {
+            if (min >= numberArray[i]) {
+                min = numberArray[i];
             }
         }
         return (min == selectedValue);
@@ -355,8 +554,16 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
         sort4.setText(num4.getText());
         sort5.setText(num5.getText());
     }
-    
-    private void setVisibleOldValues(){
+
+    private void setNumberArray() {
+        numberArray[0] = Integer.parseInt(num1.getText());
+        numberArray[1] = Integer.parseInt(num2.getText());
+        numberArray[2] = Integer.parseInt(num3.getText());
+        numberArray[3] = Integer.parseInt(num4.getText());
+        numberArray[4] = Integer.parseInt(num5.getText());
+    }
+
+    private void setVisibleOldValues() {
         sort1.setVisible(true);
         sort2.setVisible(true);
         sort3.setVisible(true);
@@ -401,6 +608,7 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton homeBtn;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
