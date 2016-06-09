@@ -7,12 +7,10 @@ package sortgame;
 
 import com.sun.jna.Native;
 import com.sun.jna.NativeLibrary;
-import sun.awt.Win32ColorModel24;
 import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
 import uk.co.caprica.vlcj.runtime.RuntimeUtil;
-import uk.co.caprica.vlcj.runtime.x.LibXUtil;
 
 /**
  *
@@ -120,19 +118,28 @@ public class SelectionSortVideo extends javax.swing.JFrame {
                 new SelectionSortVideo().setVisible(true);
             }
         });
+        //System.load("C:\\Program Files\\VideoLAN\\VLC\\libvlc.dll");
 
-        System.load("C:\\Program Files\\VideoLAN\\VLC\\libvlc.dll");
+        try {
+            NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "C:\\Program Files\\VideoLAN\\VLC\\");
+            Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
+        } catch (Exception e) {
+            System.err.println("Exception : " + e);
+        }
 
-        NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "C:\\Program Files\\VideoLAN\\VLC\\libvlc.dll"); 
-        Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
+        //NativeLibrary.addSearchPath (RuntimeUtil.getLibVlcLibraryName(), "C:\\Program Files\\VideoLAN\\VLC\\libvlc.dll"); 
+        
         //LibXUtil.initialise();
         MediaPlayerFactory mpf = new MediaPlayerFactory();
 
         EmbeddedMediaPlayer emp = mpf.newEmbeddedMediaPlayer();
 
         emp.toggleFullScreen();
-        emp.setEnableMouseInputHandling(false);
-        emp.setEnableKeyInputHandling(false);
+
+        emp.setEnableMouseInputHandling(
+                false);
+        emp.setEnableKeyInputHandling(
+                false);
 
         String file = "Selection Sort Intro.mp4";
 
