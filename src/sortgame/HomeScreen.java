@@ -5,6 +5,17 @@
  */
 package sortgame;
 
+import com.sun.jna.Native;
+import com.sun.jna.NativeLibrary;
+import java.awt.BorderLayout;
+import java.awt.Canvas;
+import java.awt.Color;
+import javax.swing.JFrame;
+import uk.co.caprica.vlcj.binding.LibVlc;
+import uk.co.caprica.vlcj.player.MediaPlayerFactory;
+import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
+import uk.co.caprica.vlcj.runtime.RuntimeUtil;
+
 /**
  *
  * @author ASHI
@@ -150,38 +161,78 @@ public class HomeScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectionRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectionRadioBtnActionPerformed
-        if (insertionRadioBtn.isSelected()){
+        if (insertionRadioBtn.isSelected()) {
             insertionRadioBtn.setSelected(false);
-        } else if (bubbleRadioBtn.isSelected()){
+        } else if (bubbleRadioBtn.isSelected()) {
             bubbleRadioBtn.setSelected(false);
         }
     }//GEN-LAST:event_selectionRadioBtnActionPerformed
 
     private void insertionRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertionRadioBtnActionPerformed
-        if (selectionRadioBtn.isSelected()){
+        if (selectionRadioBtn.isSelected()) {
             selectionRadioBtn.setSelected(false);
-        } else if (bubbleRadioBtn.isSelected()){
+        } else if (bubbleRadioBtn.isSelected()) {
             bubbleRadioBtn.setSelected(false);
         }
     }//GEN-LAST:event_insertionRadioBtnActionPerformed
 
     private void bubbleRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bubbleRadioBtnActionPerformed
-        if (selectionRadioBtn.isSelected()){
+        if (selectionRadioBtn.isSelected()) {
             selectionRadioBtn.setSelected(false);
-        } else if (insertionRadioBtn.isSelected()){
+        } else if (insertionRadioBtn.isSelected()) {
             insertionRadioBtn.setSelected(false);
         }
     }//GEN-LAST:event_bubbleRadioBtnActionPerformed
 
     private void okBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBtnActionPerformed
-        if (selectionRadioBtn.isSelected()){
-            SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
-            selectionSortHomeScreen.setVisible(true);
+        if (selectionRadioBtn.isSelected()) {
+
+            /* Video play start */
+            SelectionSortVideo selectionSortVideo = new SelectionSortVideo();
+            selectionSortVideo.setLocation(100, 100);
+            selectionSortVideo.setSize(600,600);
+            selectionSortVideo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            selectionSortVideo.setVisible(true);
+
+            Canvas canvas = new Canvas();
+
+            canvas.setBackground(Color.black);
+
+            try {
+                selectionSortVideo.videoPanel.setLayout(new BorderLayout());
+
+                selectionSortVideo.videoPanel.add(canvas);
+                selectionSortVideo.add(selectionSortVideo.videoPanel);
+
+                NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "lib");
+                Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
+
+                MediaPlayerFactory mpf = new MediaPlayerFactory();
+
+                EmbeddedMediaPlayer emp = mpf.newEmbeddedMediaPlayer();
+                emp.setVideoSurface(mpf.newVideoSurface(canvas));
+
+                emp.toggleFullScreen();
+
+                emp.setEnableKeyInputHandling(false);
+                emp.setEnableMouseInputHandling(false);
+
+                String file = "Selection Sort Intro.mp4";
+
+                emp.prepareMedia(file);
+
+                emp.play();
+
+            } catch (Exception e) {
+                System.err.println("Exception : " + e);
+            }
+
             this.setVisible(false);
-        } else if (insertionRadioBtn.isSelected()){
+
+        } else if (insertionRadioBtn.isSelected()) {
             InsertionSortHomeScreen insertionSortHomeScreen = new InsertionSortHomeScreen();
             insertionSortHomeScreen.setVisible(true);
-        } else if (bubbleRadioBtn.isSelected()){
+        } else if (bubbleRadioBtn.isSelected()) {
             BubbleSortHomeScreen bubbleSortHomeScreen = new BubbleSortHomeScreen();
             bubbleSortHomeScreen.setVisible(true);
         }
