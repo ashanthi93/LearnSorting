@@ -39,8 +39,12 @@ public class SelectionSortHomeScreen extends javax.swing.JFrame {
         homeBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Learn Selection Sort");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jPanel1.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+
+        jLabel1.setFont(new java.awt.Font("Trajan Pro", 1, 22)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 153, 255));
         jLabel1.setText("Learn Selection Sort");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -105,11 +109,7 @@ public class SelectionSortHomeScreen extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -127,15 +127,18 @@ public class SelectionSortHomeScreen extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tDigitsRadioBtn)
-                            .addComponent(threeRangeRadioBtn))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(threeRangeRadioBtn)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addGap(46, 46, 46)
+                .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(fDigitsRadioBtn)
@@ -149,7 +152,7 @@ public class SelectionSortHomeScreen extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(startBtn)
                     .addComponent(homeBtn))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -172,18 +175,6 @@ public class SelectionSortHomeScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fDigitsRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fDigitsRadioBtnActionPerformed
-        if (tDigitsRadioBtn.isSelected()){
-            tDigitsRadioBtn.setSelected(false);
-        }
-    }//GEN-LAST:event_fDigitsRadioBtnActionPerformed
-
-    private void tDigitsRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tDigitsRadioBtnActionPerformed
-        if (fDigitsRadioBtn.isSelected()){
-            fDigitsRadioBtn.setSelected(false);
-        }
-    }//GEN-LAST:event_tDigitsRadioBtnActionPerformed
-
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
         HomeScreen homeScreen = new HomeScreen();
         homeScreen.setVisible(true);
@@ -205,17 +196,29 @@ public class SelectionSortHomeScreen extends javax.swing.JFrame {
     private void startBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnActionPerformed
         if (fDigitsRadioBtn.isSelected()){
             if (twoRangeRadioBtn.isSelected()){
-                SelectionSortFiveDigit selectionSortFiveDigit = new SelectionSortFiveDigit(2);
-                selectionSortFiveDigit.setVisible(true);
+                /*SelectionSort selectionSortFiveDigit = new SelectionSort(2);
+                selectionSortFiveDigit.setVisible(true);*/
             }else if (threeRangeRadioBtn.isSelected()){
-                SelectionSortFiveDigit selectionSortFiveDigit = new SelectionSortFiveDigit(3);
-                selectionSortFiveDigit.setVisible(true);
+                /*SelectionSort selectionSortFiveDigit = new SelectionSort(3);
+                selectionSortFiveDigit.setVisible(true);*/
             }
             this.setVisible(false);
         }else if (tDigitsRadioBtn.isSelected()){
         
         }
     }//GEN-LAST:event_startBtnActionPerformed
+
+    private void tDigitsRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tDigitsRadioBtnActionPerformed
+        if (fDigitsRadioBtn.isSelected()){
+            fDigitsRadioBtn.setSelected(false);
+        }
+    }//GEN-LAST:event_tDigitsRadioBtnActionPerformed
+
+    private void fDigitsRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fDigitsRadioBtnActionPerformed
+        if (tDigitsRadioBtn.isSelected()){
+            tDigitsRadioBtn.setSelected(false);
+        }
+    }//GEN-LAST:event_fDigitsRadioBtnActionPerformed
 
     /**
      * @param args the command line arguments

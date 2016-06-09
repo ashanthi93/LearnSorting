@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author ASHI
  */
-public class SelectionSortFiveDigit extends javax.swing.JFrame {
+public class SelectionSort extends javax.swing.JFrame {
 
     int numberArray[] = new int[5];
     int round = 1;
@@ -23,34 +23,48 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
      *
      * @param range
      */
-    public SelectionSortFiveDigit(int range) {
+    public SelectionSort() {
         initComponents();
 
+        jLabel3.setVisible(false);
+        jLabel4.setVisible(false);
+        jLabel5.setVisible(false);
+        jLabel6.setVisible(false);
+        jLabel7.setVisible(false);
         sort1.setVisible(false);
         sort2.setVisible(false);
         sort3.setVisible(false);
         sort4.setVisible(false);
         sort5.setVisible(false);
+        sort6.setVisible(false);
+        sort7.setVisible(false);
+        sort8.setVisible(false);
+        sort9.setVisible(false);
+        sort10.setVisible(false);
+        sort11.setVisible(false);
+        sort12.setVisible(false);
+        sort13.setVisible(false);
+        sort14.setVisible(false);
+        sort15.setVisible(false);
+        sort16.setVisible(false);
+        sort17.setVisible(false);
+        sort18.setVisible(false);
+        sort19.setVisible(false);
+        sort20.setVisible(false);
+        sort21.setVisible(false);
+        sort22.setVisible(false);
+        sort23.setVisible(false);
+        sort24.setVisible(false);
+        sort25.setVisible(false);
 
         Random random = new Random();
 
-        if (range == 2) {
+        int max = 100;
+        int min = 1;
 
-            int max = 10;
-            int min = 1;
-
-            for (int i = 0; i < 5; i++) {
-                int randomNumber = random.nextInt(max - min + 1) + min;
-                numberArray[i] = randomNumber;
-            }
-        } else {
-            int max = 100;
-            int min = 1;
-
-            for (int i = 0; i < 5; i++) {
-                int randomNumber = random.nextInt(max - min + 1) + min;
-                numberArray[i] = randomNumber;
-            }
+        for (int i = 0; i < 5; i++) {
+            int randomNumber = random.nextInt(max - min + 1) + min;
+            numberArray[i] = randomNumber;
         }
 
         num1.setText(String.valueOf(numberArray[0]));
@@ -85,14 +99,42 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        sort6 = new javax.swing.JRadioButton();
+        sort7 = new javax.swing.JRadioButton();
+        sort8 = new javax.swing.JRadioButton();
+        sort9 = new javax.swing.JRadioButton();
+        sort10 = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        sort11 = new javax.swing.JRadioButton();
+        sort12 = new javax.swing.JRadioButton();
+        sort13 = new javax.swing.JRadioButton();
+        sort14 = new javax.swing.JRadioButton();
+        sort15 = new javax.swing.JRadioButton();
+        jLabel6 = new javax.swing.JLabel();
+        sort16 = new javax.swing.JRadioButton();
+        sort17 = new javax.swing.JRadioButton();
+        sort18 = new javax.swing.JRadioButton();
+        sort19 = new javax.swing.JRadioButton();
+        sort20 = new javax.swing.JRadioButton();
+        jLabel7 = new javax.swing.JLabel();
+        sort21 = new javax.swing.JRadioButton();
+        sort22 = new javax.swing.JRadioButton();
+        sort23 = new javax.swing.JRadioButton();
+        sort24 = new javax.swing.JRadioButton();
+        sort25 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jPanel1.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+
+        jLabel1.setFont(new java.awt.Font("Trajan Pro", 1, 22)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 153, 255));
         jLabel1.setText("Learn Selection Sort");
 
-        homeBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        homeBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         homeBtn.setText("Home");
+        homeBtn.setActionCommand("");
         homeBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         homeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +142,7 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
             }
         });
 
+        num1.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         num1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         num1.setText("1");
         num1.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +151,7 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
             }
         });
 
+        num2.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         num2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         num2.setText("2");
         num2.addActionListener(new java.awt.event.ActionListener() {
@@ -116,6 +160,7 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
             }
         });
 
+        num3.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         num3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         num3.setText("3");
         num3.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +169,7 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
             }
         });
 
+        num4.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         num4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         num4.setText("4");
         num4.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +178,7 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
             }
         });
 
+        num5.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         num5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         num5.setText("5");
         num5.addActionListener(new java.awt.event.ActionListener() {
@@ -140,34 +187,41 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
             }
         });
 
+        sort5.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         sort5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort5.setText("5");
         sort5.setEnabled(false);
 
+        sort4.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         sort4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort4.setText("4");
         sort4.setEnabled(false);
 
+        sort2.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         sort2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort2.setText("2");
         sort2.setEnabled(false);
 
+        sort1.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         sort1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort1.setText("1");
         sort1.setEnabled(false);
+        sort1.setHideActionText(true);
 
+        sort3.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         sort3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort3.setText("3");
         sort3.setEnabled(false);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel2.setText("Select minimum value");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Previous list of numbers");
+        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel3.setText("Round 2");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jButton1.setText("Exit");
+        jButton1.setActionCommand("");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,50 +229,204 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
             }
         });
 
+        sort6.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort6.setText("1");
+        sort6.setEnabled(false);
+
+        sort7.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort7.setText("2");
+        sort7.setEnabled(false);
+
+        sort8.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort8.setText("3");
+        sort8.setEnabled(false);
+
+        sort9.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort9.setText("4");
+        sort9.setEnabled(false);
+
+        sort10.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort10.setText("5");
+        sort10.setEnabled(false);
+
+        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel4.setText("Round 1");
+
+        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel5.setText("Round 3");
+
+        sort11.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort11.setText("1");
+        sort11.setEnabled(false);
+
+        sort12.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort12.setText("2");
+        sort12.setEnabled(false);
+
+        sort13.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort13.setText("3");
+        sort13.setEnabled(false);
+
+        sort14.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort14.setText("4");
+        sort14.setEnabled(false);
+
+        sort15.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort15.setText("5");
+        sort15.setEnabled(false);
+
+        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel6.setText("Round 4");
+
+        sort16.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort16.setText("1");
+        sort16.setEnabled(false);
+
+        sort17.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort17.setText("2");
+        sort17.setEnabled(false);
+
+        sort18.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort18.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort18.setText("3");
+        sort18.setEnabled(false);
+
+        sort19.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort19.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort19.setText("4");
+        sort19.setEnabled(false);
+
+        sort20.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort20.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort20.setText("5");
+        sort20.setEnabled(false);
+
+        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel7.setText("Round 5");
+
+        sort21.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort21.setText("1");
+        sort21.setEnabled(false);
+
+        sort22.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort22.setText("2");
+        sort22.setEnabled(false);
+
+        sort23.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort23.setText("3");
+        sort23.setEnabled(false);
+        sort23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sort23ActionPerformed(evt);
+            }
+        });
+
+        sort24.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort24.setText("4");
+        sort24.setEnabled(false);
+
+        sort25.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sort25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        sort25.setText("5");
+        sort25.setEnabled(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 18, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(num1)
-                                .addGap(18, 18, 18)
-                                .addComponent(num2)
-                                .addGap(18, 18, 18)
-                                .addComponent(num3)
-                                .addGap(18, 18, 18)
-                                .addComponent(num4)
-                                .addGap(18, 18, 18)
-                                .addComponent(num5))
+                            .addComponent(jLabel4)
                             .addComponent(jLabel2)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(sort1)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(sort2)
+                                        .addComponent(sort7)
+                                        .addComponent(sort12)
+                                        .addComponent(sort17)
+                                        .addComponent(sort22))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(num1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(num2)))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(sort2)
+                                        .addComponent(sort23)
                                         .addGap(18, 18, 18)
-                                        .addComponent(sort3)
+                                        .addComponent(sort24)
                                         .addGap(18, 18, 18)
-                                        .addComponent(sort4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(sort5))
+                                        .addComponent(sort25))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(24, 24, 24)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(num3)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(num4))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(sort3)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(sort4))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(sort8)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(sort9))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(sort13)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(sort14))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(sort18)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(sort19)))
                                         .addGap(18, 18, 18)
-                                        .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(sort15)
+                                            .addComponent(sort20)
+                                            .addComponent(sort10)
+                                            .addComponent(sort5)
+                                            .addComponent(num5)))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(sort6)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(sort11)
+                                    .addComponent(sort16)
+                                    .addComponent(sort21)
+                                    .addComponent(sort1))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,27 +435,69 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(16, 16, 16)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(num1)
                     .addComponent(num2)
                     .addComponent(num3)
                     .addComponent(num4)
                     .addComponent(num5))
-                .addGap(9, 9, 9)
-                .addComponent(jLabel3)
+                .addGap(7, 7, 7)
+                .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sort1)
-                    .addComponent(sort2)
-                    .addComponent(sort3)
-                    .addComponent(sort4)
-                    .addComponent(sort5))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(5, 5, 5)
+                        .addComponent(sort6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(sort11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(sort16)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(sort21))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sort2)
+                            .addComponent(sort1)
+                            .addComponent(sort3)
+                            .addComponent(sort4)
+                            .addComponent(sort5))
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sort7)
+                            .addComponent(sort8)
+                            .addComponent(sort9)
+                            .addComponent(sort10))
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sort12)
+                            .addComponent(sort13)
+                            .addComponent(sort14)
+                            .addComponent(sort15))
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sort17)
+                            .addComponent(sort18)
+                            .addComponent(sort19)
+                            .addComponent(sort20))
+                        .addGap(46, 46, 46)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sort22)
+                            .addComponent(sort23)
+                            .addComponent(sort24)
+                            .addComponent(sort25))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(homeBtn)
                     .addComponent(jButton1))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -256,8 +506,8 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,11 +542,11 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only two chances.");
                 num1.setSelected(false);
                 count += 1;
-            }else if (count < 2) {
+            } else if (count < 2) {
                 JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only one chance.");
                 num1.setSelected(false);
                 count += 1;
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "You lost the game!");
                 SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
                 selectionSortHomeScreen.setVisible(true);
@@ -332,11 +582,11 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only two chances.");
                 num2.setSelected(false);
                 count += 1;
-            }else if (count < 2) {
+            } else if (count < 2) {
                 JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only one chance.");
                 num2.setSelected(false);
                 count += 1;
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "You lost the game!");
                 SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
                 selectionSortHomeScreen.setVisible(true);
@@ -378,16 +628,16 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
                 num3.setEnabled(false);
                 round += 1;
             }
-        }else {
+        } else {
             if (count < 1) {
                 JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only two chances.");
                 num3.setSelected(false);
                 count += 1;
-            }else if (count < 2) {
+            } else if (count < 2) {
                 JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only one chance.");
                 num3.setSelected(false);
                 count += 1;
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "You lost the game!");
                 SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
                 selectionSortHomeScreen.setVisible(true);
@@ -440,16 +690,16 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
                 num4.setEnabled(false);
                 round += 1;
             }
-        }else {
+        } else {
             if (count < 1) {
                 JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only two chances.");
                 num4.setSelected(false);
                 count += 1;
-            }else if (count < 2) {
+            } else if (count < 2) {
                 JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only one chance.");
                 num4.setSelected(false);
                 count += 1;
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "You lost the game!");
                 SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
                 selectionSortHomeScreen.setVisible(true);
@@ -515,16 +765,16 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
                 num5.setSelected(false);
                 num5.setEnabled(false);
             }
-        }else {
+        } else {
             if (count < 1) {
                 JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only two chances.");
                 num5.setSelected(false);
                 count += 1;
-            }else if (count < 2) {
+            } else if (count < 2) {
                 JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only one chance.");
                 num5.setSelected(false);
                 count += 1;
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "You lost the game!");
                 SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
                 selectionSortHomeScreen.setVisible(true);
@@ -536,6 +786,10 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void sort23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sort23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sort23ActionPerformed
 
     private boolean checkValue(int selectedValue, int startPosition) {
         int min = numberArray[startPosition];
@@ -588,20 +842,21 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SelectionSortFiveDigit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SelectionSort.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SelectionSortFiveDigit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SelectionSort.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SelectionSortFiveDigit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SelectionSort.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SelectionSortFiveDigit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SelectionSort.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SelectionSortFiveDigit(0).setVisible(true);
+                new SelectionSort().setVisible(true);
             }
         });
     }
@@ -612,6 +867,10 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton num1;
     private javax.swing.JRadioButton num2;
@@ -619,9 +878,29 @@ public class SelectionSortFiveDigit extends javax.swing.JFrame {
     private javax.swing.JRadioButton num4;
     private javax.swing.JRadioButton num5;
     private javax.swing.JRadioButton sort1;
+    private javax.swing.JRadioButton sort10;
+    private javax.swing.JRadioButton sort11;
+    private javax.swing.JRadioButton sort12;
+    private javax.swing.JRadioButton sort13;
+    private javax.swing.JRadioButton sort14;
+    private javax.swing.JRadioButton sort15;
+    private javax.swing.JRadioButton sort16;
+    private javax.swing.JRadioButton sort17;
+    private javax.swing.JRadioButton sort18;
+    private javax.swing.JRadioButton sort19;
     private javax.swing.JRadioButton sort2;
+    private javax.swing.JRadioButton sort20;
+    private javax.swing.JRadioButton sort21;
+    private javax.swing.JRadioButton sort22;
+    private javax.swing.JRadioButton sort23;
+    private javax.swing.JRadioButton sort24;
+    private javax.swing.JRadioButton sort25;
     private javax.swing.JRadioButton sort3;
     private javax.swing.JRadioButton sort4;
     private javax.swing.JRadioButton sort5;
+    private javax.swing.JRadioButton sort6;
+    private javax.swing.JRadioButton sort7;
+    private javax.swing.JRadioButton sort8;
+    private javax.swing.JRadioButton sort9;
     // End of variables declaration//GEN-END:variables
 }

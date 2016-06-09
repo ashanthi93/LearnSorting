@@ -61,7 +61,7 @@ public class HomeScreen extends javax.swing.JFrame {
         jLabel2.setText("Select a Sorting Algorithm");
 
         selectionRadioBtn.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
-        selectionRadioBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        selectionRadioBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         selectionRadioBtn.setText("Selection Sort");
         selectionRadioBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,7 +70,7 @@ public class HomeScreen extends javax.swing.JFrame {
         });
 
         insertionRadioBtn.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
-        insertionRadioBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        insertionRadioBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         insertionRadioBtn.setText("Insertion Sort");
         insertionRadioBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,7 +79,7 @@ public class HomeScreen extends javax.swing.JFrame {
         });
 
         bubbleRadioBtn.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
-        bubbleRadioBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        bubbleRadioBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         bubbleRadioBtn.setText("Bubble Sort");
         bubbleRadioBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +87,7 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        okBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        okBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         okBtn.setText("Ok");
         okBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         okBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +96,7 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        cancelBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        cancelBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         cancelBtn.setText("Exit");
         cancelBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +145,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(okBtn)
                     .addComponent(cancelBtn))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

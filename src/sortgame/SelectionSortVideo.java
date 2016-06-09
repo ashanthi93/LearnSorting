@@ -53,7 +53,7 @@ public class SelectionSortVideo extends javax.swing.JFrame {
         jPanel2.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
 
         startBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        startBtn.setText("Start");
+        startBtn.setText("Try Now");
         startBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         startBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,10 +118,10 @@ public class SelectionSortVideo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void startBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnActionPerformed
-        SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
-        selectionSortHomeScreen.setLocation(400,100);
-        selectionSortHomeScreen.setSize(500,300);
-        selectionSortHomeScreen.setVisible(true);
+        SelectionSort selectionSort = new SelectionSort();
+        selectionSort.setLocation(400,10);
+        //selectionSort.setSize(500,300);
+        selectionSort.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_startBtnActionPerformed
 
