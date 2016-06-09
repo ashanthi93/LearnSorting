@@ -240,9 +240,11 @@ public class HomeScreen extends javax.swing.JFrame {
         } else if (insertionRadioBtn.isSelected()) {
             InsertionSortHomeScreen insertionSortHomeScreen = new InsertionSortHomeScreen();
             insertionSortHomeScreen.setVisible(true);
+            this.dispose();
         } else if (bubbleRadioBtn.isSelected()) {
             BubbleSortHomeScreen bubbleSortHomeScreen = new BubbleSortHomeScreen();
             bubbleSortHomeScreen.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_okBtnActionPerformed
 

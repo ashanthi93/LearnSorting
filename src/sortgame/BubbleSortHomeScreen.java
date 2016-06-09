@@ -5,6 +5,8 @@
  */
 package sortgame;
 
+import static sortgame.SortGame.homeScreen;
+
 /**
  *
  * @author ASHI
@@ -64,16 +66,36 @@ public class BubbleSortHomeScreen extends javax.swing.JFrame {
 
         twoRangeRadioBtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         twoRangeRadioBtn.setText("1 to 10");
+        twoRangeRadioBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                twoRangeRadioBtnActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         jLabel1.setText("Learn Bubble Sort");
 
         threeRangeRadioBtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         threeRangeRadioBtn.setText("1 to 100");
+        threeRangeRadioBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                threeRangeRadioBtnActionPerformed(evt);
+            }
+        });
 
         homeBtn.setText("Back to Home");
+        homeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBtnActionPerformed(evt);
+            }
+        });
 
         startBtn.setText("Start");
+        startBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -158,6 +180,29 @@ public class BubbleSortHomeScreen extends javax.swing.JFrame {
             tDigitsRadioBtn.setSelected(false);
         }
     }//GEN-LAST:event_fDigitsRadioBtnActionPerformed
+
+    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
+        homeScreen.setVisible(true);
+        //HomeScreen homeScreen = new HomeScreen();
+        //homeScreen.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_homeBtnActionPerformed
+
+    private void twoRangeRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoRangeRadioBtnActionPerformed
+        if (threeRangeRadioBtn.isSelected()){
+            threeRangeRadioBtn.setSelected(false);
+        }
+    }//GEN-LAST:event_twoRangeRadioBtnActionPerformed
+
+    private void threeRangeRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_threeRangeRadioBtnActionPerformed
+        if (twoRangeRadioBtn.isSelected()){
+            twoRangeRadioBtn.setSelected(false);
+        }
+    }//GEN-LAST:event_threeRangeRadioBtnActionPerformed
+
+    private void startBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnActionPerformed
+        
+    }//GEN-LAST:event_startBtnActionPerformed
 
     /**
      * @param args the command line arguments

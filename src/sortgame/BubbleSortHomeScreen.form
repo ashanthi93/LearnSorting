@@ -155,6 +155,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="1 to 10"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="twoRangeRadioBtnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
@@ -171,16 +174,25 @@
             </Property>
             <Property name="text" type="java.lang.String" value="1 to 100"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="threeRangeRadioBtnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="homeBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Back to Home"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="homeBtnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="startBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Start"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="startBtnActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

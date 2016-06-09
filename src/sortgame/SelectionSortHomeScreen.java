@@ -5,6 +5,8 @@
  */
 package sortgame;
 
+import static sortgame.SortGame.homeScreen;
+
 /**
  *
  * @author ASHI
@@ -95,7 +97,7 @@ public class SelectionSortHomeScreen extends javax.swing.JFrame {
         });
 
         homeBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        homeBtn.setText("Home");
+        homeBtn.setText("Back To Home");
         homeBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         homeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,10 +113,11 @@ public class SelectionSortHomeScreen extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
+                                .addGap(73, 73, 73)
+                                .addComponent(homeBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(startBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,9 +179,11 @@ public class SelectionSortHomeScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
-        HomeScreen homeScreen = new HomeScreen();
         homeScreen.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
+        //HomeScreen homeScreen = new HomeScreen();
+        //homeScreen.setVisible(true);
+        //this.setVisible(false);
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void twoRangeRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoRangeRadioBtnActionPerformed
