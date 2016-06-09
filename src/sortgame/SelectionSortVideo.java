@@ -31,8 +31,13 @@ public class SelectionSortVideo extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         startBtn = new javax.swing.JButton();
         homeBtn = new javax.swing.JButton();
+        replayBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Learn Selection Sort");
+        setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+
+        videoPanel.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
 
         javax.swing.GroupLayout videoPanelLayout = new javax.swing.GroupLayout(videoPanel);
         videoPanel.setLayout(videoPanelLayout);
@@ -45,29 +50,47 @@ public class SelectionSortVideo extends javax.swing.JFrame {
             .addGap(0, 254, Short.MAX_VALUE)
         );
 
-        startBtn.setText("Start");
+        jPanel2.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
 
+        startBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        startBtn.setText("Start");
+        startBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        startBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startBtnActionPerformed(evt);
+            }
+        });
+
+        homeBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         homeBtn.setText("Home");
+        homeBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        replayBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        replayBtn.setText("Replay");
+        replayBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(118, Short.MAX_VALUE)
-                .addComponent(homeBtn)
-                .addGap(43, 43, 43)
-                .addComponent(startBtn)
-                .addGap(103, 103, 103))
+                .addContainerGap(152, Short.MAX_VALUE)
+                .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(replayBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(startBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(startBtn)
+                    .addComponent(replayBtn)
                     .addComponent(homeBtn))
-                .addGap(20, 20, 20))
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -84,15 +107,23 @@ public class SelectionSortVideo extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(videoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void startBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnActionPerformed
+        SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
+        selectionSortHomeScreen.setLocation(400,100);
+        selectionSortHomeScreen.setSize(500,300);
+        selectionSortHomeScreen.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_startBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,6 +163,7 @@ public class SelectionSortVideo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton homeBtn;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton replayBtn;
     private javax.swing.JButton startBtn;
     public javax.swing.JPanel videoPanel;
     // End of variables declaration//GEN-END:variables
