@@ -48,14 +48,20 @@ public class HomeScreen extends javax.swing.JFrame {
         cancelBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Learn Sorting Algo");
+        setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jPanel1.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+
+        jLabel1.setFont(new java.awt.Font("Trajan Pro", 1, 22)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 153, 255));
         jLabel1.setText("Learn Basic Sorting Algorithms");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("Select a Sorting Algorithm to proceed");
+        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel2.setText("Select a Sorting Algorithm");
 
-        selectionRadioBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        selectionRadioBtn.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        selectionRadioBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         selectionRadioBtn.setText("Selection Sort");
         selectionRadioBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,7 +69,8 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        insertionRadioBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        insertionRadioBtn.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        insertionRadioBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         insertionRadioBtn.setText("Insertion Sort");
         insertionRadioBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,7 +78,8 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        bubbleRadioBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bubbleRadioBtn.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        bubbleRadioBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         bubbleRadioBtn.setText("Bubble Sort");
         bubbleRadioBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,7 +87,7 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        okBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        okBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         okBtn.setText("Ok");
         okBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         okBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +96,7 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        cancelBtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cancelBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         cancelBtn.setText("Exit");
         cancelBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -102,42 +110,42 @@ public class HomeScreen extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGap(107, 107, 107)
-                                .addComponent(cancelBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(okBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(selectionRadioBtn)
                                 .addGap(18, 18, 18)
-                                .addComponent(insertionRadioBtn)))
+                                .addComponent(insertionRadioBtn)
+                                .addGap(18, 18, 18)
+                                .addComponent(bubbleRadioBtn))
+                            .addComponent(jLabel1)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(bubbleRadioBtn)))
+                        .addComponent(okBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1)
-                .addGap(36, 36, 36)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(26, 26, 26)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(selectionRadioBtn)
                     .addComponent(insertionRadioBtn)
                     .addComponent(bubbleRadioBtn))
-                .addGap(26, 26, 26)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(okBtn)
                     .addComponent(cancelBtn))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -189,8 +197,8 @@ public class HomeScreen extends javax.swing.JFrame {
 
             /* Video play start */
             SelectionSortVideo selectionSortVideo = new SelectionSortVideo();
-            selectionSortVideo.setLocation(100, 100);
-            selectionSortVideo.setSize(600,600);
+            selectionSortVideo.setLocation(400,100);
+            selectionSortVideo.setSize(600,400);
             selectionSortVideo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             selectionSortVideo.setVisible(true);
 
@@ -227,7 +235,7 @@ public class HomeScreen extends javax.swing.JFrame {
                 System.err.println("Exception : " + e);
             }
 
-            this.setVisible(false);
+            this.dispose();
 
         } else if (insertionRadioBtn.isSelected()) {
             InsertionSortHomeScreen insertionSortHomeScreen = new InsertionSortHomeScreen();
