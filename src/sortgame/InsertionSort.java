@@ -42,6 +42,7 @@ public class InsertionSort extends javax.swing.JFrame {
         step3Lbl.setVisible(false);
         step4Lbl.setVisible(false);
         step5Lbl.setVisible(false);
+        step6Lbl.setVisible(false);
         step11.setVisible(false);
         step12.setVisible(false);
         step13.setVisible(false);
@@ -67,7 +68,12 @@ public class InsertionSort extends javax.swing.JFrame {
         step53.setVisible(false);
         step54.setVisible(false);
         step55.setVisible(false);
-
+        step61.setVisible(false);
+        step62.setVisible(false);
+        step63.setVisible(false);
+        step64.setVisible(false);
+        step65.setVisible(false);
+        
         num2.setEnabled(false);
         num3.setEnabled(false);
         num4.setEnabled(false);
@@ -156,6 +162,12 @@ public class InsertionSort extends javax.swing.JFrame {
         videoBtn = new javax.swing.JButton();
         leaveBtn = new javax.swing.JButton();
         shiftBtn = new javax.swing.JButton();
+        step6Lbl = new javax.swing.JLabel();
+        step61 = new javax.swing.JRadioButton();
+        step62 = new javax.swing.JRadioButton();
+        step63 = new javax.swing.JRadioButton();
+        step64 = new javax.swing.JRadioButton();
+        step65 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Learn Insertion Sort");
@@ -241,11 +253,6 @@ public class InsertionSort extends javax.swing.JFrame {
         step11.setText("1");
         step11.setEnabled(false);
         step11.setHideActionText(true);
-        step11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                step11ActionPerformed(evt);
-            }
-        });
 
         step13.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         step13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -275,11 +282,6 @@ public class InsertionSort extends javax.swing.JFrame {
         step21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         step21.setText("1");
         step21.setEnabled(false);
-        step21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                step21ActionPerformed(evt);
-            }
-        });
 
         step22.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         step22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -295,11 +297,6 @@ public class InsertionSort extends javax.swing.JFrame {
         step24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         step24.setText("4");
         step24.setEnabled(false);
-        step24.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                step24ActionPerformed(evt);
-            }
-        });
 
         step25.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         step25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -323,11 +320,6 @@ public class InsertionSort extends javax.swing.JFrame {
         step33.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         step33.setText("3");
         step33.setEnabled(false);
-        step33.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                step33ActionPerformed(evt);
-            }
-        });
 
         step34.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         step34.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -433,6 +425,35 @@ public class InsertionSort extends javax.swing.JFrame {
             }
         });
 
+        step6Lbl.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step6Lbl.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        step6Lbl.setText("Step 6");
+
+        step61.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step61.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step61.setText("1");
+        step61.setEnabled(false);
+
+        step62.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step62.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step62.setText("2");
+        step62.setEnabled(false);
+
+        step63.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step63.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step63.setText("3");
+        step63.setEnabled(false);
+
+        step64.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step64.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step64.setText("4");
+        step64.setEnabled(false);
+
+        step65.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step65.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step65.setText("5");
+        step65.setEnabled(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -452,60 +473,6 @@ public class InsertionSort extends javax.swing.JFrame {
                                 .addComponent(step14)
                                 .addGap(18, 18, 18)
                                 .addComponent(step15))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(step1Lbl)
-                                    .addComponent(step2Lbl)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(step3Lbl)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(step21)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(step22)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(step23)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(step24)))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(step25))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(step4Lbl)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(step31)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(step32)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(step33)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(step34)))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(step35))
-                                    .addComponent(step5Lbl)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(step41)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(step42))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(step51)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(step52)))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(step43)
-                                            .addComponent(step53))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(step44)
-                                            .addComponent(step54))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(step55)
-                                            .addComponent(step45)))))
                             .addComponent(mainLbl)
                             .addComponent(jLabel1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -517,23 +484,87 @@ public class InsertionSort extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(num4)
                                 .addGap(18, 18, 18)
-                                .addComponent(num5)))
-                        .addContainerGap(23, Short.MAX_VALUE))
+                                .addComponent(num5))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(videoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(tryAgainBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(step1Lbl)
+                                        .addComponent(step2Lbl)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(step3Lbl)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addComponent(step21)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(step22)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(step23)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(step24)))
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step25))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(step4Lbl)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addComponent(step31)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(step32)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(step33)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(step34)))
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step35))
+                                        .addComponent(step6Lbl)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(step51)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step52)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step53)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step54)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step55))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(step61)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step62)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step63)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step64)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step65))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(step5Lbl)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addComponent(step41)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(step42)))
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step43)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step44)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step45))))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(shiftBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(leaveBtn)
                         .addGap(50, 50, 50))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(videoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tryAgainBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -598,13 +629,22 @@ public class InsertionSort extends javax.swing.JFrame {
                     .addComponent(step53)
                     .addComponent(step54)
                     .addComponent(step55))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(step6Lbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(step61)
+                    .addComponent(step62)
+                    .addComponent(step63)
+                    .addComponent(step64)
+                    .addComponent(step65))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tryAgainBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(videoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -614,7 +654,7 @@ public class InsertionSort extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -681,31 +721,16 @@ public class InsertionSort extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_num5ActionPerformed
 
-    private void step11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_step11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_step11ActionPerformed
-
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitBtnActionPerformed
 
-    private void step21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_step21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_step21ActionPerformed
-
-    private void step24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_step24ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_step24ActionPerformed
-
-    private void step33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_step33ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_step33ActionPerformed
-
     private void tryAgainBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tryAgainBtnActionPerformed
         InsertionSort insertionSort = new InsertionSort();
-        insertionSort.setLocation(550, 10);
+        insertionSort.setLocation(250, 10);
         insertionSort.setResizable(false);
         insertionSort.setVisible(true);
+        insertionSortSub.dispose();
         this.dispose();
     }//GEN-LAST:event_tryAgainBtnActionPerformed
 
@@ -1232,6 +1257,12 @@ public class InsertionSort extends javax.swing.JFrame {
     private javax.swing.JRadioButton step54;
     private javax.swing.JRadioButton step55;
     private javax.swing.JLabel step5Lbl;
+    private javax.swing.JRadioButton step61;
+    private javax.swing.JRadioButton step62;
+    private javax.swing.JRadioButton step63;
+    private javax.swing.JRadioButton step64;
+    private javax.swing.JRadioButton step65;
+    private javax.swing.JLabel step6Lbl;
     private javax.swing.JButton tryAgainBtn;
     private javax.swing.JButton videoBtn;
     // End of variables declaration//GEN-END:variables
