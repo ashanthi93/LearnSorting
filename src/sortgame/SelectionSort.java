@@ -5,8 +5,11 @@
  */
 package sortgame;
 
+import java.awt.Color;
+import java.awt.color.ColorSpace;
 import java.util.Random;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 
 /**
  *
@@ -26,11 +29,12 @@ public class SelectionSort extends javax.swing.JFrame {
     public SelectionSort() {
         initComponents();
 
-        jLabel3.setVisible(false);
-        jLabel4.setVisible(false);
-        jLabel5.setVisible(false);
-        jLabel6.setVisible(false);
-        jLabel7.setVisible(false);
+        /* hide the labels and radio buttons */
+        round1Lbl.setVisible(false);
+        round2Lbl.setVisible(false);
+        round3Lbl.setVisible(false);
+        round4Lbl.setVisible(false);
+        round5Lbl.setVisible(false);
         sort1.setVisible(false);
         sort2.setVisible(false);
         sort3.setVisible(false);
@@ -97,27 +101,27 @@ public class SelectionSort extends javax.swing.JFrame {
         sort1 = new javax.swing.JRadioButton();
         sort3 = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        round2Lbl = new javax.swing.JLabel();
+        exitBtn = new javax.swing.JButton();
         sort6 = new javax.swing.JRadioButton();
         sort7 = new javax.swing.JRadioButton();
         sort8 = new javax.swing.JRadioButton();
         sort9 = new javax.swing.JRadioButton();
         sort10 = new javax.swing.JRadioButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        round1Lbl = new javax.swing.JLabel();
+        round3Lbl = new javax.swing.JLabel();
         sort11 = new javax.swing.JRadioButton();
         sort12 = new javax.swing.JRadioButton();
         sort13 = new javax.swing.JRadioButton();
         sort14 = new javax.swing.JRadioButton();
         sort15 = new javax.swing.JRadioButton();
-        jLabel6 = new javax.swing.JLabel();
+        round4Lbl = new javax.swing.JLabel();
         sort16 = new javax.swing.JRadioButton();
         sort17 = new javax.swing.JRadioButton();
         sort18 = new javax.swing.JRadioButton();
         sort19 = new javax.swing.JRadioButton();
         sort20 = new javax.swing.JRadioButton();
-        jLabel7 = new javax.swing.JLabel();
+        round5Lbl = new javax.swing.JLabel();
         sort21 = new javax.swing.JRadioButton();
         sort22 = new javax.swing.JRadioButton();
         sort23 = new javax.swing.JRadioButton();
@@ -216,16 +220,16 @@ public class SelectionSort extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel2.setText("Select minimum value");
 
-        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel3.setText("Round 2");
+        round2Lbl.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        round2Lbl.setText("Round 2");
 
-        jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jButton1.setText("Exit");
-        jButton1.setActionCommand("");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        exitBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        exitBtn.setText("Exit");
+        exitBtn.setActionCommand("");
+        exitBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        exitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                exitBtnActionPerformed(evt);
             }
         });
 
@@ -254,11 +258,11 @@ public class SelectionSort extends javax.swing.JFrame {
         sort10.setText("5");
         sort10.setEnabled(false);
 
-        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel4.setText("Round 1");
+        round1Lbl.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        round1Lbl.setText("Round 1");
 
-        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel5.setText("Round 3");
+        round3Lbl.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        round3Lbl.setText("Round 3");
 
         sort11.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         sort11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -285,8 +289,8 @@ public class SelectionSort extends javax.swing.JFrame {
         sort15.setText("5");
         sort15.setEnabled(false);
 
-        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel6.setText("Round 4");
+        round4Lbl.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        round4Lbl.setText("Round 4");
 
         sort16.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         sort16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -313,8 +317,8 @@ public class SelectionSort extends javax.swing.JFrame {
         sort20.setText("5");
         sort20.setEnabled(false);
 
-        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel7.setText("Round 5");
+        round5Lbl.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        round5Lbl.setText("Round 5");
 
         sort21.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         sort21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -330,11 +334,6 @@ public class SelectionSort extends javax.swing.JFrame {
         sort23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort23.setText("3");
         sort23.setEnabled(false);
-        sort23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sort23ActionPerformed(evt);
-            }
-        });
 
         sort24.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         sort24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -358,7 +357,7 @@ public class SelectionSort extends javax.swing.JFrame {
                         .addGap(0, 18, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
+                            .addComponent(round1Lbl)
                             .addComponent(jLabel2)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -411,17 +410,17 @@ public class SelectionSort extends javax.swing.JFrame {
                                             .addComponent(num5)))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(53, 53, 53)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(sort6)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7)
+                                    .addComponent(round2Lbl)
+                                    .addComponent(round3Lbl)
+                                    .addComponent(round4Lbl)
+                                    .addComponent(round5Lbl)
                                     .addComponent(sort11)
                                     .addComponent(sort16)
                                     .addComponent(sort21)
@@ -443,23 +442,23 @@ public class SelectionSort extends javax.swing.JFrame {
                     .addComponent(num4)
                     .addComponent(num5))
                 .addGap(7, 7, 7)
-                .addComponent(jLabel4)
+                .addComponent(round1Lbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(round2Lbl)
                         .addGap(5, 5, 5)
                         .addComponent(sort6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
+                        .addComponent(round3Lbl)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(sort11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6)
+                        .addComponent(round4Lbl)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(sort16)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel7)
+                        .addComponent(round5Lbl)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(sort21))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -496,7 +495,7 @@ public class SelectionSort extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(homeBtn)
-                    .addComponent(jButton1))
+                    .addComponent(exitBtn))
                 .addContainerGap())
         );
 
@@ -527,30 +526,22 @@ public class SelectionSort extends javax.swing.JFrame {
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void num1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num1ActionPerformed
+
         int selectedValue = Integer.parseInt(num1.getText());
+
         if (this.checkValue(selectedValue, round - 1)) {
             if (round == 1) {
-                this.setPreviousValues();
-                this.setVisibleOldValues();
-                this.setNumberArray();
-                num1.setSelected(false);
-                num1.setEnabled(false);
-                round += 1;
+                this.setRoundOne(num1, sort1);
             }
         } else {
             if (count < 1) {
-                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only two chances.");
-                num1.setSelected(false);
-                count += 1;
+                this.countOneError(num1);
+
             } else if (count < 2) {
-                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only one chance.");
-                num1.setSelected(false);
-                count += 1;
+                this.countTwoError(num1);
+
             } else {
-                JOptionPane.showMessageDialog(this, "You lost the game!");
-                SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
-                selectionSortHomeScreen.setVisible(true);
-                this.setVisible(false);
+                this.finalError();
             }
         }
     }//GEN-LAST:event_num1ActionPerformed
@@ -558,20 +549,13 @@ public class SelectionSort extends javax.swing.JFrame {
     private void num2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num2ActionPerformed
         int selectedValue = Integer.parseInt(num2.getText());
         if (this.checkValue(selectedValue, round - 1)) {
+
             if (round == 1) {
-                this.setPreviousValues();
-                String x = num1.getText();
-                String y = num2.getText();
-                num1.setText(y);
-                num2.setText(x);
-                this.setVisibleOldValues();
-                this.setNumberArray();
-                num2.setSelected(false);
-                num1.setEnabled(false);
-                round += 1;
+                this.setRoundOne(num2, sort2);
+
             } else if (round == 2) {
-                this.setPreviousValues();
-                this.setVisibleOldValues();
+                this.setPreviousValues(sort1, sort2, sort3, sort4, sort5);
+                this.setVisibleOldValues(sort1, sort2, sort3, sort4, sort5);
                 this.setNumberArray();
                 num2.setSelected(false);
                 num2.setEnabled(false);
@@ -579,18 +563,13 @@ public class SelectionSort extends javax.swing.JFrame {
             }
         } else {
             if (count < 1) {
-                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only two chances.");
-                num2.setSelected(false);
-                count += 1;
+                this.countOneError(num2);
+                
             } else if (count < 2) {
-                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only one chance.");
-                num2.setSelected(false);
-                count += 1;
+                this.countTwoError(num2);
+                
             } else {
-                JOptionPane.showMessageDialog(this, "You lost the game!");
-                SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
-                selectionSortHomeScreen.setVisible(true);
-                this.setVisible(false);
+                this.finalError();
             }
         }
     }//GEN-LAST:event_num2ActionPerformed
@@ -598,31 +577,24 @@ public class SelectionSort extends javax.swing.JFrame {
     private void num3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num3ActionPerformed
         int selectedValue = Integer.parseInt(num3.getText());
         if (this.checkValue(selectedValue, round - 1)) {
+
             if (round == 1) {
-                this.setPreviousValues();
-                String x = num1.getText();
-                String y = num3.getText();
-                num1.setText(y);
-                num3.setText(x);
-                this.setVisibleOldValues();
-                this.setNumberArray();
-                num3.setSelected(false);
-                num1.setEnabled(false);
-                round += 1;
+                this.setRoundOne(num3, sort3);
+
             } else if (round == 2) {
-                this.setPreviousValues();
+                this.setPreviousValues(sort1, sort2, sort3, sort4, sort5);
                 String x = num2.getText();
                 String y = num3.getText();
                 num2.setText(y);
                 num3.setText(x);
-                this.setVisibleOldValues();
+                this.setVisibleOldValues(sort1, sort2, sort3, sort4, sort5);
                 this.setNumberArray();
                 num3.setSelected(false);
                 num2.setEnabled(false);
                 round += 1;
             } else if (round == 3) {
-                this.setPreviousValues();
-                this.setVisibleOldValues();
+                this.setPreviousValues(sort1, sort2, sort3, sort4, sort5);
+                this.setVisibleOldValues(sort1, sort2, sort3, sort4, sort5);
                 this.setNumberArray();
                 num3.setSelected(false);
                 num3.setEnabled(false);
@@ -630,18 +602,13 @@ public class SelectionSort extends javax.swing.JFrame {
             }
         } else {
             if (count < 1) {
-                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only two chances.");
-                num3.setSelected(false);
-                count += 1;
+                this.countOneError(num2);
+                
             } else if (count < 2) {
-                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only one chance.");
-                num3.setSelected(false);
-                count += 1;
+                this.countTwoError(num2);
+                
             } else {
-                JOptionPane.showMessageDialog(this, "You lost the game!");
-                SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
-                selectionSortHomeScreen.setVisible(true);
-                this.setVisible(false);
+                this.finalError();
             }
         }
     }//GEN-LAST:event_num3ActionPerformed
@@ -649,42 +616,35 @@ public class SelectionSort extends javax.swing.JFrame {
     private void num4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num4ActionPerformed
         int selectedValue = Integer.parseInt(num4.getText());
         if (this.checkValue(selectedValue, round - 1)) {
+
             if (round == 1) {
-                this.setPreviousValues();
-                String x = num1.getText();
-                String y = num4.getText();
-                num1.setText(y);
-                num4.setText(x);
-                this.setVisibleOldValues();
-                this.setNumberArray();
-                num4.setSelected(false);
-                num1.setEnabled(false);
-                round += 1;
+                this.setRoundOne(num4, sort4);
+
             } else if (round == 2) {
-                this.setPreviousValues();
+                this.setPreviousValues(sort1, sort2, sort3, sort4, sort5);
                 String x = num2.getText();
                 String y = num4.getText();
                 num2.setText(y);
                 num4.setText(x);
-                this.setVisibleOldValues();
+                this.setVisibleOldValues(sort1, sort2, sort3, sort4, sort5);
                 this.setNumberArray();
                 num4.setSelected(false);
                 num2.setEnabled(false);
                 round += 1;
             } else if (round == 3) {
-                this.setPreviousValues();
+                this.setPreviousValues(sort1, sort2, sort3, sort4, sort5);
                 String x = num3.getText();
                 String y = num4.getText();
                 num3.setText(y);
                 num4.setText(x);
-                this.setVisibleOldValues();
+                this.setVisibleOldValues(sort1, sort2, sort3, sort4, sort5);
                 this.setNumberArray();
                 num4.setSelected(false);
                 num3.setEnabled(false);
                 round += 1;
             } else if (round == 4) {
-                this.setPreviousValues();
-                this.setVisibleOldValues();
+                this.setPreviousValues(sort1, sort2, sort3, sort4, sort5);
+                this.setVisibleOldValues(sort1, sort2, sort3, sort4, sort5);
                 this.setNumberArray();
                 num4.setSelected(false);
                 num4.setEnabled(false);
@@ -692,18 +652,13 @@ public class SelectionSort extends javax.swing.JFrame {
             }
         } else {
             if (count < 1) {
-                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only two chances.");
-                num4.setSelected(false);
-                count += 1;
+                this.countOneError(num2);
+                
             } else if (count < 2) {
-                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only one chance.");
-                num4.setSelected(false);
-                count += 1;
+                this.countTwoError(num2);
+                
             } else {
-                JOptionPane.showMessageDialog(this, "You lost the game!");
-                SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
-                selectionSortHomeScreen.setVisible(true);
-                this.setVisible(false);
+                this.finalError();
             }
         }
     }//GEN-LAST:event_num4ActionPerformed
@@ -711,46 +666,39 @@ public class SelectionSort extends javax.swing.JFrame {
     private void num5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num5ActionPerformed
         int selectedValue = Integer.parseInt(num5.getText());
         if (this.checkValue(selectedValue, round - 1)) {
+
             if (round == 1) {
-                this.setPreviousValues();
-                String x = num1.getText();
-                String y = num5.getText();
-                num1.setText(y);
-                num5.setText(x);
-                this.setVisibleOldValues();
-                this.setNumberArray();
-                num5.setSelected(false);
-                num1.setEnabled(false);
-                round += 1;
+                this.setRoundOne(num5, sort5);
+
             } else if (round == 2) {
-                this.setPreviousValues();
+                this.setPreviousValues(sort1, sort2, sort3, sort4, sort5);
                 String x = num2.getText();
                 String y = num5.getText();
                 num2.setText(y);
                 num5.setText(x);
-                this.setVisibleOldValues();
+                this.setVisibleOldValues(sort1, sort2, sort3, sort4, sort5);
                 this.setNumberArray();
                 num5.setSelected(false);
                 num2.setEnabled(false);
                 round += 1;
             } else if (round == 3) {
-                this.setPreviousValues();
+                this.setPreviousValues(sort1, sort2, sort3, sort4, sort5);
                 String x = num3.getText();
                 String y = num5.getText();
                 num3.setText(y);
                 num5.setText(x);
-                this.setVisibleOldValues();
+                this.setVisibleOldValues(sort1, sort2, sort3, sort4, sort5);
                 this.setNumberArray();
                 num5.setSelected(false);
                 num3.setEnabled(false);
                 round += 1;
             } else if (round == 4) {
-                this.setPreviousValues();
+                this.setPreviousValues(sort1, sort2, sort3, sort4, sort5);
                 String x = num4.getText();
                 String y = num5.getText();
                 num4.setText(y);
                 num5.setText(x);
-                this.setVisibleOldValues();
+                this.setVisibleOldValues(sort1, sort2, sort3, sort4, sort5);
                 this.setNumberArray();
                 num5.setSelected(false);
                 num4.setEnabled(false);
@@ -761,36 +709,28 @@ public class SelectionSort extends javax.swing.JFrame {
                         + numberArray[0] + " , " + numberArray[1] + " , "
                         + numberArray[2] + " , " + numberArray[3] + " , "
                         + numberArray[4]);
-                this.setPreviousValues();
+                this.setPreviousValues(sort1, sort2, sort3, sort4, sort5);
                 num5.setSelected(false);
                 num5.setEnabled(false);
             }
         } else {
             if (count < 1) {
-                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only two chances.");
-                num5.setSelected(false);
-                count += 1;
+                this.countOneError(num2);
+                
             } else if (count < 2) {
-                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only one chance.");
-                num5.setSelected(false);
-                count += 1;
+                this.countTwoError(num2);
+                
             } else {
-                JOptionPane.showMessageDialog(this, "You lost the game!");
-                SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
-                selectionSortHomeScreen.setVisible(true);
-                this.setVisible(false);
+                this.finalError();
             }
         }
     }//GEN-LAST:event_num5ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_exitBtnActionPerformed
 
-    private void sort23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sort23ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sort23ActionPerformed
-
+    /* Start of method checkValue to check selected value is current minimum or not */
     private boolean checkValue(int selectedValue, int startPosition) {
         int min = numberArray[startPosition];
         for (int i = startPosition; i < 5; i++) {
@@ -800,15 +740,19 @@ public class SelectionSort extends javax.swing.JFrame {
         }
         return (min == selectedValue);
     }
+    /* End of method checkValue */
 
-    private void setPreviousValues() {
-        sort1.setText(num1.getText());
-        sort2.setText(num2.getText());
-        sort3.setText(num3.getText());
-        sort4.setText(num4.getText());
-        sort5.setText(num5.getText());
+    /* Start of method setPreviousValues to catch previous rounds */
+    private void setPreviousValues(JRadioButton sortNum1, JRadioButton sortNum2, JRadioButton sortNum3, JRadioButton sortNum4, JRadioButton sortNum5) {
+        sortNum1.setText(num1.getText());
+        sortNum2.setText(num2.getText());
+        sortNum3.setText(num3.getText());
+        sortNum4.setText(num4.getText());
+        sortNum5.setText(num5.getText());
     }
+    /* End of method setPreviousValues */
 
+    /* Start of setNumberArray method */
     private void setNumberArray() {
         numberArray[0] = Integer.parseInt(num1.getText());
         numberArray[1] = Integer.parseInt(num2.getText());
@@ -816,14 +760,68 @@ public class SelectionSort extends javax.swing.JFrame {
         numberArray[3] = Integer.parseInt(num4.getText());
         numberArray[4] = Integer.parseInt(num5.getText());
     }
+    /* End of setNumberArray method */
 
-    private void setVisibleOldValues() {
-        sort1.setVisible(true);
-        sort2.setVisible(true);
-        sort3.setVisible(true);
-        sort4.setVisible(true);
-        sort5.setVisible(true);
+    /* Start of method setVisibleOldValues to visible the round */
+    private void setVisibleOldValues(JRadioButton sortNum1, JRadioButton sortNum2, JRadioButton sortNum3, JRadioButton sortNum4, JRadioButton sortNum5) {
+        sortNum1.setVisible(true);
+        sortNum2.setVisible(true);
+        sortNum3.setVisible(true);
+        sortNum4.setVisible(true);
+        sortNum5.setVisible(true);
     }
+    /* End of method setVisibleOldValuess */
+
+    /* Start of setRoundOne method */
+    private void setRoundOne(JRadioButton selectedNum, JRadioButton sortNum) {
+
+        //set round 1 values
+        round1Lbl.setVisible(true);
+        this.setPreviousValues(sort1, sort2, sort3, sort4, sort5);
+        this.setVisibleOldValues(sort1, sort2, sort3, sort4, sort5);
+
+        String x = num1.getText();
+        String y = selectedNum.getText();
+        num1.setText(y);
+        selectedNum.setText(x);
+
+        //highlight swap numbers
+        sort1.setBackground(Color.RED);
+        sortNum.setBackground(Color.RED);
+
+        this.setNumberArray();
+
+        selectedNum.setSelected(false);
+        num1.setEnabled(false);
+
+        round += 1;
+    }
+    /* End of setRoundOne method */
+
+    /* Start of countOneError method */
+    private void countOneError(JRadioButton selectedNum) {
+        JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only two chances.");
+        selectedNum.setSelected(false);
+        count += 1;
+    }
+    /* End of countOneError method */
+
+    /* Start of countTwoError method */
+    private void countTwoError(JRadioButton selectedNum) {
+        JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only one chance.");
+        selectedNum.setSelected(false);
+        count += 1;
+    }
+    /* End of countTwoError method */
+
+    /* Start of finalError method */
+    private void finalError() {
+        JOptionPane.showMessageDialog(this, "You lost the game!");
+        SelectionSortVideo selectionSortVideo = new SelectionSortVideo();
+        selectionSortVideo.setVisible(true);
+        this.dispose();
+    }
+    /* End of finalError method */
 
     /**
      * @param args the command line arguments
@@ -862,21 +860,21 @@ public class SelectionSort extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton exitBtn;
     private javax.swing.JButton homeBtn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton num1;
     private javax.swing.JRadioButton num2;
     private javax.swing.JRadioButton num3;
     private javax.swing.JRadioButton num4;
     private javax.swing.JRadioButton num5;
+    private javax.swing.JLabel round1Lbl;
+    private javax.swing.JLabel round2Lbl;
+    private javax.swing.JLabel round3Lbl;
+    private javax.swing.JLabel round4Lbl;
+    private javax.swing.JLabel round5Lbl;
     private javax.swing.JRadioButton sort1;
     private javax.swing.JRadioButton sort10;
     private javax.swing.JRadioButton sort11;
