@@ -127,7 +127,7 @@ public class HomeScreen extends javax.swing.JFrame {
                             .addGap(18, 18, 18)
                             .addComponent(bubbleRadioBtn))
                         .addComponent(jLabel1)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

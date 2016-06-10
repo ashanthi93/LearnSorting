@@ -159,10 +159,11 @@ public class InsertionSortVideo extends javax.swing.JFrame {
 
     private void startBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnActionPerformed
         InsertionSort insertionSort = new InsertionSort();
-        insertionSort.setLocation(550, 10);
+        insertionSort.setLocation(250, 10);
         insertionSort.setResizable(false);
         insertionSort.setVisible(true);
         this.dispose();
+        insertionSort.showIntroMsg();
     }//GEN-LAST:event_startBtnActionPerformed
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed

@@ -15,7 +15,6 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
-import static sortgame.SortGame.homeScreen;
 import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
@@ -34,7 +33,6 @@ public class SelectionSort extends javax.swing.JFrame {
     /**
      * Creates new form SelectionSortFiveDigit
      *
-     * @param range
      */
     public SelectionSort() {
         initComponents();
@@ -821,7 +819,7 @@ public class SelectionSort extends javax.swing.JFrame {
     }
     /* End of method checkValue */
 
-    /* Start of method setPreviousValues to catch previous rounds */
+    /* Start of method setPreviousValues to catch previous round */
     private void setPreviousValues(JRadioButton sortNum1, JRadioButton sortNum2, JRadioButton sortNum3, JRadioButton sortNum4, JRadioButton sortNum5) {
         sortNum1.setText(num1.getText());
         sortNum2.setText(num2.getText());

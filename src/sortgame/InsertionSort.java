@@ -5,17 +5,108 @@
  */
 package sortgame;
 
+import com.sun.jna.Native;
+import com.sun.jna.NativeLibrary;
+import java.awt.BorderLayout;
+import java.awt.Canvas;
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Random;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import uk.co.caprica.vlcj.binding.LibVlc;
+import uk.co.caprica.vlcj.player.MediaPlayerFactory;
+import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
+import uk.co.caprica.vlcj.runtime.RuntimeUtil;
+
 /**
  *
  * @author ASHI
  */
 public class InsertionSort extends javax.swing.JFrame {
 
-    /**
-     * Creates new form InsertionSort
-     */
+    int numberArray[] = new int[5];
+    int round = 1;
+    int count = 0;
+    ArrayList<Integer> subArray = new ArrayList();
+
+    public InsertionSortSub insertionSortSub = new InsertionSortSub();
+
     public InsertionSort() {
         initComponents();
+
+        /* hide the labels and radio buttons */
+        step1Lbl.setVisible(false);
+        step2Lbl.setVisible(false);
+        step3Lbl.setVisible(false);
+        step4Lbl.setVisible(false);
+        step5Lbl.setVisible(false);
+        step6Lbl.setVisible(false);
+        step11.setVisible(false);
+        step12.setVisible(false);
+        step13.setVisible(false);
+        step14.setVisible(false);
+        step15.setVisible(false);
+        step21.setVisible(false);
+        step22.setVisible(false);
+        step23.setVisible(false);
+        step24.setVisible(false);
+        step25.setVisible(false);
+        step31.setVisible(false);
+        step32.setVisible(false);
+        step33.setVisible(false);
+        step34.setVisible(false);
+        step35.setVisible(false);
+        step41.setVisible(false);
+        step42.setVisible(false);
+        step43.setVisible(false);
+        step44.setVisible(false);
+        step45.setVisible(false);
+        step51.setVisible(false);
+        step52.setVisible(false);
+        step53.setVisible(false);
+        step54.setVisible(false);
+        step55.setVisible(false);
+        step61.setVisible(false);
+        step62.setVisible(false);
+        step63.setVisible(false);
+        step64.setVisible(false);
+        step65.setVisible(false);
+        
+        num2.setEnabled(false);
+        num3.setEnabled(false);
+        num4.setEnabled(false);
+        num5.setEnabled(false);
+
+        Random random = new Random();
+
+        int max = 100;
+        int min = 1;
+
+        for (int i = 0; i < 5; i++) {
+            int randomNumber = random.nextInt(max - min + 1) + min;
+            numberArray[i] = randomNumber;
+        }
+
+        num1.setText(String.valueOf(numberArray[0]));
+        num2.setText(String.valueOf(numberArray[1]));
+        num3.setText(String.valueOf(numberArray[2]));
+        num4.setText(String.valueOf(numberArray[3]));
+        num5.setText(String.valueOf(numberArray[4]));
+
+        insertionSortSub.setLocation(650, 10);
+        insertionSortSub.setResizable(false);
+        insertionSortSub.setVisible(true);
+        insertionSortSub.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+
+        insertionSortSub.num1.setText(String.valueOf(numberArray[0]));
+        insertionSortSub.num2.setText(String.valueOf(numberArray[1]));
+        insertionSortSub.num3.setText(String.valueOf(numberArray[2]));
+        insertionSortSub.num4.setText(String.valueOf(numberArray[3]));
+        insertionSortSub.num5.setText(String.valueOf(numberArray[4]));
+
+        subArray.add(numberArray[0]);
     }
 
     /**
@@ -27,22 +118,1067 @@ public class InsertionSort extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        homeBtn = new javax.swing.JButton();
+        num1 = new javax.swing.JRadioButton();
+        num2 = new javax.swing.JRadioButton();
+        num3 = new javax.swing.JRadioButton();
+        num4 = new javax.swing.JRadioButton();
+        num5 = new javax.swing.JRadioButton();
+        step15 = new javax.swing.JRadioButton();
+        step14 = new javax.swing.JRadioButton();
+        step12 = new javax.swing.JRadioButton();
+        step11 = new javax.swing.JRadioButton();
+        step13 = new javax.swing.JRadioButton();
+        mainLbl = new javax.swing.JLabel();
+        exitBtn = new javax.swing.JButton();
+        step1Lbl = new javax.swing.JLabel();
+        step2Lbl = new javax.swing.JLabel();
+        step21 = new javax.swing.JRadioButton();
+        step22 = new javax.swing.JRadioButton();
+        step23 = new javax.swing.JRadioButton();
+        step24 = new javax.swing.JRadioButton();
+        step25 = new javax.swing.JRadioButton();
+        step3Lbl = new javax.swing.JLabel();
+        step31 = new javax.swing.JRadioButton();
+        step32 = new javax.swing.JRadioButton();
+        step33 = new javax.swing.JRadioButton();
+        step34 = new javax.swing.JRadioButton();
+        step35 = new javax.swing.JRadioButton();
+        step4Lbl = new javax.swing.JLabel();
+        step41 = new javax.swing.JRadioButton();
+        step42 = new javax.swing.JRadioButton();
+        step43 = new javax.swing.JRadioButton();
+        step44 = new javax.swing.JRadioButton();
+        step45 = new javax.swing.JRadioButton();
+        step5Lbl = new javax.swing.JLabel();
+        step51 = new javax.swing.JRadioButton();
+        step52 = new javax.swing.JRadioButton();
+        step53 = new javax.swing.JRadioButton();
+        step54 = new javax.swing.JRadioButton();
+        step55 = new javax.swing.JRadioButton();
+        tryAgainBtn = new javax.swing.JButton();
+        videoBtn = new javax.swing.JButton();
+        leaveBtn = new javax.swing.JButton();
+        shiftBtn = new javax.swing.JButton();
+        step6Lbl = new javax.swing.JLabel();
+        step61 = new javax.swing.JRadioButton();
+        step62 = new javax.swing.JRadioButton();
+        step63 = new javax.swing.JRadioButton();
+        step64 = new javax.swing.JRadioButton();
+        step65 = new javax.swing.JRadioButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Learn Insertion Sort");
+
+        jPanel1.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+
+        jLabel1.setFont(new java.awt.Font("Trajan Pro", 1, 22)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel1.setText("Learn Insertion Sort");
+
+        homeBtn.setBackground(java.awt.SystemColor.window);
+        homeBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sortgame/homeIcon.png"))); // NOI18N
+        homeBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        homeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBtnActionPerformed(evt);
+            }
+        });
+
+        num1.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        num1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        num1.setText("1");
+        num1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num1ActionPerformed(evt);
+            }
+        });
+
+        num2.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        num2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        num2.setText("2");
+        num2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num2ActionPerformed(evt);
+            }
+        });
+
+        num3.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        num3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        num3.setText("3");
+        num3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num3ActionPerformed(evt);
+            }
+        });
+
+        num4.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        num4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        num4.setText("4");
+        num4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num4ActionPerformed(evt);
+            }
+        });
+
+        num5.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        num5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        num5.setText("5");
+        num5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num5ActionPerformed(evt);
+            }
+        });
+
+        step15.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step15.setText("5");
+        step15.setEnabled(false);
+
+        step14.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step14.setText("4");
+        step14.setEnabled(false);
+
+        step12.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step12.setText("2");
+        step12.setEnabled(false);
+
+        step11.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step11.setText("1");
+        step11.setEnabled(false);
+        step11.setHideActionText(true);
+
+        step13.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step13.setText("3");
+        step13.setEnabled(false);
+
+        mainLbl.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        mainLbl.setText("Round 1");
+
+        exitBtn.setBackground(java.awt.SystemColor.window);
+        exitBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        exitBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sortgame/exitIcon.png"))); // NOI18N
+        exitBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        exitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitBtnActionPerformed(evt);
+            }
+        });
+
+        step1Lbl.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        step1Lbl.setText("Step 1");
+
+        step2Lbl.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        step2Lbl.setText("Step 2");
+
+        step21.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step21.setText("1");
+        step21.setEnabled(false);
+
+        step22.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step22.setText("2");
+        step22.setEnabled(false);
+
+        step23.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step23.setText("3");
+        step23.setEnabled(false);
+
+        step24.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step24.setText("4");
+        step24.setEnabled(false);
+
+        step25.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step25.setText("5");
+        step25.setEnabled(false);
+
+        step3Lbl.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        step3Lbl.setText("Step 3");
+
+        step31.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step31.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step31.setText("1");
+        step31.setEnabled(false);
+
+        step32.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step32.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step32.setText("2");
+        step32.setEnabled(false);
+
+        step33.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step33.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step33.setText("3");
+        step33.setEnabled(false);
+
+        step34.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step34.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step34.setText("4");
+        step34.setEnabled(false);
+
+        step35.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step35.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step35.setText("5");
+        step35.setEnabled(false);
+
+        step4Lbl.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step4Lbl.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        step4Lbl.setText("Step 4");
+
+        step41.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step41.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step41.setText("1");
+        step41.setEnabled(false);
+
+        step42.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step42.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step42.setText("2");
+        step42.setEnabled(false);
+
+        step43.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step43.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step43.setText("3");
+        step43.setEnabled(false);
+
+        step44.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step44.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step44.setText("4");
+        step44.setEnabled(false);
+
+        step45.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step45.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step45.setText("5");
+        step45.setEnabled(false);
+
+        step5Lbl.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step5Lbl.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        step5Lbl.setText("Step 5");
+
+        step51.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step51.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step51.setText("1");
+        step51.setEnabled(false);
+
+        step52.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step52.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step52.setText("2");
+        step52.setEnabled(false);
+
+        step53.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step53.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step53.setText("3");
+        step53.setEnabled(false);
+
+        step54.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step54.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step54.setText("4");
+        step54.setEnabled(false);
+
+        step55.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step55.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step55.setText("5");
+        step55.setEnabled(false);
+
+        tryAgainBtn.setBackground(java.awt.SystemColor.window);
+        tryAgainBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        tryAgainBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sortgame/reload.png"))); // NOI18N
+        tryAgainBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        tryAgainBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tryAgainBtnActionPerformed(evt);
+            }
+        });
+
+        videoBtn.setBackground(java.awt.SystemColor.window);
+        videoBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        videoBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sortgame/videoIcon.png"))); // NOI18N
+        videoBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        videoBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                videoBtnActionPerformed(evt);
+            }
+        });
+
+        leaveBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        leaveBtn.setText("Leave");
+        leaveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                leaveBtnActionPerformed(evt);
+            }
+        });
+
+        shiftBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        shiftBtn.setText("Shift");
+        shiftBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shiftBtnActionPerformed(evt);
+            }
+        });
+
+        step6Lbl.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step6Lbl.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        step6Lbl.setText("Step 6");
+
+        step61.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step61.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step61.setText("1");
+        step61.setEnabled(false);
+
+        step62.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step62.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step62.setText("2");
+        step62.setEnabled(false);
+
+        step63.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step63.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step63.setText("3");
+        step63.setEnabled(false);
+
+        step64.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step64.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step64.setText("4");
+        step64.setEnabled(false);
+
+        step65.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        step65.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        step65.setText("5");
+        step65.setEnabled(false);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(step11)
+                                .addGap(18, 18, 18)
+                                .addComponent(step12)
+                                .addGap(18, 18, 18)
+                                .addComponent(step13)
+                                .addGap(18, 18, 18)
+                                .addComponent(step14)
+                                .addGap(18, 18, 18)
+                                .addComponent(step15))
+                            .addComponent(mainLbl)
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(num1)
+                                .addGap(18, 18, 18)
+                                .addComponent(num2)
+                                .addGap(18, 18, 18)
+                                .addComponent(num3)
+                                .addGap(18, 18, 18)
+                                .addComponent(num4)
+                                .addGap(18, 18, 18)
+                                .addComponent(num5))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(videoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(tryAgainBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(step1Lbl)
+                                        .addComponent(step2Lbl)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(step3Lbl)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addComponent(step21)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(step22)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(step23)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(step24)))
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step25))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(step4Lbl)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addComponent(step31)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(step32)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(step33)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(step34)))
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step35))
+                                        .addComponent(step6Lbl)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(step51)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step52)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step53)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step54)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step55))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(step61)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step62)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step63)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step64)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step65))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(step5Lbl)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addComponent(step41)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(step42)))
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step43)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step44)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(step45))))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(shiftBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(leaveBtn)
+                        .addGap(50, 50, 50))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(mainLbl)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(num1)
+                    .addComponent(num2)
+                    .addComponent(num3)
+                    .addComponent(num4)
+                    .addComponent(num5))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(leaveBtn)
+                    .addComponent(shiftBtn))
+                .addGap(10, 10, 10)
+                .addComponent(step1Lbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(step12)
+                    .addComponent(step11)
+                    .addComponent(step13)
+                    .addComponent(step14)
+                    .addComponent(step15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(step2Lbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(step21)
+                    .addComponent(step22)
+                    .addComponent(step23)
+                    .addComponent(step24)
+                    .addComponent(step25))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(step3Lbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(step31)
+                    .addComponent(step32)
+                    .addComponent(step33)
+                    .addComponent(step34)
+                    .addComponent(step35))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(step4Lbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(step41)
+                    .addComponent(step42)
+                    .addComponent(step43)
+                    .addComponent(step44)
+                    .addComponent(step45))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(step5Lbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(step51)
+                    .addComponent(step52)
+                    .addComponent(step53)
+                    .addComponent(step54)
+                    .addComponent(step55))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(step6Lbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(step61)
+                    .addComponent(step62)
+                    .addComponent(step63)
+                    .addComponent(step64)
+                    .addComponent(step65))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tryAgainBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(videoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
+        HomeScreen homeScreen = new HomeScreen();
+        homeScreen.setLocation(400, 100);
+        homeScreen.setSize(500, 300);
+        homeScreen.setResizable(false);
+        homeScreen.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_homeBtnActionPerformed
+
+    private void num1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num1ActionPerformed
+        if (num1.isSelected()) {
+            num2.setSelected(false);
+            num3.setSelected(false);
+            num4.setSelected(false);
+            num5.setSelected(false);
+        }
+    }//GEN-LAST:event_num1ActionPerformed
+
+    private void num2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num2ActionPerformed
+        if (num2.isSelected()) {
+            num1.setSelected(false);
+            num3.setSelected(false);
+            num4.setSelected(false);
+            num5.setSelected(false);
+        }
+    }//GEN-LAST:event_num2ActionPerformed
+
+    private void num3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num3ActionPerformed
+        if (num3.isSelected()) {
+            num1.setSelected(false);
+            num2.setSelected(false);
+            num4.setSelected(false);
+            num5.setSelected(false);
+        }
+    }//GEN-LAST:event_num3ActionPerformed
+
+    private void num4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num4ActionPerformed
+        if (num4.isSelected()) {
+            num1.setSelected(false);
+            num2.setSelected(false);
+            num3.setSelected(false);
+            num5.setSelected(false);
+        }
+    }//GEN-LAST:event_num4ActionPerformed
+
+    private void num5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num5ActionPerformed
+        if (num5.isSelected()) {
+            num1.setSelected(false);
+            num2.setSelected(false);
+            num3.setSelected(false);
+            num4.setSelected(false);
+        }
+    }//GEN-LAST:event_num5ActionPerformed
+
+    private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exitBtnActionPerformed
+
+    private void tryAgainBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tryAgainBtnActionPerformed
+        InsertionSort insertionSort = new InsertionSort();
+        insertionSort.setLocation(250, 10);
+        insertionSort.setResizable(false);
+        insertionSort.setVisible(true);
+        insertionSortSub.dispose();
+        this.dispose();
+    }//GEN-LAST:event_tryAgainBtnActionPerformed
+
+    private void videoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_videoBtnActionPerformed
+
+        /* Video play start */
+        InsertionSortVideo insertionSortVideo = new InsertionSortVideo();
+        insertionSortVideo.setLocation(400, 100);
+        insertionSortVideo.setSize(600, 400);
+        insertionSortVideo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        insertionSortVideo.setResizable(false);
+        insertionSortVideo.setVisible(true);
+
+        Canvas canvas = new Canvas();
+
+        canvas.setBackground(Color.black);
+
+        try {
+            insertionSortVideo.videoPanel.setLayout(new BorderLayout());
+
+            insertionSortVideo.videoPanel.add(canvas);
+            insertionSortVideo.add(insertionSortVideo.videoPanel);
+
+            NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "lib");
+            Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
+
+            MediaPlayerFactory mpf = new MediaPlayerFactory();
+
+            EmbeddedMediaPlayer emp = mpf.newEmbeddedMediaPlayer();
+            emp.setVideoSurface(mpf.newVideoSurface(canvas));
+
+            emp.toggleFullScreen();
+
+            emp.setEnableKeyInputHandling(false);
+            emp.setEnableMouseInputHandling(false);
+
+            String file = "Selection Sort Intro.mp4";
+
+            emp.prepareMedia(file);
+
+            emp.play();
+
+        } catch (Exception e) {
+            System.err.println("Exception : " + e);
+        }
+
+        this.dispose();
+    }//GEN-LAST:event_videoBtnActionPerformed
+
+    private void shiftBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shiftBtnActionPerformed
+        if (round == 1) {
+            JOptionPane.showMessageDialog(null, "Sorry! Your action is incorrect !");
+            num1.setSelected(false);
+
+        } else if (round == 2) {
+
+            if (this.isSorted()) {
+                JOptionPane.showMessageDialog(null, "Sorry! Your sub array is sorted already !");
+                num2.setSelected(false);
+
+            } else {
+                this.shiftRoundTwo();
+
+                subArray.set(0, Integer.parseInt(num1.getText()));
+                subArray.set(1, Integer.parseInt(num2.getText()));
+                subArray.add(Integer.parseInt(num3.getText()));
+            }
+        } else if (round == 3) {
+
+            if (this.isSorted()) {
+                JOptionPane.showMessageDialog(null, "Sorry! Your sub array is sorted already !");
+                num3.setSelected(false);
+
+            } else {
+                this.shiftRoundThree();
+
+                subArray.set(0, Integer.parseInt(num1.getText()));
+                subArray.set(1, Integer.parseInt(num2.getText()));
+                subArray.set(2, Integer.parseInt(num3.getText()));
+                subArray.add(Integer.parseInt(num4.getText()));
+            }
+
+        }
+    }//GEN-LAST:event_shiftBtnActionPerformed
+
+    private void leaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaveBtnActionPerformed
+        if (round == 1) {
+            
+            this.leaveRoundOne();
+            subArray.add(Integer.parseInt(num2.getText()));
+
+        } else if (round == 2) {
+
+            if (this.isSorted()) {
+
+                this.leaveRoundTwo();
+                subArray.add(Integer.parseInt(num3.getText()));
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Sorry! Your sub array is not sorted !");
+                num1.setSelected(false);
+                num2.setSelected(false);
+            }
+
+        } else if (round == 3) {
+            
+            if (this.isSorted()) {
+
+                this.leaveRoundThree();
+                subArray.add(Integer.parseInt(num4.getText()));
+
+            } else {
+                
+                JOptionPane.showMessageDialog(null, "Sorry! Your sub array is not sorted !");
+                num1.setSelected(false);
+                num2.setSelected(false);
+            }
+            
+        }
+    }//GEN-LAST:event_leaveBtnActionPerformed
+
+    /* Start of method setPreviousValues to catch previous round */
+    private void setPreviousValues(JRadioButton sortNum1, JRadioButton sortNum2, JRadioButton sortNum3, JRadioButton sortNum4, JRadioButton sortNum5) {
+        sortNum1.setText(num1.getText());
+        sortNum2.setText(num2.getText());
+        sortNum3.setText(num3.getText());
+        sortNum4.setText(num4.getText());
+        sortNum5.setText(num5.getText());
+    }
+    /* End of method setPreviousValues */
+
+    /* Start of method setVisibleOldValues to visible the round */
+    private void setVisibleOldValues(JRadioButton sortNum1, JRadioButton sortNum2, JRadioButton sortNum3, JRadioButton sortNum4, JRadioButton sortNum5) {
+        sortNum1.setVisible(true);
+        sortNum2.setVisible(true);
+        sortNum3.setVisible(true);
+        sortNum4.setVisible(true);
+        sortNum5.setVisible(true);
+    }
+    /* End of method setVisibleOldValuess */
+    
+    /* Start of method setHiddeOldValues to visible the round */
+    private void setHiddenOldValues(JRadioButton sortNum1, JRadioButton sortNum2, JRadioButton sortNum3, JRadioButton sortNum4, JRadioButton sortNum5) {
+        sortNum1.setVisible(false);
+        sortNum2.setVisible(false);
+        sortNum3.setVisible(false);
+        sortNum4.setVisible(false);
+        sortNum5.setVisible(false);
+    }
+    /* End of method setHiddenOldValuess */
+    
+    /* Start of method setBackgorundDefault to visible the round */
+    private void setBackgroundDefault(JRadioButton sortNum1, JRadioButton sortNum2, JRadioButton sortNum3, JRadioButton sortNum4, JRadioButton sortNum5) {
+        sortNum1.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sortNum2.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sortNum3.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sortNum4.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sortNum5.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+    }
+    /* End of method setBackgroundDefault */
+
+    public void showIntroMsg() {
+        JOptionPane.showMessageDialog(null, " In first round you need to assume, the sub array is sorted. \n"
+                + " In other rounds, find whether it is sorted or not. \n If sorted, click Leave button \n"
+                + " If not, select the value to shift and click Shift button. ");
+    }
+
+    private boolean isSorted() {
+        int min = subArray.get(subArray.size() - 1);
+        for (int value : subArray) {
+            if (value > min) {
+                return (false);
+            }
+        }
+        return (true);
+    }
+
+    private void shiftRoundTwo() {
+        num2.setSelected(false);
+
+        step1Lbl.setText("Round 2 Initial");
+        step1Lbl.setVisible(true);
+
+        step11.setBackground(Color.GREEN);
+        step12.setBackground(Color.RED);
+        step11.setText(num1.getText());
+        step12.setText(num2.getText());
+        step13.setText(num3.getText());
+        step14.setText(num4.getText());
+        step15.setText(num5.getText());
+
+        this.setVisibleOldValues(step11, step12, step13, step14, step15);
+
+        String x = num1.getText();
+        String y = num2.getText();
+
+        num1.setText(y);
+        num2.setText(x);
+
+        step2Lbl.setText("Round 2 Step 1");
+        step2Lbl.setVisible(true);
+
+        step22.setBackground(Color.GREEN);
+        step21.setText("__");
+        step22.setText(num2.getText());
+        step23.setText(num3.getText());
+        step24.setText(num4.getText());
+        step25.setText(num5.getText());
+
+        this.setVisibleOldValues(step21, step22, step23, step24, step25);
+
+        step3Lbl.setText("Round 2 Step 2");
+        step3Lbl.setVisible(true);
+
+        step31.setBackground(Color.CYAN);
+        step32.setBackground(Color.GREEN);
+        step31.setText(num1.getText());
+        step32.setText(num2.getText());
+        step33.setText(num3.getText());
+        step34.setText(num4.getText());
+        step35.setText(num5.getText());
+
+        this.setVisibleOldValues(step31, step32, step33, step34, step35);
+
+        this.setPreviousValues(insertionSortSub.sort21, insertionSortSub.sort22, insertionSortSub.sort23, insertionSortSub.sort24, insertionSortSub.sort25);
+        insertionSortSub.round2Lbl.setVisible(true);
+        this.setVisibleOldValues(insertionSortSub.sort21, insertionSortSub.sort22, insertionSortSub.sort23, insertionSortSub.sort24, insertionSortSub.sort25);
+        insertionSortSub.sort21.setBackground(Color.GREEN);
+        insertionSortSub.sort22.setBackground(Color.GREEN);
+
+        mainLbl.setText("Round 3");
+
+        round += 1;
+
+        num2.setEnabled(false);
+        num3.setEnabled(true);
+
+        num2.setBackground(Color.CYAN);
+    }
+
+    private void shiftRoundThree() {
+        num3.setSelected(false);
+
+        step1Lbl.setText("Round 3 Initial");
+        step1Lbl.setVisible(true);
+
+        step11.setBackground(Color.GREEN);
+        step12.setBackground(Color.GREEN);
+        step13.setBackground(Color.RED);
+
+        step11.setText(num1.getText());
+        step12.setText(num2.getText());
+        step13.setText(num3.getText());
+        step14.setText(num4.getText());
+        step15.setText(num5.getText());
+
+        this.setVisibleOldValues(step11, step12, step13, step14, step15);
+
+        String x = num1.getText();
+        String y = num2.getText();
+        String z = num3.getText();
+
+        int shift = 1;
+
+        if (Integer.parseInt(z) < Integer.parseInt(x)) {
+            num1.setText(z);
+            num2.setText(x);
+            num3.setText(y);
+
+            shift = 2;
+
+        } else {
+            num2.setText(z);
+            num3.setText(y);
+        }
+
+        step2Lbl.setText("Round 3 Step 1");
+        step2Lbl.setVisible(true);
+
+        step21.setBackground(Color.GREEN);
+        step22.setBackground(Color.YELLOW);
+        step23.setBackground(Color.GREEN);
+
+        step21.setText(x);
+        step22.setText("__");
+        step23.setText(y);
+        step24.setText(num4.getText());
+        step25.setText(num5.getText());
+
+        this.setVisibleOldValues(step21, step22, step23, step24, step25);
+
+        if (shift == 1) {
+
+            step3Lbl.setText("Round 3 Step 2");
+            step3Lbl.setVisible(true);
+
+            step31.setBackground(Color.GREEN);
+            step32.setBackground(Color.CYAN);
+            step33.setBackground(Color.GREEN);
+
+            step31.setText(x);
+            step32.setText(z);
+            step33.setText(y);
+            step34.setText(num4.getText());
+            step35.setText(num5.getText());
+
+            this.setVisibleOldValues(step31, step32, step33, step34, step35);
+        } else {
+
+            step3Lbl.setText("Round 3 Step 2");
+            step3Lbl.setVisible(true);
+
+            step31.setBackground(Color.YELLOW);
+            step32.setBackground(Color.GREEN);
+            step33.setBackground(Color.GREEN);
+
+            step31.setText("__");
+            step32.setText(x);
+            step33.setText(y);
+            step34.setText(num4.getText());
+            step35.setText(num5.getText());
+
+            this.setVisibleOldValues(step31, step32, step33, step34, step35);
+
+            step4Lbl.setText("Round 3 Step 3");
+            step4Lbl.setVisible(true);
+
+            step41.setBackground(Color.CYAN);
+            step42.setBackground(Color.GREEN);
+            step43.setBackground(Color.GREEN);
+
+            step41.setText(z);
+            step42.setText(x);
+            step43.setText(y);
+            step44.setText(num4.getText());
+            step45.setText(num5.getText());
+
+            this.setVisibleOldValues(step41, step42, step43, step44, step45);
+
+        }
+
+        this.setPreviousValues(insertionSortSub.sort31, insertionSortSub.sort32, insertionSortSub.sort33, insertionSortSub.sort34, insertionSortSub.sort35);
+        insertionSortSub.round3Lbl.setVisible(true);
+        this.setVisibleOldValues(insertionSortSub.sort31, insertionSortSub.sort32, insertionSortSub.sort33, insertionSortSub.sort34, insertionSortSub.sort35);
+        insertionSortSub.sort31.setBackground(Color.GREEN);
+        insertionSortSub.sort32.setBackground(Color.GREEN);
+        insertionSortSub.sort33.setBackground(Color.GREEN);
+
+        mainLbl.setText("Round 4");
+
+        round += 1;
+
+        num3.setEnabled(false);
+        num4.setEnabled(true);
+
+        num3.setBackground(Color.CYAN);
+    }
+
+    private void leaveRoundOne(){
+        num1.setSelected(false);
+
+            this.setPreviousValues(insertionSortSub.sort11, insertionSortSub.sort12, insertionSortSub.sort13, insertionSortSub.sort14, insertionSortSub.sort15);
+            insertionSortSub.round1Lbl.setVisible(true);
+            this.setVisibleOldValues(insertionSortSub.sort11, insertionSortSub.sort12, insertionSortSub.sort13, insertionSortSub.sort14, insertionSortSub.sort15);
+            insertionSortSub.sort11.setBackground(Color.GREEN);
+
+            mainLbl.setText("Round 2");
+
+            this.step1Lbl.setVisible(true);
+            this.setPreviousValues(step11, step12, step13, step14, step15);
+            this.setVisibleOldValues(step11, step12, step13, step14, step15);
+            step1Lbl.setText("Round 1 Step 1");
+            step11.setBackground(Color.BLUE);
+
+            round += 1;
+
+            num1.setEnabled(false);
+            num2.setEnabled(true);
+
+            num1.setBackground(Color.CYAN);
+    }
+    
+    private void leaveRoundTwo() {
+        num2.setSelected(false);
+
+        this.setPreviousValues(insertionSortSub.sort21, insertionSortSub.sort22, insertionSortSub.sort23, insertionSortSub.sort24, insertionSortSub.sort25);
+        insertionSortSub.round2Lbl.setVisible(true);
+        this.setVisibleOldValues(insertionSortSub.sort21, insertionSortSub.sort22, insertionSortSub.sort23, insertionSortSub.sort24, insertionSortSub.sort25);
+
+        insertionSortSub.sort21.setBackground(Color.GREEN);
+        insertionSortSub.sort22.setBackground(Color.GREEN);
+
+        mainLbl.setText("Round 3");
+
+        this.step1Lbl.setVisible(true);
+        this.setPreviousValues(step11, step12, step13, step14, step15);
+        this.setVisibleOldValues(step11, step12, step13, step14, step15);
+        step1Lbl.setText("Round 2 Step 1");
+
+        step11.setBackground(Color.CYAN);
+        step12.setBackground(Color.BLUE);
+
+        round += 1;
+
+        num2.setEnabled(false);
+        num3.setEnabled(true);
+
+        num2.setBackground(Color.CYAN);
+    }
+
+    private void leaveRoundThree() {
+        
+        num3.setSelected(false);
+
+        this.setPreviousValues(insertionSortSub.sort31, insertionSortSub.sort32, insertionSortSub.sort33, insertionSortSub.sort34, insertionSortSub.sort35);
+        insertionSortSub.round3Lbl.setVisible(true);
+        this.setVisibleOldValues(insertionSortSub.sort31, insertionSortSub.sort32, insertionSortSub.sort33, insertionSortSub.sort34, insertionSortSub.sort35);
+
+        insertionSortSub.sort31.setBackground(Color.GREEN);
+        insertionSortSub.sort32.setBackground(Color.GREEN);
+        insertionSortSub.sort33.setBackground(Color.GREEN);
+
+        mainLbl.setText("Round 4");
+
+        this.step1Lbl.setVisible(true);
+        step1Lbl.setText("Round 3 Step 1");
+        
+        this.setPreviousValues(step11, step12, step13, step14, step15);
+        this.setVisibleOldValues(step11, step12, step13, step14, step15);
+        
+        this.setHiddenOldValues(step21, step22, step23, step24, step25);
+        this.setHiddenOldValues(step31, step32, step33, step34, step35);
+        this.setBackgroundDefault(step21, step22, step23, step24, step25);
+        this.setBackgroundDefault(step31, step32, step33, step34, step35);
+        this.step2Lbl.setVisible(false);
+        this.step3Lbl.setVisible(false);
+
+        step11.setBackground(Color.CYAN);
+        step12.setBackground(Color.CYAN);
+        step13.setBackground(Color.BLUE);
+
+        round += 1;
+
+        num3.setEnabled(false);
+        num4.setEnabled(true);
+
+        num3.setBackground(Color.CYAN);
+    }
     /**
      * @param args the command line arguments
      */
@@ -79,5 +1215,55 @@ public class InsertionSort extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton exitBtn;
+    private javax.swing.JButton homeBtn;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton leaveBtn;
+    private javax.swing.JLabel mainLbl;
+    private javax.swing.JRadioButton num1;
+    private javax.swing.JRadioButton num2;
+    private javax.swing.JRadioButton num3;
+    private javax.swing.JRadioButton num4;
+    private javax.swing.JRadioButton num5;
+    private javax.swing.JButton shiftBtn;
+    private javax.swing.JRadioButton step11;
+    private javax.swing.JRadioButton step12;
+    private javax.swing.JRadioButton step13;
+    private javax.swing.JRadioButton step14;
+    private javax.swing.JRadioButton step15;
+    private javax.swing.JLabel step1Lbl;
+    private javax.swing.JRadioButton step21;
+    private javax.swing.JRadioButton step22;
+    private javax.swing.JRadioButton step23;
+    private javax.swing.JRadioButton step24;
+    private javax.swing.JRadioButton step25;
+    private javax.swing.JLabel step2Lbl;
+    private javax.swing.JRadioButton step31;
+    private javax.swing.JRadioButton step32;
+    private javax.swing.JRadioButton step33;
+    private javax.swing.JRadioButton step34;
+    private javax.swing.JRadioButton step35;
+    private javax.swing.JLabel step3Lbl;
+    private javax.swing.JRadioButton step41;
+    private javax.swing.JRadioButton step42;
+    private javax.swing.JRadioButton step43;
+    private javax.swing.JRadioButton step44;
+    private javax.swing.JRadioButton step45;
+    private javax.swing.JLabel step4Lbl;
+    private javax.swing.JRadioButton step51;
+    private javax.swing.JRadioButton step52;
+    private javax.swing.JRadioButton step53;
+    private javax.swing.JRadioButton step54;
+    private javax.swing.JRadioButton step55;
+    private javax.swing.JLabel step5Lbl;
+    private javax.swing.JRadioButton step61;
+    private javax.swing.JRadioButton step62;
+    private javax.swing.JRadioButton step63;
+    private javax.swing.JRadioButton step64;
+    private javax.swing.JRadioButton step65;
+    private javax.swing.JLabel step6Lbl;
+    private javax.swing.JButton tryAgainBtn;
+    private javax.swing.JButton videoBtn;
     // End of variables declaration//GEN-END:variables
 }
