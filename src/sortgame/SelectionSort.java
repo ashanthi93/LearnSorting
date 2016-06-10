@@ -255,11 +255,6 @@ public class SelectionSort extends javax.swing.JFrame {
         sort21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort21.setText("1");
         sort21.setEnabled(false);
-        sort21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sort21ActionPerformed(evt);
-            }
-        });
 
         sort22.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         sort22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -275,11 +270,6 @@ public class SelectionSort extends javax.swing.JFrame {
         sort24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort24.setText("4");
         sort24.setEnabled(false);
-        sort24.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sort24ActionPerformed(evt);
-            }
-        });
 
         sort25.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         sort25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -303,11 +293,6 @@ public class SelectionSort extends javax.swing.JFrame {
         sort33.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort33.setText("3");
         sort33.setEnabled(false);
-        sort33.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sort33ActionPerformed(evt);
-            }
-        });
 
         sort34.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         sort34.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
