@@ -216,7 +216,7 @@ public class SelectionSortHomeScreen extends javax.swing.JFrame {
                 SelectionSortFiveDigit selectionSortFiveDigit = new SelectionSortFiveDigit(3);
                 selectionSortFiveDigit.setVisible(true);
             }
-            this.setVisible(false);
+            this.dispose();
         }else if (tDigitsRadioBtn.isSelected()){
         
         }

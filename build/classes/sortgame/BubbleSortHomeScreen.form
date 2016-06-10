@@ -155,12 +155,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="1 to 10"/>
           </Properties>
-<<<<<<< HEAD
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="twoRangeRadioBtnActionPerformed"/>
           </Events>
-=======
->>>>>>> 767885d03b540bdb2124e4c9bff4a13696d9cf94
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
@@ -177,34 +174,25 @@
             </Property>
             <Property name="text" type="java.lang.String" value="1 to 100"/>
           </Properties>
-<<<<<<< HEAD
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="threeRangeRadioBtnActionPerformed"/>
           </Events>
-=======
->>>>>>> 767885d03b540bdb2124e4c9bff4a13696d9cf94
         </Component>
         <Component class="javax.swing.JButton" name="homeBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Back to Home"/>
           </Properties>
-<<<<<<< HEAD
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="homeBtnActionPerformed"/>
           </Events>
-=======
->>>>>>> 767885d03b540bdb2124e4c9bff4a13696d9cf94
         </Component>
         <Component class="javax.swing.JButton" name="startBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Start"/>
           </Properties>
-<<<<<<< HEAD
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="startBtnActionPerformed"/>
           </Events>
-=======
->>>>>>> 767885d03b540bdb2124e4c9bff4a13696d9cf94
         </Component>
       </SubComponents>
     </Container>

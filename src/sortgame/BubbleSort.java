@@ -6,17 +6,81 @@
 
 package sortgame;
 
+import java.util.Random;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+
 /**
  *
  * @author CHAM PC
  */
-public class BubbleSortFiveDigit extends javax.swing.JFrame {
-
+public class BubbleSort extends javax.swing.JFrame {
+    int numberArray[] = new int[5];
+    int round = 1, step = 1, count = 0;
     /**
      * Creates new form BubbleSortFiveDigit
+     * @param range
      */
-    public BubbleSortFiveDigit() {
+    public BubbleSort(int range) {
         initComponents();
+        sort1.setVisible(false);
+        sort2.setVisible(false);
+        sort3.setVisible(false);
+        sort4.setVisible(false);
+        sort5.setVisible(false);
+        sort6.setVisible(false);
+        sort7.setVisible(false);
+        sort8.setVisible(false);
+        sort9.setVisible(false);
+        sort10.setVisible(false);
+        sort11.setVisible(false);
+        sort12.setVisible(false);
+        sort13.setVisible(false);
+        sort14.setVisible(false);
+        sort15.setVisible(false);
+        sort16.setVisible(false);
+        sort17.setVisible(false);
+        sort18.setVisible(false);
+        sort19.setVisible(false);
+        sort20.setVisible(false);
+        sort21.setVisible(false);
+        sort22.setVisible(false);
+        sort23.setVisible(false);
+        sort24.setVisible(false);
+        sort25.setVisible(false);
+        
+        Random random = new Random();
+
+        if (range == 2) {
+
+            int max = 10;
+            int min = 1;
+
+            for (int i = 0; i < 5; i++) {
+                int randomNumber = random.nextInt(max - min + 1) + min;
+                numberArray[i] = randomNumber;
+            }
+        } else {
+            int max = 100;
+            int min = 1;
+
+            for (int i = 0; i < 5; i++) {
+                int randomNumber = random.nextInt(max - min + 1) + min;
+                numberArray[i] = randomNumber;
+            }
+        }
+
+        num1.setText(String.valueOf(numberArray[0]));
+        num2.setText(String.valueOf(numberArray[1]));
+        num3.setText(String.valueOf(numberArray[2]));
+        num4.setText(String.valueOf(numberArray[3]));
+        num5.setText(String.valueOf(numberArray[4]));
+        
+        this.numDisabling();
+    }
+
+    private BubbleSort() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -398,35 +462,245 @@ public class BubbleSortFiveDigit extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
-        SelectionSortHomeScreen selectionSortHomeScreen = new SelectionSortHomeScreen();
-        selectionSortHomeScreen.setVisible(true);
-        this.setVisible(false);
+        BubbleSortHomeScreen bubbleSortHomeScreen = new BubbleSortHomeScreen();
+        bubbleSortHomeScreen.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void num1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num1ActionPerformed
-        
+        if((round == 1 && step == 4)){
+            this.action(num1, num2);
+            num1.setSelected(false);
+            round += 1;
+            step = 1;
+            this.numDisabling();
+        }
     }//GEN-LAST:event_num1ActionPerformed
 
     private void num2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num2ActionPerformed
-        
+        if((round == 1 && step == 3) || (round == 2 && step == 3)){
+            if(round == 2 && step == 3){
+                this.action(num2, num3);
+                round += 1;
+                step = 1;
+                this.numDisabling();
+            }else{
+                this.action(num2, num3);
+            }
+            num2.setSelected(false);
+            /*if(round == 2 && step == 3){
+                round += 1;
+                step = 1;
+                this.numDisabling();
+            }*/
+        }else if((round == 1 && step == 4)){
+            this.action(num1, num2);
+            num2.setSelected(false);
+            round += 1;
+            step = 1;
+            this.numDisabling();
+        }
     }//GEN-LAST:event_num2ActionPerformed
 
     private void num3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num3ActionPerformed
-        
+        if((round == 1 && step == 2) || (round == 2 && step == 2) || (round == 3 && step == 2)){
+            if(round == 3 && step == 2){
+                this.action(num3, num4);
+                round += 1;
+                step = 1;
+                this.numDisabling();
+            }else{
+                this.action(num3, num4);
+            }
+            
+            num3.setSelected(false);
+            /*if(round == 3 && step == 2){
+                round += 1;
+                step = 1;
+                this.numDisabling();
+            }*/
+        }else if((round == 1 && step == 3) || (round == 2 && step == 3)){
+            if(round == 2 && step == 3){
+                this.action(num2, num3);
+                round += 1;
+                step = 1;
+                this.numDisabling();
+            }else{
+                this.action(num2, num3);
+            }
+            num3.setSelected(false);
+            /*if(round == 2 && step == 3){
+                round += 1;
+                step = 1;
+                this.numDisabling();
+            }*/
+        }
     }//GEN-LAST:event_num3ActionPerformed
 
     private void num4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num4ActionPerformed
-        
+        if((round == 1 && step == 1) || (round == 2 && step == 1) || (round == 3 && step == 1) || (round == 4 && step == 1)){
+            if(round == 4 && step == 1){
+                this.action(num4, num5);
+                round += 1;
+                step = 1;
+                this.numDisabling();
+            }else{
+                this.action(num4, num5);
+            }
+            
+            num4.setSelected(false);
+            /*if(round == 4 && step == 1){
+                round += 1;
+                step = 1;
+                this.numDisabling();
+            }*/
+        }else if((round == 1 && step == 2) || (round == 2 && step == 2) || (round == 3 && step == 2)){
+            if(round == 3 && step == 2){
+                this.action(num3, num4);
+                round += 1;
+                step = 1;
+                this.numDisabling();
+            }else{
+                this.action(num3, num4);
+            }
+            
+            num4.setSelected(false);
+            /*if(round == 3 && step == 2){
+                round += 1;
+                step = 1;
+                this.numDisabling();
+            }*/
+        }
     }//GEN-LAST:event_num4ActionPerformed
 
     private void num5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num5ActionPerformed
-        
+        if((round == 1 && step == 1) || (round == 2 && step == 1) || (round == 3 && step == 1) || (round == 4 && step == 1)){
+            if(round == 4 && step == 1){
+                this.action(num4, num5);
+                round += 1;
+                step = 1;
+                this.numDisabling();
+            }else{
+                this.action(num4, num5);
+            }
+            
+            num5.setSelected(false);
+            /*if(round == 4 && step == 1){
+                round += 1;
+                step = 1;
+                this.numDisabling();
+            }*/
+        }
     }//GEN-LAST:event_num5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public final void numDisabling(){
+        if (round == 1 && step == 1){
+            num1.setEnabled(false);
+            num2.setEnabled(false);
+            num3.setEnabled(false);
+            num4.setEnabled(true);
+            num5.setEnabled(true);
+        }else if(round == 1 && step == 2){
+            num1.setEnabled(false);
+            num2.setEnabled(false);
+            num5.setEnabled(false);
+            num3.setEnabled(true);
+            num4.setEnabled(true);
+        }else if(round == 1 && step == 3){
+            num1.setEnabled(false);
+            num4.setEnabled(false);
+            num5.setEnabled(false);
+            num2.setEnabled(true);
+            num3.setEnabled(true);
+        }else if(round == 1 && step == 4){
+            num3.setEnabled(false);
+            num4.setEnabled(false);
+            num5.setEnabled(false);
+            num1.setEnabled(true);
+            num2.setEnabled(true);
+        }else if(round == 2 && step == 1){
+            num1.setEnabled(false);
+            num2.setEnabled(false);
+            num3.setEnabled(false);
+            num4.setEnabled(true);
+            num5.setEnabled(true);
+        }else if(round == 2 && step == 2){
+            num1.setEnabled(false);
+            num2.setEnabled(false);
+            num5.setEnabled(false);
+            num3.setEnabled(true);
+            num4.setEnabled(true);
+        }else if(round == 2 && step == 3){
+            num1.setEnabled(false);
+            num4.setEnabled(false);
+            num5.setEnabled(false);
+            num2.setEnabled(true);
+            num3.setEnabled(true);
+        }else if(round == 3 && step == 1){
+            num1.setEnabled(false);
+            num2.setEnabled(false);
+            num3.setEnabled(false);
+            num4.setEnabled(true);
+            num5.setEnabled(true);
+        }else if(round == 3 && step == 2){
+            num1.setEnabled(false);
+            num2.setEnabled(false);
+            num5.setEnabled(false);
+            num3.setEnabled(true);
+            num4.setEnabled(true);
+        }else if(round == 4 && step == 1){
+            num1.setEnabled(false);
+            num2.setEnabled(false);
+            num3.setEnabled(false);
+            num4.setEnabled(true);
+            num5.setEnabled(true);
+        }else if(round == 5){
+            num1.setEnabled(false);
+            num2.setEnabled(false);
+            num3.setEnabled(false);
+            num4.setEnabled(false);
+            num5.setEnabled(false);
+            JOptionPane.showMessageDialog(this,"You won the game...!");
+        }
+    }
+    
+    public void action(JRadioButton one, JRadioButton two) {
+        int numone = Integer.parseInt(one.getText());
+        int numtwo = Integer.parseInt(two.getText());
+        if (one.isSelected() && (numone <= numtwo)) {
+            step += 1;
+            //round += 1;
+            count = 0;
+            this.numDisabling();
+        }else if(two.isSelected() && (numtwo <= numone)){
+            two.setText(numone+"");
+            one.setText(numtwo+"");
+            step += 1;
+            //round += 1;
+            count = 0;
+            this.numDisabling();
+        } else {
+            if (count < 1) {
+                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only two chances.");
+                num5.setSelected(false);
+                count += 1;
+            } else if (count < 2) {
+                JOptionPane.showMessageDialog(this, "Invalid Selection! \n You have only one chance.");
+                num5.setSelected(false);
+                count += 1;
+            } else {
+                JOptionPane.showMessageDialog(this, "You lost the game!");
+                BubbleSortHomeScreen BubbleSortHomeScreen = new BubbleSortHomeScreen();
+                BubbleSortHomeScreen.setVisible(true);
+                this.dispose();
+            }
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -444,20 +718,20 @@ public class BubbleSortFiveDigit extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BubbleSortFiveDigit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BubbleSort.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BubbleSortFiveDigit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BubbleSort.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BubbleSortFiveDigit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BubbleSort.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BubbleSortFiveDigit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BubbleSort.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BubbleSortFiveDigit().setVisible(true);
+                new BubbleSort().setVisible(true);
             }
         });
     }
