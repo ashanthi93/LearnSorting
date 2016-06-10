@@ -10,6 +10,7 @@ import com.sun.jna.NativeLibrary;
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -257,11 +258,21 @@ public class SelectionSort extends javax.swing.JFrame {
         sort21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort21.setText("1");
         sort21.setEnabled(false);
+        sort21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sort21ActionPerformed(evt);
+            }
+        });
 
         sort22.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         sort22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort22.setText("2");
         sort22.setEnabled(false);
+        sort22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sort22ActionPerformed(evt);
+            }
+        });
 
         sort23.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         sort23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -272,6 +283,11 @@ public class SelectionSort extends javax.swing.JFrame {
         sort24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort24.setText("4");
         sort24.setEnabled(false);
+        sort24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sort24ActionPerformed(evt);
+            }
+        });
 
         sort25.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         sort25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -295,6 +311,11 @@ public class SelectionSort extends javax.swing.JFrame {
         sort33.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         sort33.setText("3");
         sort33.setEnabled(false);
+        sort33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sort33ActionPerformed(evt);
+            }
+        });
 
         sort34.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
         sort34.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -772,6 +793,22 @@ public class SelectionSort extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void sort22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sort22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sort22ActionPerformed
+    
+    private void sort21ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        // TODO add your handling code here:
+    }
+    
+    private void sort24ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        // TODO add your handling code here:
+    }
+    
+    private void sort33ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        // TODO add your handling code here:
+    }
+    
     /* Start of method checkValue to check selected value is current minimum or not */
     private boolean checkValue(int selectedValue, int startPosition) {
         int min = numberArray[startPosition];
