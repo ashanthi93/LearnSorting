@@ -5,6 +5,18 @@
  */
 package sortgame;
 
+import com.sun.jna.Native;
+import com.sun.jna.NativeLibrary;
+import java.awt.BorderLayout;
+import java.awt.Canvas;
+import java.awt.Color;
+import javax.swing.JFrame;
+import static sortgame.SortGame.homeScreen;
+import uk.co.caprica.vlcj.binding.LibVlc;
+import uk.co.caprica.vlcj.player.MediaPlayerFactory;
+import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
+import uk.co.caprica.vlcj.runtime.RuntimeUtil;
+
 /**
  *
  * @author ASHI
@@ -32,6 +44,7 @@ public class SelectionSortVideo extends javax.swing.JFrame {
         startBtn = new javax.swing.JButton();
         homeBtn = new javax.swing.JButton();
         replayBtn = new javax.swing.JButton();
+        exitBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Learn Selection Sort");
@@ -52,34 +65,60 @@ public class SelectionSortVideo extends javax.swing.JFrame {
 
         jPanel2.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
 
+        startBtn.setBackground(java.awt.SystemColor.window);
         startBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        startBtn.setText("Try Now");
-        startBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        startBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sortgame/starticon.png"))); // NOI18N
+        startBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         startBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startBtnActionPerformed(evt);
             }
         });
 
+        homeBtn.setBackground(java.awt.SystemColor.window);
         homeBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        homeBtn.setText("Home");
-        homeBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sortgame/homeIcon.png"))); // NOI18N
+        homeBtn.setToolTipText("");
+        homeBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        homeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBtnActionPerformed(evt);
+            }
+        });
 
+        replayBtn.setBackground(java.awt.SystemColor.window);
         replayBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        replayBtn.setText("Replay");
-        replayBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        replayBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sortgame/reload.png"))); // NOI18N
+        replayBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        replayBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                replayBtnActionPerformed(evt);
+            }
+        });
+
+        exitBtn.setBackground(java.awt.SystemColor.window);
+        exitBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        exitBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sortgame/exitIcon.png"))); // NOI18N
+        exitBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        exitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(152, Short.MAX_VALUE)
-                .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(182, Short.MAX_VALUE)
+                .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(replayBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(replayBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(startBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(startBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -87,10 +126,14 @@ public class SelectionSortVideo extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(startBtn)
-                    .addComponent(replayBtn)
-                    .addComponent(homeBtn))
+                    .addComponent(startBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(replayBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -119,11 +162,72 @@ public class SelectionSortVideo extends javax.swing.JFrame {
 
     private void startBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnActionPerformed
         SelectionSort selectionSort = new SelectionSort();
-        selectionSort.setLocation(550,10);
+        selectionSort.setLocation(550, 10);
         selectionSort.setResizable(false);
         selectionSort.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_startBtnActionPerformed
+
+    private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exitBtnActionPerformed
+
+    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
+        HomeScreen homeScreen = new HomeScreen();
+
+        homeScreen.setLocation(400, 100);
+        homeScreen.setSize(500, 300);
+        homeScreen.setResizable(false);
+        homeScreen.setVisible(true);
+
+        this.dispose();
+    }//GEN-LAST:event_homeBtnActionPerformed
+
+    private void replayBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_replayBtnActionPerformed
+        /* Video play start */
+        SelectionSortVideo selectionSortVideo = new SelectionSortVideo();
+        selectionSortVideo.setLocation(400, 100);
+        selectionSortVideo.setSize(600, 400);
+        selectionSortVideo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        selectionSortVideo.setResizable(false);
+        selectionSortVideo.setVisible(true);
+
+        Canvas canvas = new Canvas();
+
+        canvas.setBackground(Color.black);
+
+        try {
+            selectionSortVideo.videoPanel.setLayout(new BorderLayout());
+
+            selectionSortVideo.videoPanel.add(canvas);
+            selectionSortVideo.add(selectionSortVideo.videoPanel);
+
+            NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "lib");
+            Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
+
+            MediaPlayerFactory mpf = new MediaPlayerFactory();
+
+            EmbeddedMediaPlayer emp = mpf.newEmbeddedMediaPlayer();
+            emp.setVideoSurface(mpf.newVideoSurface(canvas));
+
+            emp.toggleFullScreen();
+
+            emp.setEnableKeyInputHandling(false);
+            emp.setEnableMouseInputHandling(false);
+
+            String file = "Selection Sort Intro.mp4";
+
+            emp.prepareMedia(file);
+
+            emp.play();
+
+        } catch (Exception e) {
+            System.err.println("Exception : " + e);
+        }
+
+        this.dispose();
+
+    }//GEN-LAST:event_replayBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,6 +265,7 @@ public class SelectionSortVideo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton exitBtn;
     private javax.swing.JButton homeBtn;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton replayBtn;
