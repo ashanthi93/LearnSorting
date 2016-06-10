@@ -119,8 +119,8 @@ public class SelectionSortVideo extends javax.swing.JFrame {
 
     private void startBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnActionPerformed
         SelectionSort selectionSort = new SelectionSort();
-        selectionSort.setLocation(400,10);
-        //selectionSort.setSize(500,300);
+        selectionSort.setLocation(550,10);
+        selectionSort.setResizable(false);
         selectionSort.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_startBtnActionPerformed

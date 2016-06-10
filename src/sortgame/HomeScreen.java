@@ -200,6 +200,7 @@ public class HomeScreen extends javax.swing.JFrame {
             selectionSortVideo.setLocation(400,100);
             selectionSortVideo.setSize(600,400);
             selectionSortVideo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            selectionSortVideo.setResizable(false);
             selectionSortVideo.setVisible(true);
 
             Canvas canvas = new Canvas();
