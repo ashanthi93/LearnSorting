@@ -137,6 +137,7 @@ public class SelectionSort extends javax.swing.JFrame {
         sort54 = new javax.swing.JRadioButton();
         sort55 = new javax.swing.JRadioButton();
         tryAgainBtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -372,6 +373,16 @@ public class SelectionSort extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(java.awt.SystemColor.window);
+        jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sortgame/videoIcon.png"))); // NOI18N
+        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -465,9 +476,11 @@ public class SelectionSort extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tryAgainBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -531,10 +544,11 @@ public class SelectionSort extends javax.swing.JFrame {
                     .addComponent(sort54)
                     .addComponent(sort55))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tryAgainBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tryAgainBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -710,6 +724,52 @@ public class SelectionSort extends javax.swing.JFrame {
         selectionSort.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_tryAgainBtnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        /* Video play start */
+            SelectionSortVideo selectionSortVideo = new SelectionSortVideo();
+            selectionSortVideo.setLocation(400,100);
+            selectionSortVideo.setSize(600,400);
+            selectionSortVideo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            selectionSortVideo.setResizable(false);
+            selectionSortVideo.setVisible(true);
+
+            Canvas canvas = new Canvas();
+
+            canvas.setBackground(Color.black);
+
+            try {
+                selectionSortVideo.videoPanel.setLayout(new BorderLayout());
+
+                selectionSortVideo.videoPanel.add(canvas);
+                selectionSortVideo.add(selectionSortVideo.videoPanel);
+
+                NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "lib");
+                Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
+
+                MediaPlayerFactory mpf = new MediaPlayerFactory();
+
+                EmbeddedMediaPlayer emp = mpf.newEmbeddedMediaPlayer();
+                emp.setVideoSurface(mpf.newVideoSurface(canvas));
+
+                emp.toggleFullScreen();
+
+                emp.setEnableKeyInputHandling(false);
+                emp.setEnableMouseInputHandling(false);
+
+                String file = "Selection Sort Intro.mp4";
+
+                emp.prepareMedia(file);
+
+                emp.play();
+
+            } catch (Exception e) {
+                System.err.println("Exception : " + e);
+            }
+
+            this.dispose();
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /* Start of method checkValue to check selected value is current minimum or not */
     private boolean checkValue(int selectedValue, int startPosition) {
@@ -985,6 +1045,7 @@ public class SelectionSort extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton exitBtn;
     private javax.swing.JButton homeBtn;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
