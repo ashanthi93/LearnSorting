@@ -93,7 +93,7 @@
                       <Component id="bubbleRadioBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="okBtn" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="cancelBtn" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>

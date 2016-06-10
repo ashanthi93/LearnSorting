@@ -140,6 +140,7 @@ public class SelectionSort extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Learn Selection Sort");
 
         jPanel1.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
 

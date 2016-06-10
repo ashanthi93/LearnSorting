@@ -142,7 +142,7 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(insertionRadioBtn)
                     .addComponent(bubbleRadioBtn))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(okBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(23, Short.MAX_VALUE))
@@ -197,8 +197,8 @@ public class HomeScreen extends javax.swing.JFrame {
 
             /* Video play start */
             SelectionSortVideo selectionSortVideo = new SelectionSortVideo();
-            selectionSortVideo.setLocation(400,100);
-            selectionSortVideo.setSize(600,400);
+            selectionSortVideo.setLocation(400, 100);
+            selectionSortVideo.setSize(600, 400);
             selectionSortVideo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             selectionSortVideo.setResizable(false);
             selectionSortVideo.setVisible(true);
@@ -239,13 +239,95 @@ public class HomeScreen extends javax.swing.JFrame {
             this.dispose();
 
         } else if (insertionRadioBtn.isSelected()) {
-            InsertionSortHomeScreen insertionSortHomeScreen = new InsertionSortHomeScreen();
-            insertionSortHomeScreen.setVisible(true);
+
+            /* Video play start */
+            InsertionSortVideo insertionSortVideo = new InsertionSortVideo();
+            insertionSortVideo.setLocation(400, 100);
+            insertionSortVideo.setSize(600, 400);
+            insertionSortVideo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            insertionSortVideo.setResizable(false);
+            insertionSortVideo.setVisible(true);
+
+            Canvas canvas = new Canvas();
+
+            canvas.setBackground(Color.black);
+
+            try {
+                insertionSortVideo.videoPanel.setLayout(new BorderLayout());
+
+                insertionSortVideo.videoPanel.add(canvas);
+                insertionSortVideo.add(insertionSortVideo.videoPanel);
+
+                NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "lib");
+                Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
+
+                MediaPlayerFactory mpf = new MediaPlayerFactory();
+
+                EmbeddedMediaPlayer emp = mpf.newEmbeddedMediaPlayer();
+                emp.setVideoSurface(mpf.newVideoSurface(canvas));
+
+                emp.toggleFullScreen();
+
+                emp.setEnableKeyInputHandling(false);
+                emp.setEnableMouseInputHandling(false);
+
+                String file = "Selection Sort Intro.mp4";
+
+                emp.prepareMedia(file);
+
+                emp.play();
+
+            } catch (Exception e) {
+                System.err.println("Exception : " + e);
+            }
+
             this.dispose();
+
         } else if (bubbleRadioBtn.isSelected()) {
-            BubbleSortHomeScreen bubbleSortHomeScreen = new BubbleSortHomeScreen();
-            bubbleSortHomeScreen.setVisible(true);
+
+            /* Video play start */
+            BubbleSortVideo bubbleSortVideo = new BubbleSortVideo();
+            bubbleSortVideo.setLocation(400, 100);
+            bubbleSortVideo.setSize(600, 400);
+            bubbleSortVideo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            bubbleSortVideo.setResizable(false);
+            bubbleSortVideo.setVisible(true);
+
+            Canvas canvas = new Canvas();
+
+            canvas.setBackground(Color.black);
+
+            try {
+                bubbleSortVideo.videoPanel.setLayout(new BorderLayout());
+
+                bubbleSortVideo.videoPanel.add(canvas);
+                bubbleSortVideo.add(bubbleSortVideo.videoPanel);
+
+                NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "lib");
+                Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
+
+                MediaPlayerFactory mpf = new MediaPlayerFactory();
+
+                EmbeddedMediaPlayer emp = mpf.newEmbeddedMediaPlayer();
+                emp.setVideoSurface(mpf.newVideoSurface(canvas));
+
+                emp.toggleFullScreen();
+
+                emp.setEnableKeyInputHandling(false);
+                emp.setEnableMouseInputHandling(false);
+
+                String file = "Selection Sort Intro.mp4";
+
+                emp.prepareMedia(file);
+
+                emp.play();
+
+            } catch (Exception e) {
+                System.err.println("Exception : " + e);
+            }
+
             this.dispose();
+
         }
     }//GEN-LAST:event_okBtnActionPerformed
 
