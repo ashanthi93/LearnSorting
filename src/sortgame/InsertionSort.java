@@ -30,12 +30,12 @@ public class InsertionSort extends javax.swing.JFrame {
     int round = 1;
     int count = 0;
     ArrayList<Integer> subArray = new ArrayList();
-    
+
     public InsertionSortSub insertionSortSub = new InsertionSortSub();
-    
+
     public InsertionSort() {
         initComponents();
-        
+
         /* hide the labels and radio buttons */
         step1Lbl.setVisible(false);
         step2Lbl.setVisible(false);
@@ -72,7 +72,7 @@ public class InsertionSort extends javax.swing.JFrame {
         num3.setEnabled(false);
         num4.setEnabled(false);
         num5.setEnabled(false);
-        
+
         Random random = new Random();
 
         int max = 100;
@@ -88,21 +88,21 @@ public class InsertionSort extends javax.swing.JFrame {
         num3.setText(String.valueOf(numberArray[2]));
         num4.setText(String.valueOf(numberArray[3]));
         num5.setText(String.valueOf(numberArray[4]));
-        
+
         insertionSortSub.setLocation(650, 10);
         insertionSortSub.setResizable(false);
         insertionSortSub.setVisible(true);
         insertionSortSub.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        
+
         insertionSortSub.num1.setText(String.valueOf(numberArray[0]));
         insertionSortSub.num2.setText(String.valueOf(numberArray[1]));
         insertionSortSub.num3.setText(String.valueOf(numberArray[2]));
         insertionSortSub.num4.setText(String.valueOf(numberArray[3]));
         insertionSortSub.num5.setText(String.valueOf(numberArray[4]));
-        
+
         subArray.add(numberArray[0]);
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -637,7 +637,7 @@ public class InsertionSort extends javax.swing.JFrame {
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void num1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num1ActionPerformed
-        if (num1.isSelected()){
+        if (num1.isSelected()) {
             num2.setSelected(false);
             num3.setSelected(false);
             num4.setSelected(false);
@@ -646,7 +646,7 @@ public class InsertionSort extends javax.swing.JFrame {
     }//GEN-LAST:event_num1ActionPerformed
 
     private void num2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num2ActionPerformed
-        if (num2.isSelected()){
+        if (num2.isSelected()) {
             num1.setSelected(false);
             num3.setSelected(false);
             num4.setSelected(false);
@@ -655,7 +655,7 @@ public class InsertionSort extends javax.swing.JFrame {
     }//GEN-LAST:event_num2ActionPerformed
 
     private void num3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num3ActionPerformed
-        if (num3.isSelected()){
+        if (num3.isSelected()) {
             num1.setSelected(false);
             num2.setSelected(false);
             num4.setSelected(false);
@@ -664,7 +664,7 @@ public class InsertionSort extends javax.swing.JFrame {
     }//GEN-LAST:event_num3ActionPerformed
 
     private void num4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num4ActionPerformed
-        if (num4.isSelected()){
+        if (num4.isSelected()) {
             num1.setSelected(false);
             num2.setSelected(false);
             num3.setSelected(false);
@@ -673,7 +673,7 @@ public class InsertionSort extends javax.swing.JFrame {
     }//GEN-LAST:event_num4ActionPerformed
 
     private void num5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num5ActionPerformed
-        if (num5.isSelected()){
+        if (num5.isSelected()) {
             num1.setSelected(false);
             num2.setSelected(false);
             num3.setSelected(false);
@@ -710,11 +710,11 @@ public class InsertionSort extends javax.swing.JFrame {
     }//GEN-LAST:event_tryAgainBtnActionPerformed
 
     private void videoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_videoBtnActionPerformed
-        
+
         /* Video play start */
         InsertionSortVideo insertionSortVideo = new InsertionSortVideo();
-        insertionSortVideo.setLocation(400,100);
-        insertionSortVideo.setSize(600,400);
+        insertionSortVideo.setLocation(400, 100);
+        insertionSortVideo.setSize(600, 400);
         insertionSortVideo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         insertionSortVideo.setResizable(false);
         insertionSortVideo.setVisible(true);
@@ -756,32 +756,74 @@ public class InsertionSort extends javax.swing.JFrame {
     }//GEN-LAST:event_videoBtnActionPerformed
 
     private void shiftBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shiftBtnActionPerformed
-        if (round == 1){
+        if (round == 1) {
             JOptionPane.showMessageDialog(null, "Sorry! Your action is incorrect !");
             num1.setSelected(false);
+
+        } else if (round == 2) {
+
+            if (this.isSorted()) {
+                JOptionPane.showMessageDialog(null, "Sorry! Your sub array is sorted already !");
+                num2.setSelected(false);
+
+            } else {
+                this.shiftRoundTwo();
+
+                subArray.set(0, Integer.parseInt(num1.getText()));
+                subArray.set(1, Integer.parseInt(num2.getText()));
+                subArray.add(Integer.parseInt(num3.getText()));
+            }
+        } else if (round == 3) {
+
+            if (this.isSorted()) {
+                JOptionPane.showMessageDialog(null, "Sorry! Your sub array is sorted already !");
+                num3.setSelected(false);
+
+            } else {
+                this.shiftRoundThree();
+
+                subArray.set(0, Integer.parseInt(num1.getText()));
+                subArray.set(1, Integer.parseInt(num2.getText()));
+                subArray.set(2, Integer.parseInt(num3.getText()));
+                subArray.add(Integer.parseInt(num4.getText()));
+            }
+
         }
     }//GEN-LAST:event_shiftBtnActionPerformed
 
     private void leaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaveBtnActionPerformed
-        if (round == 1){
-            num1.setSelected(false);
-            num2.setEnabled(true);
+        if (round == 1) {
             
-            this.setPreviousValues(insertionSortSub.sort11, insertionSortSub.sort12, insertionSortSub.sort13, insertionSortSub.sort14, insertionSortSub.sort15);
-            insertionSortSub.round1Lbl.setVisible(true);
-            this.setVisibleOldValues(insertionSortSub.sort11, insertionSortSub.sort12, insertionSortSub.sort13, insertionSortSub.sort14, insertionSortSub.sort15);
-            insertionSortSub.sort11.setBackground(Color.GREEN);
-            mainLbl.setText("Round 2");
-            
-            this.step1Lbl.setVisible(true);
-            this.setPreviousValues(step11, step12, step13, step14, step15);
-            this.setVisibleOldValues(step11, step12, step13, step14, step15);
-            step1Lbl.setText("Round 1 Step 1");
-            step11.setBackground(Color.BLUE);
-            
+            this.leaveRoundOne();
             subArray.add(Integer.parseInt(num2.getText()));
+
+        } else if (round == 2) {
+
+            if (this.isSorted()) {
+
+                this.leaveRoundTwo();
+                subArray.add(Integer.parseInt(num3.getText()));
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Sorry! Your sub array is not sorted !");
+                num1.setSelected(false);
+                num2.setSelected(false);
+            }
+
+        } else if (round == 3) {
             
-            round += 1;
+            if (this.isSorted()) {
+
+                this.leaveRoundThree();
+                subArray.add(Integer.parseInt(num4.getText()));
+
+            } else {
+                
+                JOptionPane.showMessageDialog(null, "Sorry! Your sub array is not sorted !");
+                num1.setSelected(false);
+                num2.setSelected(false);
+            }
+            
         }
     }//GEN-LAST:event_leaveBtnActionPerformed
 
@@ -794,7 +836,7 @@ public class InsertionSort extends javax.swing.JFrame {
         sortNum5.setText(num5.getText());
     }
     /* End of method setPreviousValues */
-    
+
     /* Start of method setVisibleOldValues to visible the round */
     private void setVisibleOldValues(JRadioButton sortNum1, JRadioButton sortNum2, JRadioButton sortNum3, JRadioButton sortNum4, JRadioButton sortNum5) {
         sortNum1.setVisible(true);
@@ -805,10 +847,312 @@ public class InsertionSort extends javax.swing.JFrame {
     }
     /* End of method setVisibleOldValuess */
     
-    public void showIntroMsg(){
+    /* Start of method setHiddeOldValues to visible the round */
+    private void setHiddenOldValues(JRadioButton sortNum1, JRadioButton sortNum2, JRadioButton sortNum3, JRadioButton sortNum4, JRadioButton sortNum5) {
+        sortNum1.setVisible(false);
+        sortNum2.setVisible(false);
+        sortNum3.setVisible(false);
+        sortNum4.setVisible(false);
+        sortNum5.setVisible(false);
+    }
+    /* End of method setHiddenOldValuess */
+    
+    /* Start of method setBackgorundDefault to visible the round */
+    private void setBackgroundDefault(JRadioButton sortNum1, JRadioButton sortNum2, JRadioButton sortNum3, JRadioButton sortNum4, JRadioButton sortNum5) {
+        sortNum1.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sortNum2.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sortNum3.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sortNum4.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+        sortNum5.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
+    }
+    /* End of method setBackgroundDefault */
+
+    public void showIntroMsg() {
         JOptionPane.showMessageDialog(null, " In first round you need to assume, the sub array is sorted. \n"
                 + " In other rounds, find whether it is sorted or not. \n If sorted, click Leave button \n"
                 + " If not, select the value to shift and click Shift button. ");
+    }
+
+    private boolean isSorted() {
+        int min = subArray.get(subArray.size() - 1);
+        for (int value : subArray) {
+            if (value > min) {
+                return (false);
+            }
+        }
+        return (true);
+    }
+
+    private void shiftRoundTwo() {
+        num2.setSelected(false);
+
+        step1Lbl.setText("Round 2 Initial");
+        step1Lbl.setVisible(true);
+
+        step11.setBackground(Color.GREEN);
+        step12.setBackground(Color.RED);
+        step11.setText(num1.getText());
+        step12.setText(num2.getText());
+        step13.setText(num3.getText());
+        step14.setText(num4.getText());
+        step15.setText(num5.getText());
+
+        this.setVisibleOldValues(step11, step12, step13, step14, step15);
+
+        String x = num1.getText();
+        String y = num2.getText();
+
+        num1.setText(y);
+        num2.setText(x);
+
+        step2Lbl.setText("Round 2 Step 1");
+        step2Lbl.setVisible(true);
+
+        step22.setBackground(Color.GREEN);
+        step21.setText("__");
+        step22.setText(num2.getText());
+        step23.setText(num3.getText());
+        step24.setText(num4.getText());
+        step25.setText(num5.getText());
+
+        this.setVisibleOldValues(step21, step22, step23, step24, step25);
+
+        step3Lbl.setText("Round 2 Step 2");
+        step3Lbl.setVisible(true);
+
+        step31.setBackground(Color.CYAN);
+        step32.setBackground(Color.GREEN);
+        step31.setText(num1.getText());
+        step32.setText(num2.getText());
+        step33.setText(num3.getText());
+        step34.setText(num4.getText());
+        step35.setText(num5.getText());
+
+        this.setVisibleOldValues(step31, step32, step33, step34, step35);
+
+        this.setPreviousValues(insertionSortSub.sort21, insertionSortSub.sort22, insertionSortSub.sort23, insertionSortSub.sort24, insertionSortSub.sort25);
+        insertionSortSub.round2Lbl.setVisible(true);
+        this.setVisibleOldValues(insertionSortSub.sort21, insertionSortSub.sort22, insertionSortSub.sort23, insertionSortSub.sort24, insertionSortSub.sort25);
+        insertionSortSub.sort21.setBackground(Color.GREEN);
+        insertionSortSub.sort22.setBackground(Color.GREEN);
+
+        mainLbl.setText("Round 3");
+
+        round += 1;
+
+        num2.setEnabled(false);
+        num3.setEnabled(true);
+
+        num2.setBackground(Color.CYAN);
+    }
+
+    private void shiftRoundThree() {
+        num3.setSelected(false);
+
+        step1Lbl.setText("Round 3 Initial");
+        step1Lbl.setVisible(true);
+
+        step11.setBackground(Color.GREEN);
+        step12.setBackground(Color.GREEN);
+        step13.setBackground(Color.RED);
+
+        step11.setText(num1.getText());
+        step12.setText(num2.getText());
+        step13.setText(num3.getText());
+        step14.setText(num4.getText());
+        step15.setText(num5.getText());
+
+        this.setVisibleOldValues(step11, step12, step13, step14, step15);
+
+        String x = num1.getText();
+        String y = num2.getText();
+        String z = num3.getText();
+
+        int shift = 1;
+
+        if (Integer.parseInt(z) < Integer.parseInt(x)) {
+            num1.setText(z);
+            num2.setText(x);
+            num3.setText(y);
+
+            shift = 2;
+
+        } else {
+            num2.setText(z);
+            num3.setText(y);
+        }
+
+        step2Lbl.setText("Round 3 Step 1");
+        step2Lbl.setVisible(true);
+
+        step21.setBackground(Color.GREEN);
+        step22.setBackground(Color.YELLOW);
+        step23.setBackground(Color.GREEN);
+
+        step21.setText(x);
+        step22.setText("__");
+        step23.setText(y);
+        step24.setText(num4.getText());
+        step25.setText(num5.getText());
+
+        this.setVisibleOldValues(step21, step22, step23, step24, step25);
+
+        if (shift == 1) {
+
+            step3Lbl.setText("Round 3 Step 2");
+            step3Lbl.setVisible(true);
+
+            step31.setBackground(Color.GREEN);
+            step32.setBackground(Color.CYAN);
+            step33.setBackground(Color.GREEN);
+
+            step31.setText(x);
+            step32.setText(z);
+            step33.setText(y);
+            step34.setText(num4.getText());
+            step35.setText(num5.getText());
+
+            this.setVisibleOldValues(step31, step32, step33, step34, step35);
+        } else {
+
+            step3Lbl.setText("Round 3 Step 2");
+            step3Lbl.setVisible(true);
+
+            step31.setBackground(Color.YELLOW);
+            step32.setBackground(Color.GREEN);
+            step33.setBackground(Color.GREEN);
+
+            step31.setText("__");
+            step32.setText(x);
+            step33.setText(y);
+            step34.setText(num4.getText());
+            step35.setText(num5.getText());
+
+            this.setVisibleOldValues(step31, step32, step33, step34, step35);
+
+            step4Lbl.setText("Round 3 Step 3");
+            step4Lbl.setVisible(true);
+
+            step41.setBackground(Color.CYAN);
+            step42.setBackground(Color.GREEN);
+            step43.setBackground(Color.GREEN);
+
+            step41.setText(z);
+            step42.setText(x);
+            step43.setText(y);
+            step44.setText(num4.getText());
+            step45.setText(num5.getText());
+
+            this.setVisibleOldValues(step41, step42, step43, step44, step45);
+
+        }
+
+        this.setPreviousValues(insertionSortSub.sort31, insertionSortSub.sort32, insertionSortSub.sort33, insertionSortSub.sort34, insertionSortSub.sort35);
+        insertionSortSub.round3Lbl.setVisible(true);
+        this.setVisibleOldValues(insertionSortSub.sort31, insertionSortSub.sort32, insertionSortSub.sort33, insertionSortSub.sort34, insertionSortSub.sort35);
+        insertionSortSub.sort31.setBackground(Color.GREEN);
+        insertionSortSub.sort32.setBackground(Color.GREEN);
+        insertionSortSub.sort33.setBackground(Color.GREEN);
+
+        mainLbl.setText("Round 4");
+
+        round += 1;
+
+        num3.setEnabled(false);
+        num4.setEnabled(true);
+
+        num3.setBackground(Color.CYAN);
+    }
+
+    private void leaveRoundOne(){
+        num1.setSelected(false);
+
+            this.setPreviousValues(insertionSortSub.sort11, insertionSortSub.sort12, insertionSortSub.sort13, insertionSortSub.sort14, insertionSortSub.sort15);
+            insertionSortSub.round1Lbl.setVisible(true);
+            this.setVisibleOldValues(insertionSortSub.sort11, insertionSortSub.sort12, insertionSortSub.sort13, insertionSortSub.sort14, insertionSortSub.sort15);
+            insertionSortSub.sort11.setBackground(Color.GREEN);
+
+            mainLbl.setText("Round 2");
+
+            this.step1Lbl.setVisible(true);
+            this.setPreviousValues(step11, step12, step13, step14, step15);
+            this.setVisibleOldValues(step11, step12, step13, step14, step15);
+            step1Lbl.setText("Round 1 Step 1");
+            step11.setBackground(Color.BLUE);
+
+            round += 1;
+
+            num1.setEnabled(false);
+            num2.setEnabled(true);
+
+            num1.setBackground(Color.CYAN);
+    }
+    
+    private void leaveRoundTwo() {
+        num2.setSelected(false);
+
+        this.setPreviousValues(insertionSortSub.sort21, insertionSortSub.sort22, insertionSortSub.sort23, insertionSortSub.sort24, insertionSortSub.sort25);
+        insertionSortSub.round2Lbl.setVisible(true);
+        this.setVisibleOldValues(insertionSortSub.sort21, insertionSortSub.sort22, insertionSortSub.sort23, insertionSortSub.sort24, insertionSortSub.sort25);
+
+        insertionSortSub.sort21.setBackground(Color.GREEN);
+        insertionSortSub.sort22.setBackground(Color.GREEN);
+
+        mainLbl.setText("Round 3");
+
+        this.step1Lbl.setVisible(true);
+        this.setPreviousValues(step11, step12, step13, step14, step15);
+        this.setVisibleOldValues(step11, step12, step13, step14, step15);
+        step1Lbl.setText("Round 2 Step 1");
+
+        step11.setBackground(Color.CYAN);
+        step12.setBackground(Color.BLUE);
+
+        round += 1;
+
+        num2.setEnabled(false);
+        num3.setEnabled(true);
+
+        num2.setBackground(Color.CYAN);
+    }
+
+    private void leaveRoundThree() {
+        
+        num3.setSelected(false);
+
+        this.setPreviousValues(insertionSortSub.sort31, insertionSortSub.sort32, insertionSortSub.sort33, insertionSortSub.sort34, insertionSortSub.sort35);
+        insertionSortSub.round3Lbl.setVisible(true);
+        this.setVisibleOldValues(insertionSortSub.sort31, insertionSortSub.sort32, insertionSortSub.sort33, insertionSortSub.sort34, insertionSortSub.sort35);
+
+        insertionSortSub.sort31.setBackground(Color.GREEN);
+        insertionSortSub.sort32.setBackground(Color.GREEN);
+        insertionSortSub.sort33.setBackground(Color.GREEN);
+
+        mainLbl.setText("Round 4");
+
+        this.step1Lbl.setVisible(true);
+        step1Lbl.setText("Round 3 Step 1");
+        
+        this.setPreviousValues(step11, step12, step13, step14, step15);
+        this.setVisibleOldValues(step11, step12, step13, step14, step15);
+        
+        this.setHiddenOldValues(step21, step22, step23, step24, step25);
+        this.setHiddenOldValues(step31, step32, step33, step34, step35);
+        this.setBackgroundDefault(step21, step22, step23, step24, step25);
+        this.setBackgroundDefault(step31, step32, step33, step34, step35);
+        this.step2Lbl.setVisible(false);
+        this.step3Lbl.setVisible(false);
+
+        step11.setBackground(Color.CYAN);
+        step12.setBackground(Color.CYAN);
+        step13.setBackground(Color.BLUE);
+
+        round += 1;
+
+        num3.setEnabled(false);
+        num4.setEnabled(true);
+
+        num3.setBackground(Color.CYAN);
     }
     /**
      * @param args the command line arguments
