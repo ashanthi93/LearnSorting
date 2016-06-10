@@ -210,10 +210,10 @@ public class SelectionSortHomeScreen extends javax.swing.JFrame {
     private void startBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnActionPerformed
         if (fDigitsRadioBtn.isSelected()){
             if (twoRangeRadioBtn.isSelected()){
-                SelectionSortFiveDigit selectionSortFiveDigit = new SelectionSortFiveDigit(2);
+                SelectionSort selectionSortFiveDigit = new SelectionSort();
                 selectionSortFiveDigit.setVisible(true);
             }else if (threeRangeRadioBtn.isSelected()){
-                SelectionSortFiveDigit selectionSortFiveDigit = new SelectionSortFiveDigit(3);
+                SelectionSort selectionSortFiveDigit = new SelectionSort();
                 selectionSortFiveDigit.setVisible(true);
             }
             this.dispose();

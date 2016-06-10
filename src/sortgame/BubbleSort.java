@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package sortgame;
 
 import java.util.Random;
@@ -15,13 +14,16 @@ import javax.swing.JRadioButton;
  * @author CHAM PC
  */
 public class BubbleSort extends javax.swing.JFrame {
+
     int numberArray[] = new int[5];
     int round = 1, step = 1, count = 0;
+
     /**
      * Creates new form BubbleSortFiveDigit
+     *
      * @param range
      */
-    public BubbleSort(int range) {
+    public BubbleSort() {
         initComponents();
         sort1.setVisible(false);
         sort2.setVisible(false);
@@ -48,26 +50,15 @@ public class BubbleSort extends javax.swing.JFrame {
         sort23.setVisible(false);
         sort24.setVisible(false);
         sort25.setVisible(false);
-        
+
         Random random = new Random();
 
-        if (range == 2) {
+        int max = 100;
+        int min = 1;
 
-            int max = 10;
-            int min = 1;
-
-            for (int i = 0; i < 5; i++) {
-                int randomNumber = random.nextInt(max - min + 1) + min;
-                numberArray[i] = randomNumber;
-            }
-        } else {
-            int max = 100;
-            int min = 1;
-
-            for (int i = 0; i < 5; i++) {
-                int randomNumber = random.nextInt(max - min + 1) + min;
-                numberArray[i] = randomNumber;
-            }
+        for (int i = 0; i < 5; i++) {
+            int randomNumber = random.nextInt(max - min + 1) + min;
+            numberArray[i] = randomNumber;
         }
 
         num1.setText(String.valueOf(numberArray[0]));
@@ -75,12 +66,8 @@ public class BubbleSort extends javax.swing.JFrame {
         num3.setText(String.valueOf(numberArray[2]));
         num4.setText(String.valueOf(numberArray[3]));
         num5.setText(String.valueOf(numberArray[4]));
-        
-        this.numDisabling();
-    }
 
-    private BubbleSort() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.numDisabling();
     }
 
     /**
@@ -468,7 +455,7 @@ public class BubbleSort extends javax.swing.JFrame {
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void num1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num1ActionPerformed
-        if((round == 1 && step == 4)){
+        if ((round == 1 && step == 4)) {
             this.action(num1, num2);
             num1.setSelected(false);
             round += 1;
@@ -478,22 +465,22 @@ public class BubbleSort extends javax.swing.JFrame {
     }//GEN-LAST:event_num1ActionPerformed
 
     private void num2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num2ActionPerformed
-        if((round == 1 && step == 3) || (round == 2 && step == 3)){
-            if(round == 2 && step == 3){
+        if ((round == 1 && step == 3) || (round == 2 && step == 3)) {
+            if (round == 2 && step == 3) {
                 this.action(num2, num3);
                 round += 1;
                 step = 1;
                 this.numDisabling();
-            }else{
+            } else {
                 this.action(num2, num3);
             }
             num2.setSelected(false);
             /*if(round == 2 && step == 3){
-                round += 1;
-                step = 1;
-                this.numDisabling();
-            }*/
-        }else if((round == 1 && step == 4)){
+             round += 1;
+             step = 1;
+             this.numDisabling();
+             }*/
+        } else if ((round == 1 && step == 4)) {
             this.action(num1, num2);
             num2.setSelected(false);
             round += 1;
@@ -503,93 +490,93 @@ public class BubbleSort extends javax.swing.JFrame {
     }//GEN-LAST:event_num2ActionPerformed
 
     private void num3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num3ActionPerformed
-        if((round == 1 && step == 2) || (round == 2 && step == 2) || (round == 3 && step == 2)){
-            if(round == 3 && step == 2){
+        if ((round == 1 && step == 2) || (round == 2 && step == 2) || (round == 3 && step == 2)) {
+            if (round == 3 && step == 2) {
                 this.action(num3, num4);
                 round += 1;
                 step = 1;
                 this.numDisabling();
-            }else{
+            } else {
                 this.action(num3, num4);
             }
-            
+
             num3.setSelected(false);
             /*if(round == 3 && step == 2){
-                round += 1;
-                step = 1;
-                this.numDisabling();
-            }*/
-        }else if((round == 1 && step == 3) || (round == 2 && step == 3)){
-            if(round == 2 && step == 3){
+             round += 1;
+             step = 1;
+             this.numDisabling();
+             }*/
+        } else if ((round == 1 && step == 3) || (round == 2 && step == 3)) {
+            if (round == 2 && step == 3) {
                 this.action(num2, num3);
                 round += 1;
                 step = 1;
                 this.numDisabling();
-            }else{
+            } else {
                 this.action(num2, num3);
             }
             num3.setSelected(false);
             /*if(round == 2 && step == 3){
-                round += 1;
-                step = 1;
-                this.numDisabling();
-            }*/
+             round += 1;
+             step = 1;
+             this.numDisabling();
+             }*/
         }
     }//GEN-LAST:event_num3ActionPerformed
 
     private void num4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num4ActionPerformed
-        if((round == 1 && step == 1) || (round == 2 && step == 1) || (round == 3 && step == 1) || (round == 4 && step == 1)){
-            if(round == 4 && step == 1){
+        if ((round == 1 && step == 1) || (round == 2 && step == 1) || (round == 3 && step == 1) || (round == 4 && step == 1)) {
+            if (round == 4 && step == 1) {
                 this.action(num4, num5);
                 round += 1;
                 step = 1;
                 this.numDisabling();
-            }else{
+            } else {
                 this.action(num4, num5);
             }
-            
+
             num4.setSelected(false);
             /*if(round == 4 && step == 1){
-                round += 1;
-                step = 1;
-                this.numDisabling();
-            }*/
-        }else if((round == 1 && step == 2) || (round == 2 && step == 2) || (round == 3 && step == 2)){
-            if(round == 3 && step == 2){
+             round += 1;
+             step = 1;
+             this.numDisabling();
+             }*/
+        } else if ((round == 1 && step == 2) || (round == 2 && step == 2) || (round == 3 && step == 2)) {
+            if (round == 3 && step == 2) {
                 this.action(num3, num4);
                 round += 1;
                 step = 1;
                 this.numDisabling();
-            }else{
+            } else {
                 this.action(num3, num4);
             }
-            
+
             num4.setSelected(false);
             /*if(round == 3 && step == 2){
-                round += 1;
-                step = 1;
-                this.numDisabling();
-            }*/
+             round += 1;
+             step = 1;
+             this.numDisabling();
+             }*/
         }
     }//GEN-LAST:event_num4ActionPerformed
 
     private void num5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num5ActionPerformed
-        if((round == 1 && step == 1) || (round == 2 && step == 1) || (round == 3 && step == 1) || (round == 4 && step == 1)){
-            if(round == 4 && step == 1){
+        if ((round == 1 && step == 1) || (round == 2 && step == 1) || (round == 3 && step == 1) || (round == 4 && step == 1)) {
+            if (round == 4 && step == 1) {
                 this.action(num4, num5);
                 round += 1;
                 step = 1;
                 this.numDisabling();
-            }else{
+            } else {
                 this.action(num4, num5);
             }
-            
+
             num5.setSelected(false);
             /*if(round == 4 && step == 1){
-                round += 1;
-                step = 1;
-                this.numDisabling();
-            }*/
+             round += 1;
+             step = 1;
+             this.numDisabling();
+             }*/
         }
     }//GEN-LAST:event_num5ActionPerformed
 
@@ -597,77 +584,77 @@ public class BubbleSort extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public final void numDisabling(){
-        if (round == 1 && step == 1){
+    public final void numDisabling() {
+        if (round == 1 && step == 1) {
             num1.setEnabled(false);
             num2.setEnabled(false);
             num3.setEnabled(false);
             num4.setEnabled(true);
             num5.setEnabled(true);
-        }else if(round == 1 && step == 2){
+        } else if (round == 1 && step == 2) {
             num1.setEnabled(false);
             num2.setEnabled(false);
             num5.setEnabled(false);
             num3.setEnabled(true);
             num4.setEnabled(true);
-        }else if(round == 1 && step == 3){
+        } else if (round == 1 && step == 3) {
             num1.setEnabled(false);
             num4.setEnabled(false);
             num5.setEnabled(false);
             num2.setEnabled(true);
             num3.setEnabled(true);
-        }else if(round == 1 && step == 4){
+        } else if (round == 1 && step == 4) {
             num3.setEnabled(false);
             num4.setEnabled(false);
             num5.setEnabled(false);
             num1.setEnabled(true);
             num2.setEnabled(true);
-        }else if(round == 2 && step == 1){
+        } else if (round == 2 && step == 1) {
             num1.setEnabled(false);
             num2.setEnabled(false);
             num3.setEnabled(false);
             num4.setEnabled(true);
             num5.setEnabled(true);
-        }else if(round == 2 && step == 2){
+        } else if (round == 2 && step == 2) {
             num1.setEnabled(false);
             num2.setEnabled(false);
             num5.setEnabled(false);
             num3.setEnabled(true);
             num4.setEnabled(true);
-        }else if(round == 2 && step == 3){
+        } else if (round == 2 && step == 3) {
             num1.setEnabled(false);
             num4.setEnabled(false);
             num5.setEnabled(false);
             num2.setEnabled(true);
             num3.setEnabled(true);
-        }else if(round == 3 && step == 1){
+        } else if (round == 3 && step == 1) {
             num1.setEnabled(false);
             num2.setEnabled(false);
             num3.setEnabled(false);
             num4.setEnabled(true);
             num5.setEnabled(true);
-        }else if(round == 3 && step == 2){
+        } else if (round == 3 && step == 2) {
             num1.setEnabled(false);
             num2.setEnabled(false);
             num5.setEnabled(false);
             num3.setEnabled(true);
             num4.setEnabled(true);
-        }else if(round == 4 && step == 1){
+        } else if (round == 4 && step == 1) {
             num1.setEnabled(false);
             num2.setEnabled(false);
             num3.setEnabled(false);
             num4.setEnabled(true);
             num5.setEnabled(true);
-        }else if(round == 5){
+        } else if (round == 5) {
             num1.setEnabled(false);
             num2.setEnabled(false);
             num3.setEnabled(false);
             num4.setEnabled(false);
             num5.setEnabled(false);
-            JOptionPane.showMessageDialog(this,"You won the game...!");
+            JOptionPane.showMessageDialog(this, "You won the game...!");
         }
     }
-    
+
     public void action(JRadioButton one, JRadioButton two) {
         int numone = Integer.parseInt(one.getText());
         int numtwo = Integer.parseInt(two.getText());
@@ -676,9 +663,9 @@ public class BubbleSort extends javax.swing.JFrame {
             //round += 1;
             count = 0;
             this.numDisabling();
-        }else if(two.isSelected() && (numtwo <= numone)){
-            two.setText(numone+"");
-            one.setText(numtwo+"");
+        } else if (two.isSelected() && (numtwo <= numone)) {
+            two.setText(numone + "");
+            one.setText(numtwo + "");
             step += 1;
             //round += 1;
             count = 0;
@@ -700,7 +687,7 @@ public class BubbleSort extends javax.swing.JFrame {
             }
         }
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -726,6 +713,7 @@ public class BubbleSort extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(BubbleSort.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

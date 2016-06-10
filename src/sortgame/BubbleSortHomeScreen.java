@@ -203,10 +203,10 @@ public class BubbleSortHomeScreen extends javax.swing.JFrame {
     private void startBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnActionPerformed
         if (fDigitsRadioBtn.isSelected()){
             if (twoRangeRadioBtn.isSelected()){
-                BubbleSort bubbleSortFiveDigit = new BubbleSort(2);
+                BubbleSort bubbleSortFiveDigit = new BubbleSort();
                 bubbleSortFiveDigit.setVisible(true);
             }else if (threeRangeRadioBtn.isSelected()){
-                BubbleSort bubbleSortFiveDigit = new BubbleSort(3);
+                BubbleSort bubbleSortFiveDigit = new BubbleSort();
                 bubbleSortFiveDigit.setVisible(true);
             }
             this.dispose();

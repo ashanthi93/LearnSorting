@@ -61,7 +61,7 @@ public class HomeScreen extends javax.swing.JFrame {
         jLabel2.setText("Select a Sorting Algorithm");
 
         selectionRadioBtn.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
-        selectionRadioBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        selectionRadioBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         selectionRadioBtn.setText("Selection Sort");
         selectionRadioBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,7 +70,7 @@ public class HomeScreen extends javax.swing.JFrame {
         });
 
         insertionRadioBtn.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
-        insertionRadioBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        insertionRadioBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         insertionRadioBtn.setText("Insertion Sort");
         insertionRadioBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,7 +79,7 @@ public class HomeScreen extends javax.swing.JFrame {
         });
 
         bubbleRadioBtn.setBackground(javax.swing.UIManager.getDefaults().getColor("window"));
-        bubbleRadioBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        bubbleRadioBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         bubbleRadioBtn.setText("Bubble Sort");
         bubbleRadioBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,18 +87,20 @@ public class HomeScreen extends javax.swing.JFrame {
             }
         });
 
-        okBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        okBtn.setText("Ok");
-        okBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        okBtn.setBackground(java.awt.SystemColor.window);
+        okBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        okBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sortgame/starticon.png"))); // NOI18N
+        okBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         okBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okBtnActionPerformed(evt);
             }
         });
 
-        cancelBtn.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        cancelBtn.setText("Exit");
-        cancelBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        cancelBtn.setBackground(java.awt.SystemColor.window);
+        cancelBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        cancelBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sortgame/exitIcon.png"))); // NOI18N
+        cancelBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelBtnActionPerformed(evt);
@@ -110,23 +112,21 @@ public class HomeScreen extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(selectionRadioBtn)
-                                .addGap(18, 18, 18)
-                                .addComponent(insertionRadioBtn)
-                                .addGap(18, 18, 18)
-                                .addComponent(bubbleRadioBtn))
-                            .addComponent(jLabel1)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(okBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(okBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(selectionRadioBtn)
+                            .addGap(18, 18, 18)
+                            .addComponent(insertionRadioBtn)
+                            .addGap(18, 18, 18)
+                            .addComponent(bubbleRadioBtn))
+                        .addComponent(jLabel1)))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -141,11 +141,11 @@ public class HomeScreen extends javax.swing.JFrame {
                     .addComponent(selectionRadioBtn)
                     .addComponent(insertionRadioBtn)
                     .addComponent(bubbleRadioBtn))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(okBtn)
-                    .addComponent(cancelBtn))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(okBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -197,9 +197,10 @@ public class HomeScreen extends javax.swing.JFrame {
 
             /* Video play start */
             SelectionSortVideo selectionSortVideo = new SelectionSortVideo();
-            selectionSortVideo.setLocation(400,100);
-            selectionSortVideo.setSize(600,400);
+            selectionSortVideo.setLocation(400, 100);
+            selectionSortVideo.setSize(600, 400);
             selectionSortVideo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            selectionSortVideo.setResizable(false);
             selectionSortVideo.setVisible(true);
 
             Canvas canvas = new Canvas();
@@ -238,13 +239,95 @@ public class HomeScreen extends javax.swing.JFrame {
             this.dispose();
 
         } else if (insertionRadioBtn.isSelected()) {
-            InsertionSortHomeScreen insertionSortHomeScreen = new InsertionSortHomeScreen();
-            insertionSortHomeScreen.setVisible(true);
+
+            /* Video play start */
+            InsertionSortVideo insertionSortVideo = new InsertionSortVideo();
+            insertionSortVideo.setLocation(400, 100);
+            insertionSortVideo.setSize(600, 400);
+            insertionSortVideo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            insertionSortVideo.setResizable(false);
+            insertionSortVideo.setVisible(true);
+
+            Canvas canvas = new Canvas();
+
+            canvas.setBackground(Color.black);
+
+            try {
+                insertionSortVideo.videoPanel.setLayout(new BorderLayout());
+
+                insertionSortVideo.videoPanel.add(canvas);
+                insertionSortVideo.add(insertionSortVideo.videoPanel);
+
+                NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "lib");
+                Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
+
+                MediaPlayerFactory mpf = new MediaPlayerFactory();
+
+                EmbeddedMediaPlayer emp = mpf.newEmbeddedMediaPlayer();
+                emp.setVideoSurface(mpf.newVideoSurface(canvas));
+
+                emp.toggleFullScreen();
+
+                emp.setEnableKeyInputHandling(false);
+                emp.setEnableMouseInputHandling(false);
+
+                String file = "Selection Sort Intro.mp4";
+
+                emp.prepareMedia(file);
+
+                emp.play();
+
+            } catch (Exception e) {
+                System.err.println("Exception : " + e);
+            }
+
             this.dispose();
+
         } else if (bubbleRadioBtn.isSelected()) {
-            BubbleSortHomeScreen bubbleSortHomeScreen = new BubbleSortHomeScreen();
-            bubbleSortHomeScreen.setVisible(true);
+
+            /* Video play start */
+            BubbleSortVideo bubbleSortVideo = new BubbleSortVideo();
+            bubbleSortVideo.setLocation(400, 100);
+            bubbleSortVideo.setSize(600, 400);
+            bubbleSortVideo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            bubbleSortVideo.setResizable(false);
+            bubbleSortVideo.setVisible(true);
+
+            Canvas canvas = new Canvas();
+
+            canvas.setBackground(Color.black);
+
+            try {
+                bubbleSortVideo.videoPanel.setLayout(new BorderLayout());
+
+                bubbleSortVideo.videoPanel.add(canvas);
+                bubbleSortVideo.add(bubbleSortVideo.videoPanel);
+
+                NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "lib");
+                Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
+
+                MediaPlayerFactory mpf = new MediaPlayerFactory();
+
+                EmbeddedMediaPlayer emp = mpf.newEmbeddedMediaPlayer();
+                emp.setVideoSurface(mpf.newVideoSurface(canvas));
+
+                emp.toggleFullScreen();
+
+                emp.setEnableKeyInputHandling(false);
+                emp.setEnableMouseInputHandling(false);
+
+                String file = "Selection Sort Intro.mp4";
+
+                emp.prepareMedia(file);
+
+                emp.play();
+
+            } catch (Exception e) {
+                System.err.println("Exception : " + e);
+            }
+
             this.dispose();
+
         }
     }//GEN-LAST:event_okBtnActionPerformed
 
