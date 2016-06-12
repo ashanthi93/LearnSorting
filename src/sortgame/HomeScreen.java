@@ -193,6 +193,7 @@ public class HomeScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_bubbleRadioBtnActionPerformed
 
     private void okBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBtnActionPerformed
+        
         if (selectionRadioBtn.isSelected()) {
 
             /* Video play start */
