@@ -10,11 +10,13 @@ import com.sun.jna.NativeLibrary;
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
+import javax.swing.UIManager;
 import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
@@ -100,10 +102,10 @@ public class InsertionSort extends javax.swing.JFrame {
         num5.setText(numbers[4]);
 
         /*num1.setText("44");
-        num2.setText("87");
-        num3.setText("92");
-        num4.setText("14");
-        num5.setText("15");*/
+         num2.setText("87");
+         num3.setText("92");
+         num4.setText("14");
+         num5.setText("15");*/
         insertionSortSub.setLocation(650, 10);
         insertionSortSub.setResizable(false);
         insertionSortSub.setVisible(true);
@@ -749,6 +751,7 @@ public class InsertionSort extends javax.swing.JFrame {
         insertionSort.setVisible(true);
         insertionSortSub.dispose();
         this.dispose();
+        this.showIntroMsg();
     }//GEN-LAST:event_tryAgainBtnActionPerformed
 
     private void videoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_videoBtnActionPerformed
@@ -950,9 +953,14 @@ public class InsertionSort extends javax.swing.JFrame {
     /* End of method setBackgroundDefault */
 
     public void showIntroMsg() {
-        JOptionPane.showMessageDialog(null, " In first round you need to assume, the sub array is sorted. \n"
-                + " In other rounds, find whether it is sorted or not. \n If sorted, click Leave button \n"
-                + " If not, select the value to shift and click Shift button. ");
+
+        UIManager.put("OptionPane.messageFont", new Font("System", Font.PLAIN, 16));
+        int output = JOptionPane.showConfirmDialog(this, " In first round assume, the sub array is sorted.", "Insertion Sort", JOptionPane.PLAIN_MESSAGE);
+
+        if (output == JOptionPane.OK_OPTION) {
+            JOptionPane.showConfirmDialog(this, "In next rounds, if sub array is sorted, click Leave button \n"
+                    + " If not, click Shift button.", "Insertion Sort", JOptionPane.PLAIN_MESSAGE);
+        }
     }
 
     private boolean isSorted() {

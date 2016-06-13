@@ -10,11 +10,13 @@ import com.sun.jna.NativeLibrary;
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
+import javax.swing.UIManager;
 import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
@@ -108,7 +110,7 @@ public class SelectionSort extends javax.swing.JFrame {
         sort12 = new javax.swing.JRadioButton();
         sort11 = new javax.swing.JRadioButton();
         sort13 = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
+        mainLbl = new javax.swing.JLabel();
         exitBtn = new javax.swing.JButton();
         round1Lbl = new javax.swing.JLabel();
         round2Lbl = new javax.swing.JLabel();
@@ -233,8 +235,8 @@ public class SelectionSort extends javax.swing.JFrame {
         sort13.setText("3");
         sort13.setEnabled(false);
 
-        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel2.setText("Select minimum value");
+        mainLbl.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        mainLbl.setText("Current Round");
 
         exitBtn.setBackground(java.awt.SystemColor.window);
         exitBtn.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -410,7 +412,7 @@ public class SelectionSort extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                    .addComponent(mainLbl)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -510,7 +512,7 @@ public class SelectionSort extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(mainLbl)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(num1)
@@ -743,70 +745,71 @@ public class SelectionSort extends javax.swing.JFrame {
         selectionSort.setResizable(false);
         selectionSort.setVisible(true);
         this.dispose();
+        selectionSort.showIntroMsg();
     }//GEN-LAST:event_tryAgainBtnActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         /* Video play start */
-            SelectionSortVideo selectionSortVideo = new SelectionSortVideo();
-            selectionSortVideo.setLocation(400,100);
-            selectionSortVideo.setSize(600,400);
-            selectionSortVideo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            selectionSortVideo.setResizable(false);
-            selectionSortVideo.setVisible(true);
+        SelectionSortVideo selectionSortVideo = new SelectionSortVideo();
+        selectionSortVideo.setLocation(400, 100);
+        selectionSortVideo.setSize(600, 400);
+        selectionSortVideo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        selectionSortVideo.setResizable(false);
+        selectionSortVideo.setVisible(true);
 
-            Canvas canvas = new Canvas();
+        Canvas canvas = new Canvas();
 
-            canvas.setBackground(Color.black);
+        canvas.setBackground(Color.black);
 
-            try {
-                selectionSortVideo.videoPanel.setLayout(new BorderLayout());
+        try {
+            selectionSortVideo.videoPanel.setLayout(new BorderLayout());
 
-                selectionSortVideo.videoPanel.add(canvas);
-                selectionSortVideo.add(selectionSortVideo.videoPanel);
+            selectionSortVideo.videoPanel.add(canvas);
+            selectionSortVideo.add(selectionSortVideo.videoPanel);
 
-                NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "lib");
-                Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
+            NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), "lib");
+            Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
 
-                MediaPlayerFactory mpf = new MediaPlayerFactory();
+            MediaPlayerFactory mpf = new MediaPlayerFactory();
 
-                EmbeddedMediaPlayer emp = mpf.newEmbeddedMediaPlayer();
-                emp.setVideoSurface(mpf.newVideoSurface(canvas));
+            EmbeddedMediaPlayer emp = mpf.newEmbeddedMediaPlayer();
+            emp.setVideoSurface(mpf.newVideoSurface(canvas));
 
-                emp.toggleFullScreen();
+            emp.toggleFullScreen();
 
-                emp.setEnableKeyInputHandling(false);
-                emp.setEnableMouseInputHandling(false);
+            emp.setEnableKeyInputHandling(false);
+            emp.setEnableMouseInputHandling(false);
 
-                String file = "Selection Sort Intro.mp4";
+            String file = "Selection Sort Intro.mp4";
 
-                emp.prepareMedia(file);
+            emp.prepareMedia(file);
 
-                emp.play();
+            emp.play();
 
-            } catch (Exception e) {
-                System.err.println("Exception : " + e);
-            }
+        } catch (Exception e) {
+            System.err.println("Exception : " + e);
+        }
 
-            this.dispose();
+        this.dispose();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void sort22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sort22ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sort22ActionPerformed
-    
-    private void sort21ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+
+    private void sort21ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
-    
-    private void sort24ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+
+    private void sort24ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
-    
-    private void sort33ActionPerformed(java.awt.event.ActionEvent evt) {                                       
+
+    private void sort33ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
-    
+
     /* Start of method checkValue to check selected value is current minimum or not */
     private boolean checkValue(int selectedValue, int startPosition) {
         int min = numberArray[startPosition];
@@ -870,6 +873,7 @@ public class SelectionSort extends javax.swing.JFrame {
 
         selectedNum.setSelected(false);
         num1.setEnabled(false);
+        num1.setBackground(Color.YELLOW);
 
         round += 1;
     }
@@ -896,6 +900,7 @@ public class SelectionSort extends javax.swing.JFrame {
 
         selectedNum.setSelected(false);
         num2.setEnabled(false);
+        num2.setBackground(Color.YELLOW);
 
         round += 1;
     }
@@ -922,6 +927,7 @@ public class SelectionSort extends javax.swing.JFrame {
 
         selectedNum.setSelected(false);
         num3.setEnabled(false);
+        num3.setBackground(Color.YELLOW);
 
         round += 1;
     }
@@ -948,6 +954,7 @@ public class SelectionSort extends javax.swing.JFrame {
 
         selectedNum.setSelected(false);
         num4.setEnabled(false);
+        num4.setBackground(Color.YELLOW);
 
         round += 1;
     }
@@ -974,10 +981,17 @@ public class SelectionSort extends javax.swing.JFrame {
 
         selectedNum.setSelected(false);
         num5.setEnabled(false);
+        num5.setBackground(Color.YELLOW);
+        mainLbl.setText("Sorted Array");
 
         round += 1;
     }
     /* End of setRoundFive method */
+
+    public void showIntroMsg() {
+        UIManager.put("OptionPane.messageFont", new Font("System", Font.PLAIN, 16));
+        JOptionPane.showConfirmDialog(this, " Select the minimum value in each current round ","Selection Sort", JOptionPane.PLAIN_MESSAGE);
+    }
 
     /* Start of countOneError method */
     private void countOneError(JRadioButton selectedNum) {
@@ -1083,8 +1097,8 @@ public class SelectionSort extends javax.swing.JFrame {
     private javax.swing.JButton homeBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel mainLbl;
     private javax.swing.JRadioButton num1;
     private javax.swing.JRadioButton num2;
     private javax.swing.JRadioButton num3;
