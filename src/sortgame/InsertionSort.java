@@ -35,6 +35,8 @@ public class InsertionSort extends javax.swing.JFrame {
     ArrayList<Integer> subArray = new ArrayList();
 
     public InsertionSortSub insertionSortSub = new InsertionSortSub();
+    
+    int error = 0;
 
     public InsertionSort() {
         initComponents();
@@ -803,6 +805,7 @@ public class InsertionSort extends javax.swing.JFrame {
     private void shiftBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shiftBtnActionPerformed
 
         if (round == 1) {
+            
             JOptionPane.showMessageDialog(null, "Sorry! Your action is incorrect !");
 
         } else if (round == 2) {
@@ -955,12 +958,7 @@ public class InsertionSort extends javax.swing.JFrame {
     public void showIntroMsg() {
 
         UIManager.put("OptionPane.messageFont", new Font("System", Font.PLAIN, 16));
-        int output = JOptionPane.showConfirmDialog(this, " In first round assume, the sub array is sorted.", "Insertion Sort", JOptionPane.PLAIN_MESSAGE);
-
-        if (output == JOptionPane.OK_OPTION) {
-            JOptionPane.showConfirmDialog(this, "In next rounds, if sub array is sorted, click Leave button \n"
-                    + " If not, click Shift button.", "Insertion Sort", JOptionPane.PLAIN_MESSAGE);
-        }
+        JOptionPane.showConfirmDialog(this, " At first assume sub array is sorted. \n Click Leave button ", "Insertion Sort", JOptionPane.PLAIN_MESSAGE);
     }
 
     private boolean isSorted() {
@@ -1031,6 +1029,10 @@ public class InsertionSort extends javax.swing.JFrame {
 
         num2.setBackground(Color.CYAN);
         num3.setBackground(Color.YELLOW);
+        
+        String array = num1.getText() + " , " + num2.getText() + " , " + num3.getText();
+        
+        JOptionPane.showConfirmDialog(this, "Your sub array sorted. View the steps . \n \nIs new sub array " + array + " sorted ? \n If sorted click Leave. \n If not click Shift ", "Insertion Sort", JOptionPane.PLAIN_MESSAGE);
     }
 
     private void shiftRoundThree() {
@@ -1146,6 +1148,10 @@ public class InsertionSort extends javax.swing.JFrame {
 
         num3.setBackground(Color.CYAN);
         num4.setBackground(Color.YELLOW);
+        
+        String array = num1.getText() + " , " + num2.getText() + " , " + num3.getText() + " , " + num4.getText();
+        
+        JOptionPane.showConfirmDialog(this, "Your sub array sorted. View the steps . \n  \nIs new sub array " + array + " sorted ? \n If sorted click Leave. \n If not click Shift ", "Insertion Sort", JOptionPane.PLAIN_MESSAGE);
     }
 
     private void shiftRoundFour() {
@@ -1307,6 +1313,10 @@ public class InsertionSort extends javax.swing.JFrame {
 
         num4.setBackground(Color.CYAN);
         num5.setBackground(Color.YELLOW);
+
+        String array = num1.getText() + " , " + num2.getText() + " , " + num3.getText() + " , " + num4.getText() + " , " + num5.getText();
+        
+        JOptionPane.showConfirmDialog(this, "Your sub array sorted. View the steps . \n  \nIs new sub array " + array + " sorted ? \n If sorted click Leave. \n If not click Shift ", "Insertion Sort", JOptionPane.PLAIN_MESSAGE);
     }
 
     private void shiftRoundFive() {
@@ -1524,6 +1534,11 @@ public class InsertionSort extends javax.swing.JFrame {
         round += 1;
 
         num5.setBackground(Color.CYAN);
+        
+        JOptionPane.showConfirmDialog(this, " You sorted the number list ! ", "Insertion Sort", JOptionPane.PLAIN_MESSAGE);
+        
+        shiftBtn.setEnabled(false);
+        leaveBtn.setEnabled(false);
     }
 
     private void leaveRoundOne() {
@@ -1545,6 +1560,10 @@ public class InsertionSort extends javax.swing.JFrame {
 
         num1.setBackground(Color.CYAN);
         num2.setBackground(Color.YELLOW);
+        
+        String array = num1.getText() + " , " + num2.getText();
+        
+        JOptionPane.showConfirmDialog(this, " Is " + array + " sorted ? \n If sorted click Leave. \n If not click Shift ", "Insertion Sort", JOptionPane.PLAIN_MESSAGE);
     }
 
     private void leaveRoundTwo() {
@@ -1570,6 +1589,10 @@ public class InsertionSort extends javax.swing.JFrame {
 
         num2.setBackground(Color.CYAN);
         num3.setBackground(Color.YELLOW);
+        
+        String array = num1.getText() + " , " + num2.getText() + " , " + num3.getText();
+        
+        JOptionPane.showConfirmDialog(this, " Is " + array + " sorted ? \n If sorted click Leave. \n If not click Shift ", "Insertion Sort", JOptionPane.PLAIN_MESSAGE);
     }
 
     private void leaveRoundThree() {
@@ -1605,6 +1628,10 @@ public class InsertionSort extends javax.swing.JFrame {
 
         num3.setBackground(Color.CYAN);
         num4.setBackground(Color.YELLOW);
+        
+        String array = num1.getText() + " , " + num2.getText() + " , " + num3.getText() + " , " + num4.getText();
+        
+        JOptionPane.showConfirmDialog(this, " Is " + array + " sorted ? \n If sorted click Leave. \n If not click Shift ", "Insertion Sort", JOptionPane.PLAIN_MESSAGE);
     }
 
     private void leaveRoundFour() {
@@ -1645,6 +1672,10 @@ public class InsertionSort extends javax.swing.JFrame {
 
         num4.setBackground(Color.CYAN);
         num5.setBackground(Color.YELLOW);
+        
+        String array = num1.getText() + " , " + num2.getText() + " , " + num3.getText() + " , " + num4.getText() + " , " + num5.getText();
+        
+        JOptionPane.showConfirmDialog(this, " Is " + array + " sorted ? \n If sorted click Leave. \n If not click Shift ", "Insertion Sort", JOptionPane.PLAIN_MESSAGE);
     }
 
     private void leaveRoundFive() {
@@ -1689,6 +1720,11 @@ public class InsertionSort extends javax.swing.JFrame {
         round += 1;
 
         num5.setBackground(Color.CYAN);
+        
+        JOptionPane.showConfirmDialog(this, " You sorted the number list ! ", "Insertion Sort", JOptionPane.PLAIN_MESSAGE);
+        
+        shiftBtn.setEnabled(false);
+        leaveBtn.setEnabled(false);
     }
 
     /**
