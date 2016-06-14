@@ -166,6 +166,7 @@ public class SelectionSortVideo extends javax.swing.JFrame {
         selectionSort.setResizable(false);
         selectionSort.setVisible(true);
         this.dispose();
+        selectionSort.showIntroMsg();
     }//GEN-LAST:event_startBtnActionPerformed
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
