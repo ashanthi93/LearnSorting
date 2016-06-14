@@ -159,7 +159,7 @@ public class BubbleSortVideo extends javax.swing.JFrame {
 
     private void startBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnActionPerformed
         BubbleSort bubbleSort = new BubbleSort();
-        bubbleSort.setLocation(550, 10);
+        bubbleSort.setLocation(250, 10);
         bubbleSort.setResizable(false);
         bubbleSort.setVisible(true);
         this.dispose();
