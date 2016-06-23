@@ -10,11 +10,12 @@ import com.sun.jna.NativeLibrary;
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Font;
 import java.util.Random;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
+import javax.swing.UIManager;
 import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
@@ -104,6 +105,8 @@ public class BubbleSort extends javax.swing.JFrame {
         bubbleSub.num3.setText(String.valueOf(numberArray[2]));
         bubbleSub.num4.setText(String.valueOf(numberArray[3]));
         bubbleSub.num5.setText(String.valueOf(numberArray[4]));
+        
+        UIManager.put("OptionPane.messageFont", new Font("System", Font.PLAIN, 16));
     }
 
     /**
@@ -855,6 +858,7 @@ public class BubbleSort extends javax.swing.JFrame {
         homeScreen.setResizable(false);
         homeScreen.setVisible(true);
         this.dispose();
+        bubbleSub.dispose();
     }//GEN-LAST:event_homeBtnActionPerformed
 
     public final void numDisabling(JRadioButton n1, JRadioButton n2) {
@@ -1109,6 +1113,7 @@ public class BubbleSort extends javax.swing.JFrame {
             this.numDisabling(one, two);
             jLabel20.setText(round + "");
             jLabel22.setText(step + "");
+            JOptionPane.showMessageDialog(this, "The two numbers weren't swapped\nThey were already in the sorted order");
             return true;
         } else if (two.isSelected() && (numtwo <= numone)) {
             tmpSortAry[0] = Integer.parseInt(num1.getText());
@@ -1125,6 +1130,7 @@ public class BubbleSort extends javax.swing.JFrame {
             this.numDisabling(one, two);
             jLabel20.setText(round + "");
             jLabel22.setText(step + "");
+            JOptionPane.showMessageDialog(this, "The two numbers were swapped");
             return true;
         } else {
             if (count < 1) {
