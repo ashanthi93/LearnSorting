@@ -357,7 +357,7 @@ public class BubbleSortSub extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(sort45))))
                     .addComponent(jLabel1))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

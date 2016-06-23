@@ -10,7 +10,10 @@ import com.sun.jna.NativeLibrary;
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
@@ -163,6 +166,9 @@ public class BubbleSortVideo extends javax.swing.JFrame {
         bubbleSort.setResizable(false);
         bubbleSort.setVisible(true);
         this.dispose();
+        UIManager.put("OptionPane.messageFont", new Font("System", Font.PLAIN, 16));
+        //JOptionPane.showConfirmDialog(this, " Select the minimum value in each step ","Bubble Sort", JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(this, " Select the minimum value in each step ", "Bubble Sort", JOptionPane.PLAIN_MESSAGE);
     }//GEN-LAST:event_startBtnActionPerformed
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
