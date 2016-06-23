@@ -611,12 +611,9 @@ public class SelectionSort extends javax.swing.JFrame {
                 this.setRoundTwo(num5, sort25);
             } else if (round == 3) {
                 this.setRoundThree(num5, sort35);
-            } else if (round == 4) {
+            } else if (round == 4){
                 this.setRoundFour(num5, sort45);
-            } else {
-                this.setRoundFive(num5, sort55);
-                JOptionPane.showMessageDialog(this, " You won the game! ");
-            }
+            } 
 
         } else {
             if (count < 1) {
@@ -866,7 +863,7 @@ public class SelectionSort extends javax.swing.JFrame {
 
         //highlight swap numbers
         sort11.setBackground(Color.CYAN);
-        sortNum.setBackground(Color.GREEN);
+        sortNum.setBackground(Color.CYAN);
 
         this.setNumberArray();
 
@@ -875,6 +872,18 @@ public class SelectionSort extends javax.swing.JFrame {
         num1.setBackground(Color.YELLOW);
 
         round += 1;
+        
+        int output;
+        
+        if (!x.equals(y)){
+            output = JOptionPane.showConfirmDialog(this, x + " and " + y + " shifted.","Selection Sort", JOptionPane.PLAIN_MESSAGE);
+        }else{
+            output = JOptionPane.showConfirmDialog(this, x + " is in proper position.","Selection Sort", JOptionPane.PLAIN_MESSAGE);
+        }
+        
+        if (output == JOptionPane.OK_OPTION) {
+            JOptionPane.showConfirmDialog(this, "Now select the next current minimum.","Selection Sort", JOptionPane.PLAIN_MESSAGE);
+        }
     }
     /* End of setRoundOne method */
 
@@ -893,7 +902,7 @@ public class SelectionSort extends javax.swing.JFrame {
 
         //highlight swap numbers
         sort22.setBackground(Color.CYAN);
-        sortNum.setBackground(Color.GREEN);
+        sortNum.setBackground(Color.CYAN);
 
         this.setNumberArray();
 
@@ -902,6 +911,18 @@ public class SelectionSort extends javax.swing.JFrame {
         num2.setBackground(Color.YELLOW);
 
         round += 1;
+        
+        int output;
+        
+        if (!x.equals(y)){
+            output = JOptionPane.showConfirmDialog(this, x + " and " + y + " shifted.","Selection Sort", JOptionPane.PLAIN_MESSAGE);
+        }else{
+            output = JOptionPane.showConfirmDialog(this, x + " is in proper position.","Selection Sort", JOptionPane.PLAIN_MESSAGE);
+        }
+        
+        if (output == JOptionPane.OK_OPTION) {
+            JOptionPane.showConfirmDialog(this, "Now select the next current minimum.","Selection Sort", JOptionPane.PLAIN_MESSAGE);
+        }
     }
     /* End of setRoundTwo method */
 
@@ -920,7 +941,7 @@ public class SelectionSort extends javax.swing.JFrame {
 
         //highlight swap numbers
         sort33.setBackground(Color.CYAN);
-        sortNum.setBackground(Color.GREEN);
+        sortNum.setBackground(Color.CYAN);
 
         this.setNumberArray();
 
@@ -929,6 +950,18 @@ public class SelectionSort extends javax.swing.JFrame {
         num3.setBackground(Color.YELLOW);
 
         round += 1;
+        
+        int output;
+        
+        if (!x.equals(y)){
+            output = JOptionPane.showConfirmDialog(this, x + " and " + y + " shifted.","Selection Sort", JOptionPane.PLAIN_MESSAGE);
+        }else{
+            output = JOptionPane.showConfirmDialog(this, x + " is in proper position.","Selection Sort", JOptionPane.PLAIN_MESSAGE);
+        }
+        
+        if (output == JOptionPane.OK_OPTION) {
+            JOptionPane.showConfirmDialog(this, "Now select the next current minimum.","Selection Sort", JOptionPane.PLAIN_MESSAGE);
+        }
     }
     /* End of setRoundThree method */
 
@@ -947,15 +980,29 @@ public class SelectionSort extends javax.swing.JFrame {
 
         //highlight swap numbers
         sort44.setBackground(Color.CYAN);
-        sortNum.setBackground(Color.GREEN);
+        sortNum.setBackground(Color.CYAN);
 
         this.setNumberArray();
 
         selectedNum.setSelected(false);
         num4.setEnabled(false);
+        num5.setEnabled(false);
         num4.setBackground(Color.YELLOW);
+        num5.setBackground(Color.YELLOW);
 
         round += 1;
+        
+        int output;
+        
+        if (!x.equals(y)){
+            output = JOptionPane.showConfirmDialog(this, x + " and " + y + " shifted.","Selection Sort", JOptionPane.PLAIN_MESSAGE);
+        }else{
+            output = JOptionPane.showConfirmDialog(this, x + " is in proper position.","Selection Sort", JOptionPane.PLAIN_MESSAGE);
+        }
+        
+        if (output == JOptionPane.OK_OPTION) {
+            JOptionPane.showConfirmDialog(this, " You sorted the number list ! ","Selection Sort", JOptionPane.PLAIN_MESSAGE);
+        }
     }
     /* End of setRoundFour method */
 
@@ -989,7 +1036,7 @@ public class SelectionSort extends javax.swing.JFrame {
 
     public void showIntroMsg() {
         UIManager.put("OptionPane.messageFont", new Font("System", Font.PLAIN, 16));
-        JOptionPane.showConfirmDialog(this, " Select the minimum value in each current round ","Selection Sort", JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showConfirmDialog(this, " Select the minimum value. ","Selection Sort", JOptionPane.PLAIN_MESSAGE);
     }
 
     /* Start of countOneError method */
@@ -1010,7 +1057,7 @@ public class SelectionSort extends javax.swing.JFrame {
 
     /* Start of finalError method */
     private void finalError() {
-        JOptionPane.showMessageDialog(this, "You lost the game! Please follow video again & then try this ! ");
+        JOptionPane.showMessageDialog(this, "You lost it! Please follow video again & then try this ! ");
         SelectionSortVideo selectionSortVideo = new SelectionSortVideo();
         selectionSortVideo.setLocation(400, 100);
         selectionSortVideo.setSize(600, 400);
